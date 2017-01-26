@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C371E39E0C800732B62 /* Foundation.framework */; };
+		9EE69C481E39E0C800732B62 /* WXHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9EE69C471E39E0C800732B62 /* WXHook.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9EE69C341E39E0C800732B62 /* WXHook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WXHook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE69C371E39E0C800732B62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9EE69C3C1E39E0C800732B62 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		9EE69C3D1E39E0C800732B62 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		9EE69C3F1E39E0C800732B62 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		9EE69C431E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/PreferenceLoader/Preferences/WXHook.plist; sourceTree = "<group>"; };
+		9EE69C441E39E0C800732B62 /* WXHookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WXHookIcon.png; path = Package/Library/PreferenceLoader/Preferences/WXHookIcon.png; sourceTree = "<group>"; };
+		9EE69C451E39E0C800732B62 /* WXHookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WXHookIcon@2x.png"; path = "Package/Library/PreferenceLoader/Preferences/WXHookIcon@2x.png"; sourceTree = "<group>"; };
+		9EE69C461E39E0C800732B62 /* WXHook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WXHook-Prefix.pch"; sourceTree = "<group>"; };
+		9EE69C471E39E0C800732B62 /* WXHook.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WXHook.mm; sourceTree = "<group>"; };
+		9EE69C4B1E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/WXHook.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EE69C301E39E0C800732B62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EE69C2A1E39E0C800732B62 = {
+			isa = PBXGroup;
+			children = (
+				9EE69C391E39E0C800732B62 /* WXHook */,
+				9EE69C361E39E0C800732B62 /* Frameworks */,
+				9EE69C351E39E0C800732B62 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9EE69C351E39E0C800732B62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C341E39E0C800732B62 /* WXHook.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EE69C361E39E0C800732B62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C371E39E0C800732B62 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EE69C391E39E0C800732B62 /* WXHook */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C471E39E0C800732B62 /* WXHook.mm */,
+				9EE69C3A1E39E0C800732B62 /* Package */,
+				9EE69C3E1E39E0C800732B62 /* Supporting Files */,
+			);
+			path = WXHook;
+			sourceTree = "<group>";
+		};
+		9EE69C3A1E39E0C800732B62 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C3B1E39E0C800732B62 /* DEBIAN */,
+				9EE69C401E39E0C800732B62 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		9EE69C3B1E39E0C800732B62 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C3C1E39E0C800732B62 /* control.txt */,
+				9EE69C3D1E39E0C800732B62 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		9EE69C3E1E39E0C800732B62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C3F1E39E0C800732B62 /* PackageVersion.plist */,
+				9EE69C461E39E0C800732B62 /* WXHook-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9EE69C401E39E0C800732B62 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C411E39E0C800732B62 /* PreferenceLoader */,
+				9EE69C491E39E0C800732B62 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		9EE69C411E39E0C800732B62 /* PreferenceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C421E39E0C800732B62 /* Preferences */,
+			);
+			name = PreferenceLoader;
+			sourceTree = "<group>";
+		};
+		9EE69C421E39E0C800732B62 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C431E39E0C800732B62 /* WXHook.plist */,
+				9EE69C441E39E0C800732B62 /* WXHookIcon.png */,
+				9EE69C451E39E0C800732B62 /* WXHookIcon@2x.png */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		9EE69C491E39E0C800732B62 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C4A1E39E0C800732B62 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		9EE69C4A1E39E0C800732B62 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				9EE69C4B1E39E0C800732B62 /* WXHook.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9EE69C311E39E0C800732B62 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9EE69C331E39E0C800732B62 /* WXHook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EE69C4E1E39E0C800732B62 /* Build configuration list for PBXNativeTarget "WXHook" */;
+			buildPhases = (
+				9EE69C2F1E39E0C800732B62 /* Sources */,
+				9EE69C301E39E0C800732B62 /* Frameworks */,
+				9EE69C311E39E0C800732B62 /* Headers */,
+				9EE69C321E39E0C800732B62 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WXHook;
+			productName = WXHook;
+			productReference = 9EE69C341E39E0C800732B62 /* WXHook.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EE69C2B1E39E0C800732B62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				TargetAttributes = {
+					9EE69C331E39E0C800732B62 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = PP4NMXFF5F;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9EE69C2E1E39E0C800732B62 /* Build configuration list for PBXProject "WXHook" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9EE69C2A1E39E0C800732B62;
+			productRefGroup = 9EE69C351E39E0C800732B62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9EE69C331E39E0C800732B62 /* WXHook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9EE69C321E39E0C800732B62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EE69C2F1E39E0C800732B62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE69C481E39E0C800732B62 /* WXHook.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9EE69C4C1E39E0C800732B62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		9EE69C4D1E39E0C800732B62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		9EE69C4F1E39E0C800732B62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = PP4NMXFF5F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WXHook/WXHook-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevClearUiCacheOnInstall = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevKillProcess = "";
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		9EE69C501E39E0C800732B62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = PP4NMXFF5F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WXHook/WXHook-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevClearUiCacheOnInstall = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevKillProcess = "";
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EE69C2E1E39E0C800732B62 /* Build configuration list for PBXProject "WXHook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE69C4C1E39E0C800732B62 /* Debug */,
+				9EE69C4D1E39E0C800732B62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EE69C4E1E39E0C800732B62 /* Build configuration list for PBXNativeTarget "WXHook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE69C4F1E39E0C800732B62 /* Debug */,
+				9EE69C501E39E0C800732B62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9EE69C2B1E39E0C800732B62 /* Project object */;
+}
