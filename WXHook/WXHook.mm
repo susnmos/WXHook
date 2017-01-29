@@ -30,7 +30,7 @@ CHDeclareClass(MMTextView);
 CHOptimizedMethod1(self, void, TextMessageCellView, onForward, id, arg1) {
   [self performSelector: @selector(timeline:) withObject: nil];
 }
-
+#pragma mark- 赋值发送消息
 CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, animated) {
   if (sharetext) {
     MMGrowTextView *grow =  CHIvar(self, _textView, MMGrowTextView*);
@@ -80,10 +80,10 @@ CHOptimizedMethod2(self, BOOL, BaseMessageCellView, canPerformAction, SEL, arg1,
   return canPerform;
 }
 
+#pragma mark- 转发实际执行方法
+CHDeclareClass(MMServiceCenter)
 CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
-
   id vc = CHIvar(self, m_delegate, id);// BaseMsgContentViewController
-  
   TextMessageViewModel *msgViewModel = [self viewModel];
   NSString *msgtext = CHIvar(msgViewModel, m_contentText, NSString *);
   CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
@@ -92,21 +92,23 @@ CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
   sharetext = 1;
   
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:nil contacts:nil];
-  UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
+  
   [wcvc setType: 2];
   [wcvc removeOldText];
   isShared = YES;
-  [vc presentViewController:navC animated:YES completion:nil];
   
-  NSArray *contacts = [wcvc tempSelectContacts];
-  [wcvc GroupTagViewSelectTempContacts: contacts];
   [wcvc setTempSelectContacts: @[contact]];
-  WCFacade *facade = [CHAlloc(WCFacade) init];
-  [facade onServiceInit];
-    [facade setPostPrivacy: 5 withLabelNames: @""];
-  [facade setPostPrivacy: 3];
-  [wcvc onWCPostPrivacyChanged];
-  [wcvc reloadData];
+  
+  UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
+  [vc presentViewController:navC animated:YES completion:nil];
+}
+
+#pragma mark- 默认屏蔽消息发送者
+CHOptimizedMethod0(self, int, WCFacade, getPostPrivacy) {
+  if (isShared) {
+    return 5;
+  }
+  return CHSuper0(WCFacade, getPostPrivacy);
 }
 
 CHConstructor // code block that runs immediately upon load
@@ -130,5 +132,9 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(BaseMessageCellView);
     CHHook2(BaseMessageCellView, canPerformAction, withSender);
+    
+    CHLoadLateClass(MMServiceCenter);
+    CHLoadLateClass(WCFacade);
+    CHHook0(WCFacade, getPostPrivacy);
   }
 }
