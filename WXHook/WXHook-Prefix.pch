@@ -4,4 +4,6 @@
 
 #ifdef __OBJC__
   #import <Foundation/Foundation.h>
+  #define THEOS_INSTANCE_NAME "WXHook_tweak"
+  #import "/opt/theos/Prefix.pch"
 #endif

@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C371E39E0C800732B62 /* Foundation.framework */; };
 		9EE69C481E39E0C800732B62 /* WXHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9EE69C471E39E0C800732B62 /* WXHook.mm */; };
+		9EE69C521E39EB0900732B62 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C511E39EB0900732B62 /* libsubstrate.dylib */; };
+		9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C531E39EB5700732B62 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9EE69C341E39E0C800732B62 /* WXHook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WXHook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE69C371E39E0C800732B62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9EE69C3C1E39E0C800732B62 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		9EE69C3D1E39E0C800732B62 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		9EE69C3F1E39E0C800732B62 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		9EE69C431E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/PreferenceLoader/Preferences/WXHook.plist; sourceTree = "<group>"; };
@@ -23,6 +24,8 @@
 		9EE69C461E39E0C800732B62 /* WXHook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WXHook-Prefix.pch"; sourceTree = "<group>"; };
 		9EE69C471E39E0C800732B62 /* WXHook.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WXHook.mm; sourceTree = "<group>"; };
 		9EE69C4B1E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/WXHook.plist; sourceTree = "<group>"; };
+		9EE69C511E39EB0900732B62 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		9EE69C531E39EB5700732B62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */,
+				9EE69C521E39EB0900732B62 /* libsubstrate.dylib in Frameworks */,
 				9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +62,8 @@
 		9EE69C361E39E0C800732B62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9EE69C531E39EB5700732B62 /* UIKit.framework */,
+				9EE69C511E39EB0900732B62 /* libsubstrate.dylib */,
 				9EE69C371E39E0C800732B62 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -84,7 +91,6 @@
 		9EE69C3B1E39E0C800732B62 /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				9EE69C3C1E39E0C800732B62 /* control.txt */,
 				9EE69C3D1E39E0C800732B62 /* control */,
 			);
 			name = DEBIAN;
@@ -289,22 +295,36 @@
 		9EE69C4F1E39E0C800732B62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = PP4NMXFF5F;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WXHook/WXHook-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wmissing-method-return-type",
+					"-Wincomplete-implementation",
+				);
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevClearUiCacheOnInstall = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevKillProcess = "";
-				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevKillProcess = WeChat;
+				iOSOpenDevRespringOnInstall = NO;
 				iOSOpenDevUsePackageVersionPList = YES;
 			};
 			name = Debug;
@@ -312,22 +332,36 @@
 		9EE69C501E39E0C800732B62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = PP4NMXFF5F;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WXHook/WXHook-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wmissing-method-return-type",
+					"-Wincomplete-implementation",
+				);
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevClearUiCacheOnInstall = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevKillProcess = "";
-				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevKillProcess = WeChat;
+				iOSOpenDevRespringOnInstall = NO;
 				iOSOpenDevUsePackageVersionPList = YES;
 			};
 			name = Release;
@@ -351,6 +385,7 @@
 				9EE69C501E39E0C800732B62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

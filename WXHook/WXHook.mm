@@ -13,77 +13,122 @@
 #import "CaptainHook/CaptainHook.h"
 #include <notify.h> // not required; for examples only
 
-// Objective-C runtime hooking using CaptainHook:
-//   1. declare class using CHDeclareClass()
-//   2. load class using CHLoadClass() or CHLoadLateClass() in CHConstructor
-//   3. hook method using CHOptimizedMethod()
-//   4. register hook using CHHook() in CHConstructor
-//   5. (optionally) call old method using CHSuper()
+int sharetext = 0;
+NSString *sharemsg = @"";
+BOOL isShared = NO;
 
+CHDeclareClass(TextMessageCellView);
+CHDeclareClass(WCNewCommitViewController);
+CHDeclareClass(TextMessageViewModel);
+CHDeclareClass(MMUIViewController);
+CHDeclareClass(CBaseContact);
+CHDeclareClass(UINavigationController);
+CHDeclareClass(WCFacade);
+CHDeclareClass(MMGrowTextView);
+CHDeclareClass(MMTextView);
 
-@interface WXHook : NSObject
-
-@end
-
-@implementation WXHook
-
--(id)init
-{
-	if ((self = [super init]))
-	{
-	}
-
-    return self;
+CHOptimizedMethod1(self, void, TextMessageCellView, onForward, id, arg1) {
+  [self performSelector: @selector(timeline:) withObject: nil];
 }
 
-@end
-
-
-@class ClassToHook;
-
-CHDeclareClass(ClassToHook); // declare class
-
-CHOptimizedMethod(0, self, void, ClassToHook, messageName) // hook method (with no arguments and no return value)
-{
-	// write code here ...
-	
-	CHSuper(0, ClassToHook, messageName); // call old (original) method
+CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, animated) {
+  if (sharetext) {
+    MMGrowTextView *grow =  CHIvar(self, _textView, MMGrowTextView*);
+    MMTextView *textView = CHIvar(grow, _textView, MMTextView*);
+    [textView setText: sharemsg];
+    [grow postTextChangeNotification];
+    sharemsg = @"";
+    sharetext = 0;
+  }
+  return CHSuper1(WCNewCommitViewController, viewWillAppear, animated);
 }
 
-CHOptimizedMethod(2, self, BOOL, ClassToHook, arg1, NSString*, value1, arg2, BOOL, value2) // hook method (with 2 arguments and a return value)
-{
-	// write code here ...
-
-	return CHSuper(2, ClassToHook, arg1, value1, arg2, value2); // call old (original) method and return its return value
+#pragma mark- 消息转发是退出不保存
+CHOptimizedMethod1(self, void, WCNewCommitViewController, writeOldText, id, arg1) {
+  if (!isShared) {
+    CHSuper1(WCNewCommitViewController, writeOldText, arg1);
+  }
+}
+CHOptimizedMethod0(self, void, WCNewCommitViewController, OnReturn) {
+  
+  CHSuper0(WCNewCommitViewController, OnReturn);
+  
+  if (isShared) {
+    isShared = NO;
+  }
 }
 
-static void WillEnterForeground(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
-{
-	// not required; for example only
+CHDeclareClass(UIMenuController)
+CHDeclareClass(UIMenuItem)
+CHOptimizedMethod1(self, void, UIMenuController, setMenuItems, NSArray *, array) {
+  
+  UIMenuItem *item = [CHAlloc(UIMenuItem) initWithTitle: @"朋友圈" action: @selector(timeline:)];
+  
+  NSMutableArray *newArray = [array mutableCopy];
+  [newArray insertObject:item atIndex:0];
+  CHSuper1(UIMenuController, setMenuItems, newArray);
 }
 
-static void ExternallyPostedNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
-{
-	// not required; for example only
+CHDeclareClass(BaseMessageCellView)
+CHOptimizedMethod2(self, BOOL, BaseMessageCellView, canPerformAction, SEL, arg1, withSender, id, arg2) {
+  BOOL canPerform = CHSuper2(BaseMessageCellView, canPerformAction, arg1, withSender, arg2);
+  if (!canPerform) {
+    if (arg1 == NSSelectorFromString(@"timeline:")) {
+      return YES;
+    }
+  }
+  return canPerform;
+}
+
+CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
+
+  id vc = CHIvar(self, m_delegate, id);// BaseMsgContentViewController
+  
+  TextMessageViewModel *msgViewModel = [self viewModel];
+  NSString *msgtext = CHIvar(msgViewModel, m_contentText, NSString *);
+  CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
+  
+  sharemsg = msgtext;
+  sharetext = 1;
+  
+  WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:nil contacts:nil];
+  UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
+  [wcvc setType: 2];
+  [wcvc removeOldText];
+  isShared = YES;
+  [vc presentViewController:navC animated:YES completion:nil];
+  
+  NSArray *contacts = [wcvc tempSelectContacts];
+  [wcvc GroupTagViewSelectTempContacts: contacts];
+  [wcvc setTempSelectContacts: @[contact]];
+  WCFacade *facade = [CHAlloc(WCFacade) init];
+  [facade onServiceInit];
+    [facade setPostPrivacy: 5 withLabelNames: @""];
+  [facade setPostPrivacy: 3];
+  [wcvc onWCPostPrivacyChanged];
+  [wcvc reloadData];
 }
 
 CHConstructor // code block that runs immediately upon load
 {
-	@autoreleasepool
-	{
-		// listen for local notification (not required; for example only)
-		CFNotificationCenterRef center = CFNotificationCenterGetLocalCenter();
-		CFNotificationCenterAddObserver(center, NULL, WillEnterForeground, CFSTR("UIApplicationWillEnterForegroundNotification"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-		
-		// listen for system-side notification (not required; for example only)
-		// this would be posted using: notify_post("com.susnm.WXHook.eventname");
-		CFNotificationCenterRef darwin = CFNotificationCenterGetDarwinNotifyCenter();
-		CFNotificationCenterAddObserver(darwin, NULL, ExternallyPostedNotification, CFSTR("com.susnm.WXHook.eventname"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-		
-		// CHLoadClass(ClassToHook); // load class (that is "available now")
-		// CHLoadLateClass(ClassToHook);  // load class (that will be "available later")
-		
-		CHHook(0, ClassToHook, messageName); // register hook
-		CHHook(2, ClassToHook, arg1, arg2); // register hook
-	}
+  @autoreleasepool
+  {
+    
+    CHLoadLateClass(TextMessageCellView);
+    CHHook1(TextMessageCellView, onForward);
+    
+    CHLoadLateClass(WCNewCommitViewController);
+    CHHook1(WCNewCommitViewController, viewWillAppear);
+    CHHook1(WCNewCommitViewController, writeOldText);
+    CHHook0(WCNewCommitViewController, OnReturn);
+    
+    CHLoadLateClass(UINavigationController);
+    
+    CHLoadLateClass(UIMenuController);
+    CHLoadLateClass(UIMenuItem);
+    CHHook1(UIMenuController, setMenuItems);
+    
+    CHLoadLateClass(BaseMessageCellView);
+    CHHook2(BaseMessageCellView, canPerformAction, withSender);
+  }
 }
