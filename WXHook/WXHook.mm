@@ -13,8 +13,7 @@
 #import "CaptainHook/CaptainHook.h"
 #include <notify.h> // not required; for examples only
 
-int sharetext = 0;
-NSString *sharemsg = @"";
+NSString *sharedtext = @"";
 BOOL isShared = NO;
 
 
@@ -37,13 +36,12 @@ CHDeclareClass(EmoticonMessageCellView)
 
 #pragma mark- 赋值发送消息
 CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, animated) {
-  if (sharetext) {
+  if ([sharedtext length] != 0) {
     MMGrowTextView *grow =  CHIvar(self, _textView, MMGrowTextView*);
     MMTextView *textView = CHIvar(grow, _textView, MMTextView*);
-    [textView setText: sharemsg];
+    [textView setText: sharedtext];
     [grow postTextChangeNotification];
-    sharemsg = @"";
-    sharetext = 0;
+    sharedtext = @"";
   }
   return CHSuper1(WCNewCommitViewController, viewWillAppear, animated);
 }
@@ -94,8 +92,7 @@ CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   NSString *msgtext = CHIvar(msgViewModel, m_contentText, NSString *);
   CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
   
-  sharemsg = msgtext;
-  sharetext = 1;
+  sharedtext = msgtext;
   
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:nil contacts:nil];
   
