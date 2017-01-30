@@ -96,7 +96,7 @@ CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:nil contacts:nil];
   
-  [wcvc setType: 2];
+  [wcvc setType: 2]; // 纯文字
   [wcvc removeOldText];
   isShared = YES;
   
@@ -120,7 +120,7 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:@[mmImage] contacts:nil];
   
-  [wcvc setType: 1];
+  [wcvc setType: 1];  // 图片文字
   [wcvc removeOldText];
   isShared = YES;
   
@@ -129,8 +129,36 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
 }
+CHDeclareClass(SightDraft);
+CHDeclareClass(SightDraftItem);
+CHDeclareClass(CUtility);
 CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) {
   CHLog(@"videocellview good job");
+  id vc = CHIvar(self, m_delegate, id);
+  VideoMessageCellView *videoViewMdel = [self viewModel];
+  // video path
+  NSURL *videoURL = [NSURL fileURLWithPath: [videoViewMdel videoPath]];
+//  UIImage *thumImage = [videoViewMdel thumbImage];
+  // SightDraft
+  SightDraft *sight = [CHClass(SightDraft) draftWithVideoURL: videoURL];
+  [sight setDraftID: [CHClass(CUtility) genCurrentTime]];
+//  SightDraftItem *item = [CHClass(SightDraftItem) draftItemWithThumbImg: thumImage andPath: [videoViewMdel videoPath] inMode: 1];
+//  [sight addItem: item];
+//  [sight setItemAry: @[item]];
+  // WCNewCommitViewController
+  WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithSightDraft: sight];
+  
+  CBaseContact *contact = CHIvar(videoViewMdel, m_contact, CBaseContact *);
+  
+  [wcvc setType: 3]; // 3 小视频
+  [wcvc removeOldText];
+  isShared = YES;
+  
+  [wcvc setTempSelectContacts: @[contact]];
+  
+  UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
+  [vc presentViewController:navC animated:YES completion:nil];
+  
 }
 CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
   if ([self isKindOfClass: CHClass(TextMessageCellView)]) {
@@ -189,5 +217,10 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(ImageMessageViewModel);
     CHLoadLateClass(MMImage);
     CHLoadLateClass(UIImage);
+    
+    CHLoadLateClass(SightDraft);
+    CHLoadLateClass(SightDraftItem);
+    CHLoadLateClass(CUtility);
+    
   }
 }
