@@ -7,9 +7,8 @@ build/
 DerivedData/
 
 ## packages
-*.deb
-*.zip
-*.dylib
+/Packages/*
+DynamicLibraries/*.dylib
 
 ## Various settings
 *.pbxuser
