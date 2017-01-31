@@ -138,16 +138,12 @@ CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) 
   VideoMessageCellView *videoViewMdel = [self viewModel];
   // video path
   NSURL *videoURL = [NSURL fileURLWithPath: [videoViewMdel videoPath]];
-//  UIImage *thumImage = [videoViewMdel thumbImage];
+
   // SightDraft
   SightDraft *sight = [CHClass(SightDraft) draftWithVideoURL: videoURL];
-  [sight setDraftID: [CHClass(CUtility) genCurrentTime]];
-//  SightDraftItem *item = [CHClass(SightDraftItem) draftItemWithThumbImg: thumImage andPath: [videoViewMdel videoPath] inMode: 1];
-//  [sight addItem: item];
-//  [sight setItemAry: @[item]];
   // WCNewCommitViewController
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithSightDraft: sight];
-  
+  [wcvc setDelegate: vc];
   CBaseContact *contact = CHIvar(videoViewMdel, m_contact, CBaseContact *);
   
   [wcvc setType: 3]; // 3 小视频
