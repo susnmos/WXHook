@@ -34,6 +34,12 @@ CHDeclareClass(VoiceMessageCellView)
 CHDeclareClass(VideoMessageCellView)
 CHDeclareClass(EmoticonMessageCellView)
 
+#pragma mark- 防越狱检测
+CHDeclareClass(JailBreakHelper)
+CHOptimizedMethod0(self, BOOL, JailBreakHelper, IsJailBreak) {
+  return NO;
+}
+
 #pragma mark- 赋值发送消息
 CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, animated) {
   if ([sharedtext length] != 0) {
@@ -130,8 +136,6 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   [vc presentViewController:navC animated:YES completion:nil];
 }
 CHDeclareClass(SightDraft);
-CHDeclareClass(SightDraftItem);
-CHDeclareClass(CUtility);
 CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) {
   CHLog(@"videocellview good job");
   id vc = CHIvar(self, m_delegate, id);
@@ -215,8 +219,8 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(UIImage);
     
     CHLoadLateClass(SightDraft);
-    CHLoadLateClass(SightDraftItem);
-    CHLoadLateClass(CUtility);
+    CHLoadLateClass(JailBreakHelper);
+    CHHook0(JailBreakHelper, IsJailBreak);
     
   }
 }

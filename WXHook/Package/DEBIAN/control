@@ -1,17 +1,17 @@
 Package: com.susnm.WXHook
 Name: WXHook
-Version: 1.0-1
-Description: 
+Version: 0.0-1
+Description: a tweak for WeChat
 Section: Tweaks
 Depends: firmware (>= 5.0), mobilesubstrate
 Conflicts: 
 Replaces: 
 Priority: optional
 Architecture: iphoneos-arm
-Author: 王文臻
+Author: susnm
 dev: 
-Homepage: 
-Depiction: 
-Maintainer: 
+Homepage: https://github.com/susnmos/WXHook
+Depiction:
+Maintainer: susnm
 Icon: 
 
