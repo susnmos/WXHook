@@ -34,6 +34,13 @@ CHDeclareClass(VoiceMessageCellView)
 CHDeclareClass(VideoMessageCellView)
 CHDeclareClass(EmoticonMessageCellView)
 
+CHDeclareClass(MicroMessengerAppDelegate);
+CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: @"/var/mobile/Library/Preferences/com.susnm.WXHook.plist"];
+  BOOL isEnbProBody = [[prefs objectForKey:@"enableProtectiveBody"] boolValue];
+  return isEnbProBody;
+}
+
 #pragma mark- 防越狱检测
 CHDeclareClass(JailBreakHelper)
 CHOptimizedMethod0(self, BOOL, JailBreakHelper, IsJailBreak) {
@@ -96,7 +103,6 @@ CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   id vc = CHIvar(self, m_delegate, id);// BaseMsgContentViewController
   TextMessageViewModel *msgViewModel = [self viewModel];
   NSString *msgtext = CHIvar(msgViewModel, m_contentText, NSString *);
-  CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
   
   sharedtext = msgtext;
   
@@ -106,7 +112,10 @@ CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   [wcvc removeOldText];
   isShared = YES;
   
-  [wcvc setTempSelectContacts: @[contact]];
+  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
+    CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
+    [wcvc setTempSelectContacts: @[contact]];
+  }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
@@ -122,7 +131,6 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   UIImage *image = [UIImage imageWithData:imageData];
   MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
   
-  CBaseContact *contact = CHIvar(imageViewMdel, m_contact, CBaseContact *);
   
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:@[mmImage] contacts:nil];
   
@@ -130,7 +138,10 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   [wcvc removeOldText];
   isShared = YES;
   
-  [wcvc setTempSelectContacts: @[contact]];
+  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
+    CBaseContact *contact = CHIvar(imageViewMdel, m_contact, CBaseContact *);
+    [wcvc setTempSelectContacts: @[contact]];
+  }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
@@ -148,13 +159,15 @@ CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) 
   // WCNewCommitViewController
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithSightDraft: sight];
   [wcvc setDelegate: vc];
-  CBaseContact *contact = CHIvar(videoViewMdel, m_contact, CBaseContact *);
   
   [wcvc setType: 3]; // 3 小视频
   [wcvc removeOldText];
   isShared = YES;
   
-  [wcvc setTempSelectContacts: @[contact]];
+  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
+    CBaseContact *contact = CHIvar(videoViewMdel, m_contact, CBaseContact *);
+    [wcvc setTempSelectContacts: @[contact]];
+  }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
@@ -174,7 +187,7 @@ CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
     [self performSelector: @selector(onForward:) withObject: menu];
   }
 }
-
+s
 #pragma mark- 默认屏蔽消息发送者
 CHOptimizedMethod0(self, int, WCFacade, getPostPrivacy) {
   if (isShared) {
@@ -221,6 +234,8 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(SightDraft);
     CHLoadLateClass(JailBreakHelper);
     CHHook0(JailBreakHelper, IsJailBreak);
+    
+    CHLoadLateClass(MicroMessengerAppDelegate);
     
   }
 }
