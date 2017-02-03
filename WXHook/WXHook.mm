@@ -187,7 +187,7 @@ CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
     [self performSelector: @selector(onForward:) withObject: menu];
   }
 }
-s
+
 #pragma mark- 默认屏蔽消息发送者
 CHOptimizedMethod0(self, int, WCFacade, getPostPrivacy) {
   if (isShared) {
