@@ -1,9 +1,9 @@
 Package: com.susnm.WXHook
 Name: WXHook
-Version: 0.0-1
+Version: 0.0-2
 Description: a tweak for WeChat
 Section: Tweaks
-Depends: firmware (>= 5.0), mobilesubstrate
+Depends: firmware (>= 7.0), mobilesubstrate
 Conflicts: 
 Replaces: 
 Priority: optional

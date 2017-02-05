@@ -6,4 +6,38 @@
   #import <Foundation/Foundation.h>
   #define THEOS_INSTANCE_NAME "WXHook_tweak"
   #import "/opt/theos/Prefix.pch"
+  #import "CaptainHook/CaptainHook.h"
+  #import "Constants.h"
+  CHDeclareClass(MicroMessengerAppDelegate);
+  CHDeclareClass(MMImage);
+  CHDeclareClass(WCNewCommitViewController);
+  CHDeclareClass(BaseMessageCellView)
+  CHDeclareClass(TextMessageViewModel);
+  CHDeclareClass(MMUIViewController);
+  CHDeclareClass(CBaseContact);
+  CHDeclareClass(UINavigationController);
+  CHDeclareClass(WCFacade);
+  CHDeclareClass(MMGrowTextView);
+  CHDeclareClass(MMTextView);
+  CHDeclareClass(MMServiceCenter)
+  CHDeclareClass(TextMessageCellView)
+  CHDeclareClass(ImageMessageCellView)
+  CHDeclareClass(VoiceMessageCellView)
+  CHDeclareClass(VideoMessageCellView)
+  CHDeclareClass(EmoticonMessageCellView)
+  CHDeclareClass(SightDraft);
+  CHDeclareClass(BaseMsgContentViewController)
+  CHDeclareClass(ImageMessageViewModel);
+  CHDeclareClass(UIImage);
+
+  CHDeclareClass(FBProcessManager);
+  CHDeclareClass(FBProcess);
+
+  CHDeclareClass(SpringBoard)
+  CHDeclareClass(SBScreenshotManager)
+  CHDeclareClass(SBScreenshotManagerDataSource)
+  CHDeclareClass(UIScreen)
+  CHDeclareClass(_SBMainScreenScreenshotProvider)
+
+  CHDeclareClass(JailBreakHelper)
 #endif
