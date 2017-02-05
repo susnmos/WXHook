@@ -30,6 +30,12 @@ CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
   return isEnbProBody;
 }
 
+CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbScreenshotForward) {
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  BOOL isEnbScreenshotForward = [[prefs objectForKey:@"enableScreenshotForward"] boolValue];
+  return isEnbScreenshotForward;
+}
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool

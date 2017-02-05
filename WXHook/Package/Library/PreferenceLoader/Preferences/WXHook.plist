@@ -35,6 +35,28 @@
 			<key>PostNotification</key>
 			<string>com.susnm.WXHook-preferencesChanged</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
+			<string>截图时快速转发到朋友圈</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<string>YES</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>enableScreenshotForward</string>
+			<key>label</key>
+			<string>开启</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string>WXHook</string>

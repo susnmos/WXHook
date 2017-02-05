@@ -18,32 +18,36 @@
 #import "Notification.h"
 
 static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
-  CHLog(@"wxhook===收到截图通知");
   UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
   if (pasteBoard) {
     UIImage *image = [pasteBoard image];
-    CHLog(@"wxhook===拿到了截图 %@", image);
-    FBProcessManager *bundleIndetifier = [CHClass(FBProcessManager) sharedInstance];
-    NSLog(@"apps bundleIndetifier: %@", bundleIndetifier);
     
-    if (!image) {
+    if (!image || !CHAlloc(MMImage) || ![CHClass(MicroMessengerAppDelegate) isEnbScreenshotForward]) {
       return;
     }
-    if (CHAlloc(MMImage)) {
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UITabBarController *tabVC = window.rootViewController;
+    UIViewController *vc = tabVC.selectedViewController;
+    
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"截图分享" message:@"是否需要将截图分享到朋友圈?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler: nil];
+    UIAlertAction *timeline = [UIAlertAction actionWithTitle:@"朋友圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+      
       MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
-      CHLog(@"wxhook===2%@", mmImage);
       WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:@[mmImage] contacts:nil];
       
       [wcvc setType: 1];  // 图片文字
       [wcvc removeOldText];
       isShared = YES;
-      UIWindow *window = [UIApplication sharedApplication].keyWindow;
-      UITabBarController *tabVC = window.rootViewController;
-      UIViewController *vc = tabVC.selectedViewController;
       UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
       [vc presentViewController:navC animated:YES completion:nil];
-    }
+    }];
+    [alertVC addAction:cancel];
+    [alertVC addAction:timeline];
     
+    [vc presentViewController:alertVC animated:YES completion:nil];
   };
 }
 
