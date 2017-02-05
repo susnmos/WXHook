@@ -26,13 +26,13 @@
 
 CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
-  BOOL isEnbProBody = [[prefs objectForKey:@"enableProtectiveBody"] boolValue];
+  BOOL isEnbProBody = [[prefs objectForKey:enableProtectiveBodyKey] boolValue];
   return isEnbProBody;
 }
 
 CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbScreenshotForward) {
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
-  BOOL isEnbScreenshotForward = [[prefs objectForKey:@"enableScreenshotForward"] boolValue];
+  BOOL isEnbScreenshotForward = [[prefs objectForKey:enableScreenshotForwardKey] boolValue];
   return isEnbScreenshotForward;
 }
 
@@ -42,8 +42,6 @@ CHConstructor // code block that runs immediately upon load
   {
     
     AddObserver(screenshotNotification, userDidTakeScreenshot);
-    
-//    CFNotificationCenterAddObserver(CFNotificationCenterGetLocalCenter(), NULL, userDidTakeScreenshot, CFSTR("SpringBoardUserDidTakeScreenshotNotification"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
     
     CHLoadLateClass(WCNewCommitViewController);
     CHHook1(WCNewCommitViewController, viewWillAppear);
@@ -64,7 +62,6 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(MMServiceCenter);
     CHLoadLateClass(WCFacade);
-    CHHook0(WCFacade, getPostPrivacy);
     
     CHLoadLateClass(TextMessageCellView);
     CHLoadLateClass(ImageMessageCellView);
@@ -92,6 +89,5 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(FBProcessManager);
     CHLoadLateClass(FBProcess);
-   
   }
 }

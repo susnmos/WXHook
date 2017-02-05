@@ -29,7 +29,7 @@
 			<key>defaults</key>
 			<string>com.susnm.WXHook</string>
 			<key>key</key>
-			<string>enableProtectiveBody</string>
+			<string>com.susnm.enableProtectiveBody</string>
 			<key>label</key>
 			<string>开启</string>
 			<key>PostNotification</key>
@@ -51,7 +51,7 @@
 			<key>defaults</key>
 			<string>com.susnm.WXHook</string>
 			<key>key</key>
-			<string>enableScreenshotForward</string>
+			<string>com.susnm.enableScreenshotForward</string>
 			<key>label</key>
 			<string>开启</string>
 			<key>PostNotification</key>

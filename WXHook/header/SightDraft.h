@@ -8,7 +8,6 @@
 @protocol PBCoding <NSObject>
 
 @end
-//#import "PBCoding.h"
 
 @class NSMutableArray, NSString, VideoUploadStatInfo;
 

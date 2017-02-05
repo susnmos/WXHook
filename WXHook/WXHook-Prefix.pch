@@ -8,6 +8,7 @@
   #import "/opt/theos/Prefix.pch"
   #import "CaptainHook/CaptainHook.h"
   #import "Constants.h"
+
   CHDeclareClass(MicroMessengerAppDelegate);
   CHDeclareClass(MMImage);
   CHDeclareClass(WCNewCommitViewController);

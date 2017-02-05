@@ -10,6 +10,8 @@
 
 #import "WCNewCommitViewController.h"
 #import "SightDraft.h"
+#import "MMServiceCenter.h"
+#import "WCFacade.h"
 
 #pragma mark- 赋值发送消息
 CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, animated) {
@@ -19,6 +21,11 @@ CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, 
     [textView setText: sharedtext];
     [grow postTextChangeNotification];
     sharedtext = @"";
+  }
+  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody] && isShared && isFirstEnterWCNewVC) {
+    WCFacade *facade = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(WCFacade)];
+    [facade setPostPrivacy:5];
+    isFirstEnterWCNewVC = NO;
   }
   return CHSuper1(WCNewCommitViewController, viewWillAppear, animated);
 }
@@ -62,6 +69,7 @@ CHOptimizedMethod2(self, BOOL, BaseMessageCellView, canPerformAction, SEL, arg1,
 }
 
 #pragma mark- 转发实际执行方法
+#pragma mark- text
 CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   id vc = CHIvar(self, m_delegate, id);// BaseMsgContentViewController
   TextMessageViewModel *msgViewModel = [self viewModel];
@@ -74,16 +82,19 @@ CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   [wcvc setType: 2]; // 纯文字
   [wcvc removeOldText];
   isShared = YES;
+  isFirstEnterWCNewVC = YES;
   
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
     CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
     [wcvc setTempSelectContacts: @[contact]];
+     
   }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
 }
 
+#pragma mark- image
 CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) {
   
   id vc = CHIvar(self, m_delegate, id);
@@ -98,6 +109,7 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   [wcvc setType: 1];  // 图片文字
   [wcvc removeOldText];
   isShared = YES;
+  isFirstEnterWCNewVC = YES;
   
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
     CBaseContact *contact = CHIvar(imageViewMdel, m_contact, CBaseContact *);
@@ -108,6 +120,7 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   [vc presentViewController:navC animated:YES completion:nil];
 }
 
+#pragma mark- video
 CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) {
   CHLog(@"videocellview good job");
   id vc = CHIvar(self, m_delegate, id);
@@ -128,10 +141,12 @@ CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) 
   
   [wcvc removeOldText];
   isShared = YES;
+  isFirstEnterWCNewVC = YES;
   
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
     CBaseContact *contact = CHIvar(videoViewMdel, m_contact, CBaseContact *);
     [wcvc setTempSelectContacts: @[contact]];
+    
   }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
@@ -150,14 +165,6 @@ CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
   else {
     [self performSelector: @selector(onForward:) withObject: menu];
   }
-}
-
-#pragma mark- 默认屏蔽消息发送者
-CHOptimizedMethod0(self, int, WCFacade, getPostPrivacy) {
-  if (isShared) {
-    return 5;
-  }
-  return CHSuper0(WCFacade, getPostPrivacy);
 }
 
 #pragma mark- 转发视频结束时，退出动画
