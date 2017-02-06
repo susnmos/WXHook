@@ -7,22 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */; };
+		9E0765501E44BCE100136255 /* MMUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E07654F1E44BCE100136255 /* MMUIViewController.h */; };
+		9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */; };
+		9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768A1E47721200C649FA /* MMServiceCenter.h */; };
+		9E66768D1E47727200C649FA /* WCFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768C1E47727200C649FA /* WCFacade.h */; };
+		9E66768F1E4773B800C649FA /* MMService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768E1E4773B800C649FA /* MMService.h */; };
+		9E66769B1E477E6000C649FA /* CBaseContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66769A1E477E6000C649FA /* CBaseContact.h */; };
+		9E66769D1E47823900C649FA /* WCUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66769C1E47823900C649FA /* WCUtil.h */; };
+		9E66769F1E4782FC00C649FA /* WCCommonService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66769E1E4782FC00C649FA /* WCCommonService.h */; };
+		9E6676A11E4783FA00C649FA /* WCSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6676A01E4783FA00C649FA /* WCSetting.h */; };
+		9E6676A31E478BD800C649FA /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6676A21E478BD800C649FA /* Constants.h */; };
+		9E6676A91E478FD200C649FA /* WXHookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6676A61E478F8F00C649FA /* WXHookIcon.png */; };
+		9E6676AA1E478FD200C649FA /* WXHookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6676A71E478F8F00C649FA /* WXHookIcon@2x.png */; };
+		9E6DBD391E44CC97003575D5 /* SightDraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6DBD381E44CC97003575D5 /* SightDraft.h */; };
+		9E6DBD3B1E44CD0E003575D5 /* MMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6DBD3A1E44CD0E003575D5 /* MMObject.h */; };
+		9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79B1E47265F007F6DD5 /* WXHook.mm */; };
+		9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */; };
+		9E87A7A01E4731BF007F6DD5 /* JailBreakHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */; };
+		9E87A7A21E4739EB007F6DD5 /* ScreenshotForward.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */; };
+		9E8C30961E463215002EB3B9 /* Notification.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E8C30951E463215002EB3B9 /* Notification.h */; };
 		9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C371E39E0C800732B62 /* Foundation.framework */; };
-		9EE69C481E39E0C800732B62 /* WXHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9EE69C471E39E0C800732B62 /* WXHook.mm */; };
 		9EE69C521E39EB0900732B62 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C511E39EB0900732B62 /* libsubstrate.dylib */; };
 		9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C531E39EB5700732B62 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNewCommitViewController.h; sourceTree = "<group>"; };
+		9E07654F1E44BCE100136255 /* MMUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIViewController.h; sourceTree = "<group>"; };
+		9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WCCommitViewAnimationDelegate-Protocol.h"; sourceTree = "<group>"; };
+		9E66768A1E47721200C649FA /* MMServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
+		9E66768C1E47727200C649FA /* WCFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFacade.h; sourceTree = "<group>"; };
+		9E66768E1E4773B800C649FA /* MMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMService.h; sourceTree = "<group>"; };
+		9E66769A1E477E6000C649FA /* CBaseContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBaseContact.h; sourceTree = "<group>"; };
+		9E66769C1E47823900C649FA /* WCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUtil.h; sourceTree = "<group>"; };
+		9E66769E1E4782FC00C649FA /* WCCommonService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCommonService.h; sourceTree = "<group>"; };
+		9E6676A01E4783FA00C649FA /* WCSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCSetting.h; sourceTree = "<group>"; };
+		9E6676A21E478BD800C649FA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		9E6676A61E478F8F00C649FA /* WXHookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WXHookIcon.png; sourceTree = "<group>"; };
+		9E6676A71E478F8F00C649FA /* WXHookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WXHookIcon@2x.png"; sourceTree = "<group>"; };
+		9E6DBD381E44CC97003575D5 /* SightDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SightDraft.h; sourceTree = "<group>"; };
+		9E6DBD3A1E44CD0E003575D5 /* MMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMObject.h; sourceTree = "<group>"; };
+		9E87A79B1E47265F007F6DD5 /* WXHook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WXHook.mm; sourceTree = "<group>"; };
+		9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimelineForward.mm; sourceTree = "<group>"; };
+		9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JailBreakHelper.mm; sourceTree = "<group>"; };
+		9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreenshotForward.mm; sourceTree = "<group>"; };
+		9E8C30951E463215002EB3B9 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		9EE69C341E39E0C800732B62 /* WXHook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WXHook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE69C371E39E0C800732B62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EE69C3D1E39E0C800732B62 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		9EE69C3F1E39E0C800732B62 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		9EE69C431E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/PreferenceLoader/Preferences/WXHook.plist; sourceTree = "<group>"; };
-		9EE69C441E39E0C800732B62 /* WXHookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WXHookIcon.png; path = Package/Library/PreferenceLoader/Preferences/WXHookIcon.png; sourceTree = "<group>"; };
-		9EE69C451E39E0C800732B62 /* WXHookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WXHookIcon@2x.png"; path = "Package/Library/PreferenceLoader/Preferences/WXHookIcon@2x.png"; sourceTree = "<group>"; };
 		9EE69C461E39E0C800732B62 /* WXHook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WXHook-Prefix.pch"; sourceTree = "<group>"; };
-		9EE69C471E39E0C800732B62 /* WXHook.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WXHook.mm; sourceTree = "<group>"; };
 		9EE69C4B1E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/WXHook.plist; sourceTree = "<group>"; };
 		9EE69C511E39EB0900732B62 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
 		9EE69C531E39EB5700732B62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -42,6 +78,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E87A79A1E47265F007F6DD5 /* function */ = {
+			isa = PBXGroup;
+			children = (
+				9E6676A21E478BD800C649FA /* Constants.h */,
+				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
+				9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */,
+				9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */,
+				9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */,
+			);
+			path = function;
+			sourceTree = "<group>";
+		};
+		9E8C30941E4631FE002EB3B9 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				9E8C30951E463215002EB3B9 /* Notification.h */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		9EC0BFD01E449958005EE512 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				9E66769C1E47823900C649FA /* WCUtil.h */,
+				9E66769A1E477E6000C649FA /* CBaseContact.h */,
+				9E66768A1E47721200C649FA /* MMServiceCenter.h */,
+				9E6DBD381E44CC97003575D5 /* SightDraft.h */,
+				9E66769E1E4782FC00C649FA /* WCCommonService.h */,
+				9E66768E1E4773B800C649FA /* MMService.h */,
+				9E6676A01E4783FA00C649FA /* WCSetting.h */,
+				9E66768C1E47727200C649FA /* WCFacade.h */,
+				9E6DBD3A1E44CD0E003575D5 /* MMObject.h */,
+				9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */,
+				9E07654F1E44BCE100136255 /* MMUIViewController.h */,
+				9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
 		9EE69C2A1E39E0C800732B62 = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +147,9 @@
 		9EE69C391E39E0C800732B62 /* WXHook */ = {
 			isa = PBXGroup;
 			children = (
-				9EE69C471E39E0C800732B62 /* WXHook.mm */,
+				9E87A79A1E47265F007F6DD5 /* function */,
+				9E8C30941E4631FE002EB3B9 /* tools */,
+				9EC0BFD01E449958005EE512 /* header */,
 				9EE69C3A1E39E0C800732B62 /* Package */,
 				9EE69C3E1E39E0C800732B62 /* Supporting Files */,
 			);
@@ -125,9 +202,9 @@
 		9EE69C421E39E0C800732B62 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				9E6676A61E478F8F00C649FA /* WXHookIcon.png */,
+				9E6676A71E478F8F00C649FA /* WXHookIcon@2x.png */,
 				9EE69C431E39E0C800732B62 /* WXHook.plist */,
-				9EE69C441E39E0C800732B62 /* WXHookIcon.png */,
-				9EE69C451E39E0C800732B62 /* WXHookIcon@2x.png */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -155,6 +232,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
+				9E66768F1E4773B800C649FA /* MMService.h in Headers */,
+				9E66769B1E477E6000C649FA /* CBaseContact.h in Headers */,
+				9E66769F1E4782FC00C649FA /* WCCommonService.h in Headers */,
+				9E6676A31E478BD800C649FA /* Constants.h in Headers */,
+				9E6676A11E4783FA00C649FA /* WCSetting.h in Headers */,
+				9E66768D1E47727200C649FA /* WCFacade.h in Headers */,
+				9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */,
+				9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */,
+				9E6DBD391E44CC97003575D5 /* SightDraft.h in Headers */,
+				9E0765501E44BCE100136255 /* MMUIViewController.h in Headers */,
+				9E6DBD3B1E44CD0E003575D5 /* MMObject.h in Headers */,
+				9E66769D1E47823900C649FA /* WCUtil.h in Headers */,
+				9E8C30961E463215002EB3B9 /* Notification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +260,7 @@
 				9EE69C301E39E0C800732B62 /* Frameworks */,
 				9EE69C311E39E0C800732B62 /* Headers */,
 				9EE69C321E39E0C800732B62 /* ShellScript */,
+				9E6676A81E478FC900C649FA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -211,6 +303,18 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9E6676A81E478FC900C649FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E6676A91E478FD200C649FA /* WXHookIcon.png in Resources */,
+				9E6676AA1E478FD200C649FA /* WXHookIcon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
 		9EE69C321E39E0C800732B62 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -232,7 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE69C481E39E0C800732B62 /* WXHook.mm in Sources */,
+				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
+				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,
+				9E87A7A01E4731BF007F6DD5 /* JailBreakHelper.mm in Sources */,
+				9E87A7A21E4739EB007F6DD5 /* ScreenshotForward.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +402,7 @@
 		9EE69C4F1E39E0C800732B62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = PP4NMXFF5F;
@@ -305,9 +413,10 @@
 				GCC_PREFIX_HEADER = "WXHook/WXHook-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
@@ -324,14 +433,15 @@
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevKillProcess = WeChat;
-				iOSOpenDevRespringOnInstall = NO;
-				iOSOpenDevUsePackageVersionPList = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Debug;
 		};
 		9EE69C501E39E0C800732B62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = PP4NMXFF5F;
@@ -342,9 +452,10 @@
 				GCC_PREFIX_HEADER = "WXHook/WXHook-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
@@ -361,8 +472,8 @@
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevKillProcess = WeChat;
-				iOSOpenDevRespringOnInstall = NO;
-				iOSOpenDevUsePackageVersionPList = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Release;
 		};

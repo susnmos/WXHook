@@ -1,51 +1,17 @@
 //
-//  WXHook.mm
-//  WXHook
+//  TimelineForward.mm
+//  TimelineForward
 //
-//  Created by 王文臻 on 2017/1/26.
-//  Copyright (c) 2017年 __MyCompanyName__. All rights reserved.
+//  Created by 王文臻 on 2017/2/5.
+//  Copyright (c) 2017年susnm. All rights reserved.
 //
 
-// CaptainHook by Ryan Petrich
-// see https://github.com/rpetrich/CaptainHook/
+#import <UIKit/UIKit.h>
 
-#import <Foundation/Foundation.h>
-#import "CaptainHook/CaptainHook.h"
-#include <notify.h> // not required; for examples only
-
-NSString *sharedtext = @"";
-BOOL isShared = NO;
-
-
-CHDeclareClass(BaseMessageCellView)
-CHDeclareClass(WCNewCommitViewController);
-CHDeclareClass(TextMessageViewModel);
-CHDeclareClass(MMUIViewController);
-CHDeclareClass(CBaseContact);
-CHDeclareClass(UINavigationController);
-CHDeclareClass(WCFacade);
-CHDeclareClass(MMGrowTextView);
-CHDeclareClass(MMTextView);
-
-CHDeclareClass(MMServiceCenter)
-CHDeclareClass(TextMessageCellView)
-CHDeclareClass(ImageMessageCellView)
-CHDeclareClass(VoiceMessageCellView)
-CHDeclareClass(VideoMessageCellView)
-CHDeclareClass(EmoticonMessageCellView)
-
-CHDeclareClass(MicroMessengerAppDelegate);
-CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
-  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: @"/var/mobile/Library/Preferences/com.susnm.WXHook.plist"];
-  BOOL isEnbProBody = [[prefs objectForKey:@"enableProtectiveBody"] boolValue];
-  return isEnbProBody;
-}
-
-#pragma mark- 防越狱检测
-CHDeclareClass(JailBreakHelper)
-CHOptimizedMethod0(self, BOOL, JailBreakHelper, IsJailBreak) {
-  return NO;
-}
+#import "WCNewCommitViewController.h"
+#import "SightDraft.h"
+#import "MMServiceCenter.h"
+#import "WCFacade.h"
 
 #pragma mark- 赋值发送消息
 CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, animated) {
@@ -55,6 +21,11 @@ CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, 
     [textView setText: sharedtext];
     [grow postTextChangeNotification];
     sharedtext = @"";
+  }
+  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody] && isShared && isFirstEnterWCNewVC) {
+    WCFacade *facade = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(WCFacade)];
+    [facade setPostPrivacy:5];
+    isFirstEnterWCNewVC = NO;
   }
   return CHSuper1(WCNewCommitViewController, viewWillAppear, animated);
 }
@@ -66,7 +37,6 @@ CHOptimizedMethod1(self, void, WCNewCommitViewController, writeOldText, id, arg1
   }
 }
 CHOptimizedMethod0(self, void, WCNewCommitViewController, OnReturn) {
-  
   CHSuper0(WCNewCommitViewController, OnReturn);
   
   if (isShared) {
@@ -87,7 +57,7 @@ CHOptimizedMethod1(self, void, UIMenuController, setMenuItems, NSArray *, array)
 
 CHOptimizedMethod2(self, BOOL, BaseMessageCellView, canPerformAction, SEL, arg1, withSender, id, arg2) {
   BOOL canPerform = CHSuper2(BaseMessageCellView, canPerformAction, arg1, withSender, arg2);
-
+  
   if (!canPerform) {
     if (arg1 == NSSelectorFromString(@"timeline:")) {
       if ([self isKindOfClass:CHClass(TextMessageCellView)] || [self isKindOfClass: CHClass(ImageMessageCellView)] || [self isKindOfClass: CHClass(VideoMessageCellView)]) {
@@ -99,6 +69,7 @@ CHOptimizedMethod2(self, BOOL, BaseMessageCellView, canPerformAction, SEL, arg1,
 }
 
 #pragma mark- 转发实际执行方法
+#pragma mark- text
 CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   id vc = CHIvar(self, m_delegate, id);// BaseMsgContentViewController
   TextMessageViewModel *msgViewModel = [self viewModel];
@@ -111,18 +82,19 @@ CHDeclareMethod1(void, BaseMessageCellView, textTimeline, UIMenuItem *, menu) {
   [wcvc setType: 2]; // 纯文字
   [wcvc removeOldText];
   isShared = YES;
+  isFirstEnterWCNewVC = YES;
   
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
     CBaseContact *contact = CHIvar(msgViewModel, m_contact, CBaseContact *);
     [wcvc setTempSelectContacts: @[contact]];
+     
   }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
 }
-CHDeclareClass(ImageMessageViewModel);
-CHDeclareClass(MMImage);
-CHDeclareClass(UIImage);
+
+#pragma mark- image
 CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) {
   
   id vc = CHIvar(self, m_delegate, id);
@@ -137,6 +109,7 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   [wcvc setType: 1];  // 图片文字
   [wcvc removeOldText];
   isShared = YES;
+  isFirstEnterWCNewVC = YES;
   
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
     CBaseContact *contact = CHIvar(imageViewMdel, m_contact, CBaseContact *);
@@ -146,32 +119,38 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
 }
-CHDeclareClass(SightDraft);
+
+#pragma mark- video
 CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) {
   CHLog(@"videocellview good job");
   id vc = CHIvar(self, m_delegate, id);
   VideoMessageCellView *videoViewMdel = [self viewModel];
   // video path
   NSURL *videoURL = [NSURL fileURLWithPath: [videoViewMdel videoPath]];
-
+  
   // SightDraft
   SightDraft *sight = [CHClass(SightDraft) draftWithVideoURL: videoURL];
   // WCNewCommitViewController
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithSightDraft: sight];
+  
+  [wcvc setBNeedAnimation:NO];
+  [wcvc setBShowLocation:YES];
+  [wcvc setType: 3]; // 3 小视频
+  
   [wcvc setDelegate: vc];
   
-  [wcvc setType: 3]; // 3 小视频
   [wcvc removeOldText];
   isShared = YES;
+  isFirstEnterWCNewVC = YES;
   
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
     CBaseContact *contact = CHIvar(videoViewMdel, m_contact, CBaseContact *);
     [wcvc setTempSelectContacts: @[contact]];
+    
   }
   
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
   [vc presentViewController:navC animated:YES completion:nil];
-  
 }
 CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
   if ([self isKindOfClass: CHClass(TextMessageCellView)]) {
@@ -188,54 +167,17 @@ CHDeclareMethod1(void, BaseMessageCellView, timeline, UIMenuItem *, menu) {
   }
 }
 
-#pragma mark- 默认屏蔽消息发送者
-CHOptimizedMethod0(self, int, WCFacade, getPostPrivacy) {
-  if (isShared) {
-    return 5;
-  }
-  return CHSuper0(WCFacade, getPostPrivacy);
-}
-
-CHConstructor // code block that runs immediately upon load
-{
-  @autoreleasepool
-  {
-    
-    CHLoadLateClass(WCNewCommitViewController);
-    CHHook1(WCNewCommitViewController, viewWillAppear);
-    CHHook1(WCNewCommitViewController, writeOldText);
-    CHHook0(WCNewCommitViewController, OnReturn);
-    
-    CHLoadLateClass(UINavigationController);
-    
-    CHLoadLateClass(UIMenuController);
-    CHLoadLateClass(UIMenuItem);
-    CHHook1(UIMenuController, setMenuItems);
-    
-    CHLoadLateClass(BaseMessageCellView);
-    CHHook2(BaseMessageCellView, canPerformAction, withSender);
-    
-    CHLoadLateClass(TextMessageCellView);
-    
-    CHLoadLateClass(MMServiceCenter);
-    CHLoadLateClass(WCFacade);
-    CHHook0(WCFacade, getPostPrivacy);
-    
-    CHLoadLateClass(TextMessageCellView);
-    CHLoadLateClass(ImageMessageCellView);
-    CHLoadLateClass(VoiceMessageCellView);
-    CHLoadLateClass(VideoMessageCellView);
-    CHLoadLateClass(EmoticonMessageCellView);
-    
-    CHLoadLateClass(ImageMessageViewModel);
-    CHLoadLateClass(MMImage);
-    CHLoadLateClass(UIImage);
-    
-    CHLoadLateClass(SightDraft);
-    CHLoadLateClass(JailBreakHelper);
-    CHHook0(JailBreakHelper, IsJailBreak);
-    
-    CHLoadLateClass(MicroMessengerAppDelegate);
-    
-  }
+#pragma mark- 转发视频结束时，退出动画
+CHDeclareMethod2(void, BaseMsgContentViewController, animationDidEndRemainView, UIView *, view, hintDataItem, id, item) {
+  [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    CGRect newFrame = view.frame;
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    newFrame = CGRectMake(0, size.height, size.width, size.height);
+    view.frame = newFrame;
+  } completion:^(BOOL finished) {
+    if (finished) {
+      [view removeFromSuperview];
+    }
+  }];
+  
 }
