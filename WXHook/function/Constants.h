@@ -5,3 +5,4 @@ static CFStringRef screenshotNotification = CFSTR("com.susnm.userDidTakeScreensh
 static NSString *enableProtectiveBodyKey = @"com.susnm.enableProtectiveBody";
 static NSString *enableScreenshotForwardKey = @"com.susnm.enableScreenshotForward";
 static BOOL isFirstEnterWCNewVC = NO;
+static CFStringRef shouldScreenshotNotification = CFSTR("com.susnm.shouldScreenshotNotification");

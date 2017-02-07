@@ -47,4 +47,7 @@
   CHDeclareClass(MMNewSessionMgr)
   CHDeclareClass(MMTextView)
   CHDeclareClass(NSConcreteNotification)
+  CHDeclareClass(MMTitleView)
+  CHDeclareClass(MMUILabel)
+  CHDeclareClass(MMUINavigationBar)
 #endif
