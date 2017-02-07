@@ -23,6 +23,7 @@
 
 #import "Notification.h"
 
+#pragma mark- 快速截图分享
 static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
   UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
   if (pasteBoard) {
@@ -32,9 +33,6 @@ static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer
       return;
     }
     
-//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//    UITabBarController *tabVC = window.rootViewController;
-//    UIViewController *vc = tabVC.selectedViewController;
     UIViewController *showVC = [CHClass(MicroMessengerAppDelegate) getCurrentShowViewController];
     
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"截图分享" message:@"是否需要将截图分享到朋友圈?" preferredStyle:UIAlertControllerStyleAlert];

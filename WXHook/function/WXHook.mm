@@ -27,6 +27,9 @@
 #pragma mark- 截图转发
 #import "ScreenshotForward.mm"
 
+#pragma mark- 换行
+#import "Newline.mm"
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
@@ -86,5 +89,9 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(SettingUtil);
     CHLoadLateClass(CMessageWrap);
     CHLoadLateClass(MMNewSessionMgr);
+    CHLoadLateClass(NSConcreteNotification);
+    
+    CHLoadLateClass(MMTextView);
+    CHHook1(MMTextView, _textChanged);
   }
 }
