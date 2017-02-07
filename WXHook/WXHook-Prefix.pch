@@ -41,4 +41,10 @@
   CHDeclareClass(_SBMainScreenScreenshotProvider)
 
   CHDeclareClass(JailBreakHelper)
+  CHDeclareClass(ForwardMessageMgr)
+  CHDeclareClass(MessageService)
+  CHDeclareClass(CMessageWrap)
+  CHDeclareClass(SettingUtil)
+  CHDeclareClass(MMNewSessionMgr)
+
 #endif

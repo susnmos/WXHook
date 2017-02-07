@@ -139,7 +139,6 @@
     BadRoomLogicController *_m_badRoomLogicController;
 }
 
-- (void).cxx_destruct;
 - (void)AsyncSendMessage:(id)arg1;
 - (void)BeginPlaying:(id)arg1 FromTouch:(_Bool)arg2;
 - (void)CancelRecording;
