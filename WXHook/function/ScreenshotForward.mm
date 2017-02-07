@@ -14,9 +14,16 @@
 #import <SpringBoard/SBScreenshotManagerDataSource.h>
 
 #import "WCNewCommitViewController.h"
+#import "MMServiceCenter.h"
+#import "ForwardMessageMgr.h"
+#import "MessageService.h"
+#import "CMessageWrap.h"
+#import "SettingUtil.h"
+#import "MMNewSessionMgr.h"
 
 #import "Notification.h"
 
+#pragma mark- 快速截图分享
 static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
   UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
   if (pasteBoard) {
@@ -26,13 +33,13 @@ static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer
       return;
     }
     
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    UITabBarController *tabVC = window.rootViewController;
-    UIViewController *vc = tabVC.selectedViewController;
+    UIViewController *showVC = [CHClass(MicroMessengerAppDelegate) getCurrentShowViewController];
     
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"截图分享" message:@"是否需要将截图分享到朋友圈?" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler: nil];
+    // cancel action
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消(存至剪切板)" style:UIAlertActionStyleDestructive handler: nil];
+    // forward timeline action
     UIAlertAction *timeline = [UIAlertAction actionWithTitle:@"朋友圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
       
       MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
@@ -42,12 +49,36 @@ static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer
       [wcvc removeOldText];
       isShared = YES;
       UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
-      [vc presentViewController:navC animated:YES completion:nil];
+      [showVC presentViewController:navC animated:YES completion:nil];
     }];
-    [alertVC addAction:cancel];
-    [alertVC addAction:timeline];
+    // forwward firend action
+    UIAlertAction *friendAc = [UIAlertAction actionWithTitle:@"好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+      
+      CMessageWrap *msgWrap = [CHAlloc(CMessageWrap) initWithMsgType:3]; // 3: image ; 1: text;
+      NSString *userName = [CHClass(SettingUtil) getLocalUsrName:1];
+      
+      [msgWrap setM_nsFromUsr:userName];
+      
+      NSData *imageData = UIImageJPEGRepresentation(image, 1);
+      [msgWrap setM_dtImg:imageData];
+      
+      [msgWrap setM_nsToUsr:userName];
+      
+      MMNewSessionMgr *sessionMgr = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(MMNewSessionMgr)];
+      unsigned int time = [sessionMgr GenSendMsgTime];
+      
+      [msgWrap setM_uiCreateTime:time];
+      [msgWrap setM_uiStatus:1];
+      
+      ForwardMessageMgr *forwardMsg = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(ForwardMessageMgr)];
+      [forwardMsg forwardMessage:msgWrap fromViewController:showVC];
+    }];
     
-    [vc presentViewController:alertVC animated:YES completion:nil];
+    [alertVC addAction:friendAc];
+    [alertVC addAction:timeline];
+    [alertVC addAction:cancel];
+    
+    [showVC presentViewController:alertVC animated:YES completion:nil];
   };
 }
 

@@ -26,7 +26,19 @@
 		9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */; };
 		9E87A7A01E4731BF007F6DD5 /* JailBreakHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */; };
 		9E87A7A21E4739EB007F6DD5 /* ScreenshotForward.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */; };
+		9E89A5991E4971F1009966E9 /* CMessageWrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5981E4971F1009966E9 /* CMessageWrap.h */; };
+		9E89A59B1E49726E009966E9 /* SettingUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A59A1E49726E009966E9 /* SettingUtil.h */; };
+		9E89A59D1E497365009966E9 /* MMNewSessionMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A59C1E497365009966E9 /* MMNewSessionMgr.h */; };
+		9E89A59F1E4980CA009966E9 /* MicroMessengerAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E89A59E1E4980CA009966E9 /* MicroMessengerAppDelegate.mm */; };
+		9E89A5A11E49D409009966E9 /* Newline.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E89A5A01E49D409009966E9 /* Newline.mm */; };
+		9E89A5A31E49D4E6009966E9 /* NSConcreteNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5A21E49D4E6009966E9 /* NSConcreteNotification.h */; };
+		9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5A41E49D569009966E9 /* MMTextView.h */; };
+		9E89A5A71E49D67E009966E9 /* MMUITextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5A61E49D67E009966E9 /* MMUITextView.h */; };
+		9E89A5A91E49D7CC009966E9 /* MMGrowTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5A81E49D7CC009966E9 /* MMGrowTextView.h */; };
+		9E89A5AB1E49D87A009966E9 /* MMUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5AA1E49D87A009966E9 /* MMUIView.h */; };
 		9E8C30961E463215002EB3B9 /* Notification.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E8C30951E463215002EB3B9 /* Notification.h */; };
+		9EBBAA911E485735009EBC72 /* ForwardMessageMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */; };
+		9EBBAA931E48F53E009EBC72 /* MessageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA921E48F53E009EBC72 /* MessageService.h */; };
 		9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C371E39E0C800732B62 /* Foundation.framework */; };
 		9EE69C521E39EB0900732B62 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C511E39EB0900732B62 /* libsubstrate.dylib */; };
 		9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C531E39EB5700732B62 /* UIKit.framework */; };
@@ -52,7 +64,19 @@
 		9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimelineForward.mm; sourceTree = "<group>"; };
 		9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JailBreakHelper.mm; sourceTree = "<group>"; };
 		9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreenshotForward.mm; sourceTree = "<group>"; };
+		9E89A5981E4971F1009966E9 /* CMessageWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMessageWrap.h; sourceTree = "<group>"; };
+		9E89A59A1E49726E009966E9 /* SettingUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingUtil.h; sourceTree = "<group>"; };
+		9E89A59C1E497365009966E9 /* MMNewSessionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNewSessionMgr.h; sourceTree = "<group>"; };
+		9E89A59E1E4980CA009966E9 /* MicroMessengerAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MicroMessengerAppDelegate.mm; sourceTree = "<group>"; };
+		9E89A5A01E49D409009966E9 /* Newline.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Newline.mm; sourceTree = "<group>"; };
+		9E89A5A21E49D4E6009966E9 /* NSConcreteNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConcreteNotification.h; sourceTree = "<group>"; };
+		9E89A5A41E49D569009966E9 /* MMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTextView.h; sourceTree = "<group>"; };
+		9E89A5A61E49D67E009966E9 /* MMUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUITextView.h; sourceTree = "<group>"; };
+		9E89A5A81E49D7CC009966E9 /* MMGrowTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGrowTextView.h; sourceTree = "<group>"; };
+		9E89A5AA1E49D87A009966E9 /* MMUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIView.h; sourceTree = "<group>"; };
 		9E8C30951E463215002EB3B9 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardMessageMgr.h; sourceTree = "<group>"; };
+		9EBBAA921E48F53E009EBC72 /* MessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageService.h; sourceTree = "<group>"; };
 		9EE69C341E39E0C800732B62 /* WXHook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WXHook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE69C371E39E0C800732B62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EE69C3D1E39E0C800732B62 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
@@ -83,6 +107,8 @@
 			children = (
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
+				9E89A5A01E49D409009966E9 /* Newline.mm */,
+				9E89A59E1E4980CA009966E9 /* MicroMessengerAppDelegate.mm */,
 				9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */,
 				9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */,
 				9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */,
@@ -101,13 +127,23 @@
 		9EC0BFD01E449958005EE512 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */,
+				9E89A5AA1E49D87A009966E9 /* MMUIView.h */,
 				9E66769C1E47823900C649FA /* WCUtil.h */,
+				9E89A59C1E497365009966E9 /* MMNewSessionMgr.h */,
 				9E66769A1E477E6000C649FA /* CBaseContact.h */,
+				9E89A5A81E49D7CC009966E9 /* MMGrowTextView.h */,
+				9E89A5A21E49D4E6009966E9 /* NSConcreteNotification.h */,
+				9E89A5A41E49D569009966E9 /* MMTextView.h */,
+				9EBBAA921E48F53E009EBC72 /* MessageService.h */,
 				9E66768A1E47721200C649FA /* MMServiceCenter.h */,
+				9E89A5981E4971F1009966E9 /* CMessageWrap.h */,
+				9E89A59A1E49726E009966E9 /* SettingUtil.h */,
 				9E6DBD381E44CC97003575D5 /* SightDraft.h */,
 				9E66769E1E4782FC00C649FA /* WCCommonService.h */,
 				9E66768E1E4773B800C649FA /* MMService.h */,
 				9E6676A01E4783FA00C649FA /* WCSetting.h */,
+				9E89A5A61E49D67E009966E9 /* MMUITextView.h */,
 				9E66768C1E47727200C649FA /* WCFacade.h */,
 				9E6DBD3A1E44CD0E003575D5 /* MMObject.h */,
 				9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */,
@@ -232,19 +268,29 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */,
 				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
+				9E89A5A31E49D4E6009966E9 /* NSConcreteNotification.h in Headers */,
 				9E66768F1E4773B800C649FA /* MMService.h in Headers */,
 				9E66769B1E477E6000C649FA /* CBaseContact.h in Headers */,
 				9E66769F1E4782FC00C649FA /* WCCommonService.h in Headers */,
+				9E89A5A71E49D67E009966E9 /* MMUITextView.h in Headers */,
 				9E6676A31E478BD800C649FA /* Constants.h in Headers */,
+				9E89A59B1E49726E009966E9 /* SettingUtil.h in Headers */,
 				9E6676A11E4783FA00C649FA /* WCSetting.h in Headers */,
 				9E66768D1E47727200C649FA /* WCFacade.h in Headers */,
+				9E89A5AB1E49D87A009966E9 /* MMUIView.h in Headers */,
+				9E89A5991E4971F1009966E9 /* CMessageWrap.h in Headers */,
+				9E89A5A91E49D7CC009966E9 /* MMGrowTextView.h in Headers */,
+				9E89A59D1E497365009966E9 /* MMNewSessionMgr.h in Headers */,
 				9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */,
 				9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */,
 				9E6DBD391E44CC97003575D5 /* SightDraft.h in Headers */,
 				9E0765501E44BCE100136255 /* MMUIViewController.h in Headers */,
 				9E6DBD3B1E44CD0E003575D5 /* MMObject.h in Headers */,
+				9EBBAA931E48F53E009EBC72 /* MessageService.h in Headers */,
 				9E66769D1E47823900C649FA /* WCUtil.h in Headers */,
+				9EBBAA911E485735009EBC72 /* ForwardMessageMgr.h in Headers */,
 				9E8C30961E463215002EB3B9 /* Notification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +384,9 @@
 			files = (
 				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
 				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,
+				9E89A5A11E49D409009966E9 /* Newline.mm in Sources */,
 				9E87A7A01E4731BF007F6DD5 /* JailBreakHelper.mm in Sources */,
+				9E89A59F1E4980CA009966E9 /* MicroMessengerAppDelegate.mm in Sources */,
 				9E87A7A21E4739EB007F6DD5 /* ScreenshotForward.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

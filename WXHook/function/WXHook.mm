@@ -15,6 +15,9 @@
 
 #import "Notification.h"
 
+#pragma mark- appdelegate
+#import "MicroMessengerAppDelegate.mm"
+
 #pragma mark- 转发朋友圈
 #import "TimelineForward.mm"
 
@@ -24,17 +27,8 @@
 #pragma mark- 截图转发
 #import "ScreenshotForward.mm"
 
-CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
-  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
-  BOOL isEnbProBody = [[prefs objectForKey:enableProtectiveBodyKey] boolValue];
-  return isEnbProBody;
-}
-
-CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbScreenshotForward) {
-  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
-  BOOL isEnbScreenshotForward = [[prefs objectForKey:enableScreenshotForwardKey] boolValue];
-  return isEnbScreenshotForward;
-}
+#pragma mark- 换行
+#import "Newline.mm"
 
 CHConstructor // code block that runs immediately upon load
 {
@@ -89,5 +83,15 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(FBProcessManager);
     CHLoadLateClass(FBProcess);
+    CHLoadLateClass(ForwardMessageMgr);
+    
+    CHLoadLateClass(MessageService);
+    CHLoadLateClass(SettingUtil);
+    CHLoadLateClass(CMessageWrap);
+    CHLoadLateClass(MMNewSessionMgr);
+    CHLoadLateClass(NSConcreteNotification);
+    
+    CHLoadLateClass(MMTextView);
+    CHHook1(MMTextView, _textChanged);
   }
 }

@@ -19,7 +19,6 @@
   CHDeclareClass(UINavigationController);
   CHDeclareClass(WCFacade);
   CHDeclareClass(MMGrowTextView);
-  CHDeclareClass(MMTextView);
   CHDeclareClass(MMServiceCenter)
   CHDeclareClass(TextMessageCellView)
   CHDeclareClass(ImageMessageCellView)
@@ -41,4 +40,11 @@
   CHDeclareClass(_SBMainScreenScreenshotProvider)
 
   CHDeclareClass(JailBreakHelper)
+  CHDeclareClass(ForwardMessageMgr)
+  CHDeclareClass(MessageService)
+  CHDeclareClass(CMessageWrap)
+  CHDeclareClass(SettingUtil)
+  CHDeclareClass(MMNewSessionMgr)
+  CHDeclareClass(MMTextView)
+  CHDeclareClass(NSConcreteNotification)
 #endif

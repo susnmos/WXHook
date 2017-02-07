@@ -24,7 +24,6 @@
     _Bool m_isConverting3dTouchToLongPress;
 }
 
-- (void).cxx_destruct;
 - (void)LongPressEvents;
 - (id)accessibilityLabel;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
