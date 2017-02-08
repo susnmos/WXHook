@@ -496,7 +496,7 @@
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevKillProcess = "";
+				iOSOpenDevKillProcess = WeChat;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -535,7 +535,7 @@
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevKillProcess = "";
+				iOSOpenDevKillProcess = WeChat;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
