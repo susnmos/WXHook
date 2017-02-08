@@ -22,14 +22,13 @@ CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewDidAppear, BOOL
   __weak typeof(self) weakSelf = self;
   UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(shouldScreenshot:)];
   longPress.minimumPressDuration = 1;
-  CHLog(@"wxhook=== %@", longPress);
   [titleView addGestureRecognizer:longPress];
+  CHLog(@"wxhook=== %@", titleView);
   
   return CHSuper1(BaseMsgContentViewController, viewDidAppear, animated);
 }
 
-CHOptimizedMethod0(self, void, BaseMsgContentViewController, dealloc) {
-  CHLog(@"wxhook=== dealloc");
+CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewWillDisappear, BOOL, animated) {
   MMUINavigationBar *navBar = (MMUINavigationBar *)[[self navigationController] navigationBar];
   MMTitleView *titleView;
   for (UIView *subView in [navBar subviews]) {
@@ -38,14 +37,14 @@ CHOptimizedMethod0(self, void, BaseMsgContentViewController, dealloc) {
     }
   }
   for (UIGestureRecognizer *recognizer in [titleView gestureRecognizers]) {
-    CHLog(@"wxhook=== remove :%@", recognizer);
     [titleView removeGestureRecognizer: recognizer];
+    [recognizer autorelease];
   }
-  return CHSuper0(BaseMsgContentViewController, dealloc);
+  return CHSuper1(BaseMsgContentViewController, viewWillDisappear, animated);
 }
 CHOptimizedMethod2(self, BOOL, MMTitleView, pointInside, CGPoint, point, withEvent, UIEvent *, event) {
   if (CHClass(MMTextView)) {
-    CGRect canRect = CGRectMake(-60, -5, 120, 40);
+    CGRect canRect = CGRectMake(0, -4, 40, 44);
     if (CGRectContainsPoint(canRect, point)) {
       return YES;
     }

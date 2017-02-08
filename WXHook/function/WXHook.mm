@@ -49,7 +49,7 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(UINavigationController);
     CHLoadLateClass(BaseMsgContentViewController);
     CHHook1(BaseMsgContentViewController, viewDidAppear);
-    CHHook0(BaseMsgContentViewController, dealloc);
+    CHHook1(BaseMsgContentViewController, viewWillDisappear);
     
     CHLoadLateClass(UIMenuController);
     CHLoadLateClass(UIMenuItem);
