@@ -36,6 +36,10 @@
 		9E89A5A71E49D67E009966E9 /* MMUITextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5A61E49D67E009966E9 /* MMUITextView.h */; };
 		9E89A5A91E49D7CC009966E9 /* MMGrowTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5A81E49D7CC009966E9 /* MMGrowTextView.h */; };
 		9E89A5AB1E49D87A009966E9 /* MMUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5AA1E49D87A009966E9 /* MMUIView.h */; };
+		9E89A5AD1E49F1F6009966E9 /* TouchScreenshot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E89A5AC1E49F1F6009966E9 /* TouchScreenshot.mm */; };
+		9E89A5AF1E4A00CF009966E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E89A5AE1E4A00CF009966E9 /* CoreGraphics.framework */; };
+		9E89A5B11E4A1444009966E9 /* BaseMsgContentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5B01E4A1444009966E9 /* BaseMsgContentViewController.h */; };
+		9E89A5B31E4A146A009966E9 /* MMSearchBarDisplayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89A5B21E4A146A009966E9 /* MMSearchBarDisplayController.h */; };
 		9E8C30961E463215002EB3B9 /* Notification.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E8C30951E463215002EB3B9 /* Notification.h */; };
 		9EBBAA911E485735009EBC72 /* ForwardMessageMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */; };
 		9EBBAA931E48F53E009EBC72 /* MessageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA921E48F53E009EBC72 /* MessageService.h */; };
@@ -74,6 +78,10 @@
 		9E89A5A61E49D67E009966E9 /* MMUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUITextView.h; sourceTree = "<group>"; };
 		9E89A5A81E49D7CC009966E9 /* MMGrowTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGrowTextView.h; sourceTree = "<group>"; };
 		9E89A5AA1E49D87A009966E9 /* MMUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIView.h; sourceTree = "<group>"; };
+		9E89A5AC1E49F1F6009966E9 /* TouchScreenshot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchScreenshot.mm; sourceTree = "<group>"; };
+		9E89A5AE1E4A00CF009966E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9E89A5B01E4A1444009966E9 /* BaseMsgContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMsgContentViewController.h; sourceTree = "<group>"; };
+		9E89A5B21E4A146A009966E9 /* MMSearchBarDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSearchBarDisplayController.h; sourceTree = "<group>"; };
 		9E8C30951E463215002EB3B9 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardMessageMgr.h; sourceTree = "<group>"; };
 		9EBBAA921E48F53E009EBC72 /* MessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageService.h; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E89A5AF1E4A00CF009966E9 /* CoreGraphics.framework in Frameworks */,
 				9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */,
 				9EE69C521E39EB0900732B62 /* libsubstrate.dylib in Frameworks */,
 				9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */,
@@ -108,6 +117,7 @@
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
 				9E89A5A01E49D409009966E9 /* Newline.mm */,
+				9E89A5AC1E49F1F6009966E9 /* TouchScreenshot.mm */,
 				9E89A59E1E4980CA009966E9 /* MicroMessengerAppDelegate.mm */,
 				9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */,
 				9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */,
@@ -127,6 +137,8 @@
 		9EC0BFD01E449958005EE512 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				9E89A5B21E4A146A009966E9 /* MMSearchBarDisplayController.h */,
+				9E89A5B01E4A1444009966E9 /* BaseMsgContentViewController.h */,
 				9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */,
 				9E89A5AA1E49D87A009966E9 /* MMUIView.h */,
 				9E66769C1E47823900C649FA /* WCUtil.h */,
@@ -173,6 +185,7 @@
 		9EE69C361E39E0C800732B62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E89A5AE1E4A00CF009966E9 /* CoreGraphics.framework */,
 				9EE69C531E39EB5700732B62 /* UIKit.framework */,
 				9EE69C511E39EB0900732B62 /* libsubstrate.dylib */,
 				9EE69C371E39E0C800732B62 /* Foundation.framework */,
@@ -270,6 +283,8 @@
 			files = (
 				9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */,
 				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
+				9E89A5B11E4A1444009966E9 /* BaseMsgContentViewController.h in Headers */,
+				9E89A5B31E4A146A009966E9 /* MMSearchBarDisplayController.h in Headers */,
 				9E89A5A31E49D4E6009966E9 /* NSConcreteNotification.h in Headers */,
 				9E66768F1E4773B800C649FA /* MMService.h in Headers */,
 				9E66769B1E477E6000C649FA /* CBaseContact.h in Headers */,
@@ -384,6 +399,7 @@
 			files = (
 				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
 				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,
+				9E89A5AD1E49F1F6009966E9 /* TouchScreenshot.mm in Sources */,
 				9E89A5A11E49D409009966E9 /* Newline.mm in Sources */,
 				9E87A7A01E4731BF007F6DD5 /* JailBreakHelper.mm in Sources */,
 				9E89A59F1E4980CA009966E9 /* MicroMessengerAppDelegate.mm in Sources */,
@@ -480,7 +496,7 @@
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevKillProcess = WeChat;
+				iOSOpenDevKillProcess = "";
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -519,7 +535,7 @@
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevKillProcess = WeChat;
+				iOSOpenDevKillProcess = "";
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};

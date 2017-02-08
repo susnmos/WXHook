@@ -30,12 +30,16 @@
 #pragma mark- 换行
 #import "Newline.mm"
 
+#pragma mark- 长按截图
+#import "TouchScreenshot.mm"
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
   {
     
     AddObserver(screenshotNotification, userDidTakeScreenshot);
+    AddObserver(shouldScreenshotNotification, userScreenshotNotification);
     
     CHLoadLateClass(WCNewCommitViewController);
     CHHook1(WCNewCommitViewController, viewWillAppear);
@@ -44,6 +48,8 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(UINavigationController);
     CHLoadLateClass(BaseMsgContentViewController);
+    CHHook1(BaseMsgContentViewController, viewDidAppear);
+    CHHook0(BaseMsgContentViewController, dealloc);
     
     CHLoadLateClass(UIMenuController);
     CHLoadLateClass(UIMenuItem);
@@ -93,5 +99,9 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(MMTextView);
     CHHook1(MMTextView, _textChanged);
+    
+    CHLoadLateClass(MMUILabel);
+    CHLoadLateClass(MMTitleView);
+    CHHook2(MMTitleView, pointInside, withEvent);
   }
 }
