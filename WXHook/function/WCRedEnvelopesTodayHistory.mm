@@ -14,7 +14,7 @@
 CHOptimizedMethod2(self, void, WCPayPickerView, initWithRows, NSArray *, rows, title, NSString *, title) {
   NSMutableArray *array = [rows mutableCopy];
   if (array.count - 1 >= 0) {
-    array[array.count-1] = @"Today";
+    array[array.count-1] = @"今天";
   }
   return CHSuper2(WCPayPickerView, initWithRows, array, title, title);
 }
@@ -22,6 +22,9 @@ CHOptimizedMethod2(self, void, WCPayPickerView, initWithRows, NSArray *, rows, t
 CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, WCRedEnvelopesControlData *, data) {
   CHLog(@"wxhook=== data: %@", data);
   if (isFinishedRefreshRedHistory) {
+    return CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
+  }
+  if (!showTodayRedHistory) {
     return CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
   }
   WCRedEnvelopesHistoryInfo *info = [data m_oWCRedEnvelopesHistoryInfo];
@@ -93,10 +96,13 @@ CHDeclareMethod1(BOOL, WCRedEnvelopesRedEnvelopesHistoryListViewController,shoul
 }
 
 CHOptimizedMethod2(self, void, WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, long long, row, atSession, long long, session) {
-  if (row == 4 || session == 0) {
+  CHLog(@"wxhook=== WCPayPickerViewDidChooseRow row: %llu session: %llu", row, session);
+  if (row == 4 && session == 0) {
     showTodayRedHistory = YES;
+    isFinishedRefreshRedHistory = NO;
   }else {
     showTodayRedHistory = NO;
+    isFinishedRefreshRedHistory = YES;
   }
   return CHSuper2(WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, row, atSession, session);
 }
