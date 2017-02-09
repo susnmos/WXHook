@@ -4,9 +4,10 @@
 
 #ifdef __OBJC__
   #import <Foundation/Foundation.h>
+  #import "NSConcreteNotification.h"
   #define THEOS_INSTANCE_NAME "WXHook_tweak"
   #import "/opt/theos/Prefix.pch"
-  #import "CaptainHook/CaptainHook.h"
+  #import <CaptainHook/CaptainHook.h>
   #import "Constants.h"
 
   CHDeclareClass(MicroMessengerAppDelegate);
@@ -50,4 +51,6 @@
   CHDeclareClass(MMTitleView)
   CHDeclareClass(MMUILabel)
   CHDeclareClass(MMUINavigationBar)
+  CHDeclareClass(WCPayPickerView)
+  CHDeclareClass(WCRedEnvelopesRedEnvelopesHistoryListViewController)
 #endif

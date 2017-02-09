@@ -9,3 +9,7 @@
 #define PostNotification(notification) \
 CFNotificationCenterPostNotificationWithOptions(CFNotificationCenterGetDarwinNotifyCenter(), \
 notification, NULL, NULL, kCFNotificationDeliverImmediately)
+
+#define NSTrue         			((id) kCFBooleanTrue)
+#define NSFalse        			((id) kCFBooleanFalse)
+#define NSBool(x)       		((x) ? NSTrue : NSFalse)

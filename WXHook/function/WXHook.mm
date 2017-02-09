@@ -33,6 +33,9 @@
 #pragma mark- 长按截图
 #import "TouchScreenshot.mm"
 
+#pragma mark - 今日红包记录
+#import "WCRedEnvelopesTodayHistory.mm"
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
@@ -103,5 +106,13 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(MMUILabel);
     CHLoadLateClass(MMTitleView);
     CHHook2(MMTitleView, pointInside, withEvent);
+    
+    CHLoadLateClass(WCPayPickerView);
+    CHHook2(WCPayPickerView, initWithRows, title);
+    
+    CHLoadLateClass(WCRedEnvelopesRedEnvelopesHistoryListViewController);
+    CHHook1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView);
+    CHHook0(WCRedEnvelopesRedEnvelopesHistoryListViewController, dealloc);
+    CHHook2(WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, atSession);
   }
 }

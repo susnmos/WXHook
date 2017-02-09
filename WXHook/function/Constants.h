@@ -6,3 +6,6 @@ static NSString *enableProtectiveBodyKey = @"com.susnm.enableProtectiveBody";
 static NSString *enableScreenshotForwardKey = @"com.susnm.enableScreenshotForward";
 static BOOL isFirstEnterWCNewVC = NO;
 static CFStringRef shouldScreenshotNotification = CFSTR("com.susnm.shouldScreenshotNotification");
+static BOOL isFinishedRefreshRedHistory = NO;
+static BOOL showTodayRedHistory = NO;
+static long hadRequestTimes = 0;

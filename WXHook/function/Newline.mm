@@ -5,7 +5,6 @@
 //  Created by 王文臻 on 2017/2/7.
 //  Copyright (c) 2017年 susnm. All rights reserved.
 //
-#import "NSConcreteNotification.h"
 #import "MMTextView.h"
 #import "MMGrowTextView.h"
 
