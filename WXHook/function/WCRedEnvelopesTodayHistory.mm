@@ -35,8 +35,12 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   
   WCRedEnvelopesHistoryListControlLogic *logic = CHIvar(self, m_delegate, WCRedEnvelopesHistoryListControlLogic *);
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    if (hadRequestTimes > 15) {
+      return;
+    }
     [logic OnLoadMoreRedEnvelopesList];
     if ([self shouldContinueLoadHistory: data]) {
+      hadRequestTimes += 1;
       [self refreshViewWithData:data];
     }
     
@@ -79,6 +83,8 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
 
 CHOptimizedMethod0(self, void, WCRedEnvelopesRedEnvelopesHistoryListViewController, dealloc) {
   isFinishedRefreshRedHistory = NO;
+  hadRequestTimes = 0;
+  showTodayRedHistory = NO; // 默认是否显示今天的红包收支
   return CHSuper0(WCRedEnvelopesRedEnvelopesHistoryListViewController, dealloc);
 }
 
