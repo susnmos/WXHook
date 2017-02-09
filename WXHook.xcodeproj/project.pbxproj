@@ -52,6 +52,7 @@
 		9E9369351E4B95AF0066E786 /* WCRedEnvelopesControlLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9369341E4B95AF0066E786 /* WCRedEnvelopesControlLogic.h */; };
 		9E9369371E4B95C50066E786 /* WCBizControlLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9369361E4B95C50066E786 /* WCBizControlLogic.h */; };
 		9E9369391E4B95D70066E786 /* WCBaseControlLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9369381E4B95D70066E786 /* WCBaseControlLogic.h */; };
+		9E93693B1E4CE9E20066E786 /* WCPayPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E93693A1E4CE9E20066E786 /* WCPayPickerView.h */; };
 		9EBBAA911E485735009EBC72 /* ForwardMessageMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */; };
 		9EBBAA931E48F53E009EBC72 /* MessageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA921E48F53E009EBC72 /* MessageService.h */; };
 		9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C371E39E0C800732B62 /* Foundation.framework */; };
@@ -105,6 +106,7 @@
 		9E9369341E4B95AF0066E786 /* WCRedEnvelopesControlLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRedEnvelopesControlLogic.h; sourceTree = "<group>"; };
 		9E9369361E4B95C50066E786 /* WCBizControlLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBizControlLogic.h; sourceTree = "<group>"; };
 		9E9369381E4B95D70066E786 /* WCBaseControlLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseControlLogic.h; sourceTree = "<group>"; };
+		9E93693A1E4CE9E20066E786 /* WCPayPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCPayPickerView.h; sourceTree = "<group>"; };
 		9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardMessageMgr.h; sourceTree = "<group>"; };
 		9EBBAA921E48F53E009EBC72 /* MessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageService.h; sourceTree = "<group>"; };
 		9EE69C341E39E0C800732B62 /* WXHook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WXHook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 		9EC0BFD01E449958005EE512 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				9E93693A1E4CE9E20066E786 /* WCPayPickerView.h */,
 				9E9369261E4B784B0066E786 /* WCRedEnvelopesControlData.h */,
 				9E9369281E4B7BDD0066E786 /* WCRedEnvelopesHistoryInfo.h */,
 				9E89A5B21E4A146A009966E9 /* MMSearchBarDisplayController.h */,
@@ -317,6 +320,7 @@
 				9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */,
 				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
 				9E89A5B11E4A1444009966E9 /* BaseMsgContentViewController.h in Headers */,
+				9E93693B1E4CE9E20066E786 /* WCPayPickerView.h in Headers */,
 				9E89A5B31E4A146A009966E9 /* MMSearchBarDisplayController.h in Headers */,
 				9E9369371E4B95C50066E786 /* WCBizControlLogic.h in Headers */,
 				9E89A5A31E49D4E6009966E9 /* NSConcreteNotification.h in Headers */,

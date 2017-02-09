@@ -10,13 +10,22 @@
 #import "WCRedEnvelopesReceivedRedEnvelopesInfo.h"
 #import "WCRedEnvelopesRedEnvelopesHistoryListViewController.h"
 #import "WCRedEnvelopesHistoryListControlLogic.h"
+#import "WCPayPickerView.h"
 
 CHOptimizedMethod2(self, void, WCPayPickerView, initWithRows, NSArray *, rows, title, NSString *, title) {
+  hadRequestTimes = 0;
   NSMutableArray *array = [rows mutableCopy];
   if (array.count - 1 >= 0) {
     array[array.count-1] = @"今天";
   }
   return CHSuper2(WCPayPickerView, initWithRows, array, title, title);
+}
+
+CHOptimizedMethod2(self, void, WCPayPickerView, setSelectedRow, long long, row, atSession, long long, session) {
+  if (showTodayRedHistory) {
+    return CHSuper2(WCPayPickerView, setSelectedRow, 4, atSession, 0);
+  }
+  return CHSuper2(WCPayPickerView, setSelectedRow, row, atSession, session);
 }
 
 CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, WCRedEnvelopesControlData *, data) {
@@ -44,6 +53,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   NSString *nowStr = [[CHClass(WCRedEnvelopesRedEnvelopesHistoryListViewController) dateFormatter] stringFromDate:[[NSDate date] autorelease]];
   
   WCRedEnvelopesHistoryListControlLogic *logic = CHIvar(self, m_delegate, WCRedEnvelopesHistoryListControlLogic *);
+  CHLog(@"wxhook=== typetypetype: %u", CHIvar(logic, m_enWCRedEnvelopesHistoryType, int)); // 1 发出 0 收到
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     if (hadRequestTimes > 15) {
       return;
@@ -81,6 +91,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   info.m_lRecTotalNum = recTotalNum;
   info.m_lRecTotalAmount = recTotalAmount;
   info.m_lTotalGameCount = type;
+//  info.m_nsCurrentYear = @"今年"; // 用于请求，会请求失败
 
   UIView *headerView = CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
   for (UIView *subView in [headerView subviews]) {

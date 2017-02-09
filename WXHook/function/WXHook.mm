@@ -109,6 +109,7 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(WCPayPickerView);
     CHHook2(WCPayPickerView, initWithRows, title);
+    CHHook2(WCPayPickerView, setSelectedRow, atSession);
     
     CHLoadLateClass(WCRedEnvelopesRedEnvelopesHistoryListViewController);
     CHHook1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView);
