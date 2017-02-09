@@ -22,7 +22,17 @@ CHOptimizedMethod2(self, void, WCPayPickerView, initWithRows, NSArray *, rows, t
 CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, WCRedEnvelopesControlData *, data) {
   CHLog(@"wxhook=== data: %@", data);
   if (isFinishedRefreshRedHistory) {
-    return CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
+    UIView *view =  CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
+    if (lastRequest) {
+      lastRequest = NO;
+      for (UIView *subView in [view subviews]) {
+        if ([subView isKindOfClass:CHClass(MMUILabel)]) {
+          [(MMUILabel *)subView setText: @"今天"];
+          break;
+        }
+      }
+    }
+    return view;
   }
   if (!showTodayRedHistory) {
     return CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
@@ -47,6 +57,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
     if (![self shouldContinueLoadHistory: data]) {
       [self refreshViewWithData:data];
       isFinishedRefreshRedHistory = YES;
+      lastRequest = YES;
       UIView *lastView = CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
       for (UIView *subView in [lastView subviews]) {
         if ([subView isKindOfClass:CHClass(MMUILabel)]) {
