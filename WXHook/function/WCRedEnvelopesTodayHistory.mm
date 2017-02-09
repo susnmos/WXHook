@@ -16,7 +16,8 @@ CHOptimizedMethod2(self, void, WCPayPickerView, initWithRows, NSArray *, rows, t
   hadRequestTimes = 0;
   NSMutableArray *array = [rows mutableCopy];
   if (array.count - 1 >= 0) {
-    array[array.count-1] = @"今天";
+//    array[array.count-1] = @"今天";
+    [array insertObject:@"今天" atIndex:array.count-1];
   }
   return CHSuper2(WCPayPickerView, initWithRows, array, title, title);
 }
@@ -131,6 +132,9 @@ CHOptimizedMethod2(self, void, WCRedEnvelopesRedEnvelopesHistoryListViewControll
   }else {
     showTodayRedHistory = NO;
     isFinishedRefreshRedHistory = YES;
+    if (row == 3 && session == 0) {
+      return CHSuper2(WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, 4, atSession, 0);
+    }
   }
   return CHSuper2(WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, row, atSession, session);
 }
