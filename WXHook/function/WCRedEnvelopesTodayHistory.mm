@@ -43,7 +43,11 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
           break;
         }
       }
-      [(MMUILabel *)[view subviews].lastObject setText: @"加载结束"];
+      if (CHIvar(logic, m_enWCRedEnvelopesHistoryType, int) == 0) {
+        [(MMUILabel *)[view subviews].lastObject setText: @"加载结束"];
+      }else {
+        [(MMUILabel *)[view subviews].lastObject setText: @"个"];
+      }
       if ([[view subviews][[view subviews].count-2] isKindOfClass:CHClass(MMUILabel)] && CHIvar(logic, m_enWCRedEnvelopesHistoryType, int) == 0) {
         [(MMUILabel *)[view subviews][[view subviews].count-2] setText: @" "];
       }
@@ -119,7 +123,11 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
       break;
     }
   }
-  [(MMUILabel *)[headerView subviews].lastObject setText: @"加载中"];
+  if (CHIvar(logic, m_enWCRedEnvelopesHistoryType, int) == 0) {
+    [(MMUILabel *)[headerView subviews].lastObject setText: @"加载中"];
+  }else {
+    [(MMUILabel *)[headerView subviews].lastObject setText: @"个"];
+  }
   if ([[headerView subviews][[headerView subviews].count-2] isKindOfClass:CHClass(MMUILabel)] && CHIvar(logic, m_enWCRedEnvelopesHistoryType, int) == 0) {
     [(MMUILabel *)[headerView subviews][[headerView subviews].count-2] setText: @" "];
   }
