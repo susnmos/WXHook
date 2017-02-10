@@ -39,6 +39,9 @@
 #pragma mark- 消息防撤回
 #import "RevokeMsg.mm"
 
+#pragma mark- 任意步数
+#import "AnyStep.mm"
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
@@ -124,5 +127,8 @@ CHConstructor // code block that runs immediately upon load
 //    CHHook1(CMessageMgr, onRevokeMsg);
     CHHook3(CMessageMgr, DelMsg, MsgList, DelAll);
     
+    CHLoadLateClass(WCDeviceStepObject);
+    CHHook0(WCDeviceStepObject, m7StepCount);
+    CHHook0(WCDeviceStepObject, hkStepCount);
   }
 }

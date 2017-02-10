@@ -57,6 +57,70 @@
 			<key>PostNotification</key>
 			<string>com.susnm.WXHook-preferencesChanged</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
+			<string>单次红包统计最大请求次数</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<integer>15</integer>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.TotalRedHistoryRequestTimes</string>
+			<key>min</key>
+			<integer>1</integer>
+			<key>max</key>
+			<integer>22</integer>
+			<key>showValue</key>
+			<true/>
+			<key>isSegmented</key>
+			<true/>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>一次请求可获取11个红包数据。默认最大请求次数为15次，165个数据，可统计165个红包的收入或支出。以此类推</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
+			<string>微信步数，胜者为王</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>default</key>
+			<string>6666</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.AnyDayStep</string>
+			<key>label</key>
+			<string>每天步数</string>
+			<key>placeholder</key>
+			<string>输入任意整数步数（最大98800）</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>© 2017年 susnm</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string>WXHook</string>

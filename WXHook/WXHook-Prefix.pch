@@ -55,4 +55,6 @@
   CHDeclareClass(WCRedEnvelopesRedEnvelopesHistoryListViewController)
 
   CHDeclareClass(CMessageMgr)
+
+  CHDeclareClass(WCDeviceStepObject)
 #endif
