@@ -15,7 +15,7 @@
     long long m_lReceiveAmount;
     unsigned int m_uiReceiveTime;
     NSString *m_nsReceiveTime;
-    int m_enWCRedEnvelopesType; // 0 运气红包
+    int m_enWCRedEnvelopesType; // 0 运气红包 1 普通红包
     int m_enWCRedEnvelopesKind; // 1 收到
     NSString *m_nsReceiverID;
     NSString *m_nsSendID;

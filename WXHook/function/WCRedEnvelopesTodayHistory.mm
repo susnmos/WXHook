@@ -55,7 +55,6 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   NSString *nowStr = [[CHClass(WCRedEnvelopesRedEnvelopesHistoryListViewController) dateFormatter] stringFromDate:[[NSDate date] autorelease]];
   
   WCRedEnvelopesHistoryListControlLogic *logic = CHIvar(self, m_delegate, WCRedEnvelopesHistoryListControlLogic *);
-  CHLog(@"wxhook=== typetypetype: %u", CHIvar(logic, m_enWCRedEnvelopesHistoryType, int)); // 1 发出 0 收到
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     if (hadRequestTimes > 15) {
       return;
@@ -92,7 +91,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
         recTotalNum += 1;
         recTotalAmount += receivedInfo.m_lReceiveAmount;
         type += receivedInfo.m_enWCRedEnvelopesType;
-      }
+      }else { break; }
     }
     
     //  info.m_nsCurrentYear = @"今年"; // 用于请求，会请求失败
@@ -101,7 +100,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
       if ([sendedInfo.m_nsSendTime isEqualToString:nowStr]) {
         sendTotalAmount += sendedInfo.m_lTotalAmount;
         sendTotalNum += 1;
-      }
+      }else { break; }
     }
   }
   info.m_lRecTotalNum = recTotalNum;
@@ -147,7 +146,6 @@ CHDeclareMethod1(BOOL, WCRedEnvelopesRedEnvelopesHistoryListViewController,shoul
 }
 
 CHOptimizedMethod2(self, void, WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, long long, row, atSession, long long, session) {
-  CHLog(@"wxhook=== WCPayPickerViewDidChooseRow row: %llu session: %llu", row, session);
   if (row == 4 && session == 0) {
     showTodayRedHistory = YES;
     isFinishedRefreshRedHistory = NO;

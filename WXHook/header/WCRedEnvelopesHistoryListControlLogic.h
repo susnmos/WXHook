@@ -10,7 +10,7 @@
 
 @interface WCRedEnvelopesHistoryListControlLogic : WCRedEnvelopesControlLogic
 {
-    int m_enWCRedEnvelopesHistoryType;
+    int m_enWCRedEnvelopesHistoryType;// 1 发出 0 收到
 }
 
 - (_Bool)HasMoreDetailList;
