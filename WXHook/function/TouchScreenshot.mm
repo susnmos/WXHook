@@ -10,6 +10,7 @@
 #import "Notification.h"
 #import <SpringBoard/SpringBoard.h>
 #import <SpringBoard/SBSceneManager.h>
+#import "MMTitleView.h"
 
 CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewDidAppear, BOOL, animated) {
   MMUINavigationBar *navBar = (MMUINavigationBar *)[[self navigationController] navigationBar];
@@ -19,10 +20,12 @@ CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewDidAppear, BOOL
       titleView = (MMTitleView *)subView;
     }
   }
+  titleView.tag = 20170210;
   __weak typeof(self) weakSelf = self;
   UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(shouldScreenshot:)];
   longPress.minimumPressDuration = 1;
   [titleView addGestureRecognizer:longPress];
+  [longPress autorelease];
   CHLog(@"wxhook=== %@", titleView);
   
   return CHSuper1(BaseMsgContentViewController, viewDidAppear, animated);
@@ -38,13 +41,12 @@ CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewWillDisappear, 
   }
   for (UIGestureRecognizer *recognizer in [titleView gestureRecognizers]) {
     [titleView removeGestureRecognizer: recognizer];
-    [recognizer autorelease];
   }
   return CHSuper1(BaseMsgContentViewController, viewWillDisappear, animated);
 }
 CHOptimizedMethod2(self, BOOL, MMTitleView, pointInside, CGPoint, point, withEvent, UIEvent *, event) {
-  if (CHClass(MMTextView)) {
-    CGRect canRect = CGRectMake(0, -4, 40, 44);
+  if (CHClass(MMTextView) && self.tag == 20170210) {
+    CGRect canRect = CGRectMake(-20, -4, 40, 44);
     if (CGRectContainsPoint(canRect, point)) {
       return YES;
     }
