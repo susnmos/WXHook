@@ -53,4 +53,6 @@
   CHDeclareClass(MMUINavigationBar)
   CHDeclareClass(WCPayPickerView)
   CHDeclareClass(WCRedEnvelopesRedEnvelopesHistoryListViewController)
+
+  CHDeclareClass(CMessageMgr)
 #endif

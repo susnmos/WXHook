@@ -33,8 +33,11 @@
 #pragma mark- 长按截图
 #import "TouchScreenshot.mm"
 
-#pragma mark - 今日红包记录
+#pragma mark- 今日红包记录
 #import "WCRedEnvelopesTodayHistory.mm"
+
+#pragma mark- 消息防撤回
+#import "RevokeMsg.mm"
 
 CHConstructor // code block that runs immediately upon load
 {
@@ -116,5 +119,10 @@ CHConstructor // code block that runs immediately upon load
     CHHook0(WCRedEnvelopesRedEnvelopesHistoryListViewController, dealloc);
     CHHook2(WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, atSession);
     CHHook0(WCRedEnvelopesRedEnvelopesHistoryListViewController, changeHistoryType);
+    
+    CHLoadLateClass(CMessageMgr);
+//    CHHook1(CMessageMgr, onRevokeMsg);
+    CHHook3(CMessageMgr, DelMsg, MsgList, DelAll);
+    
   }
 }

@@ -12,6 +12,7 @@
 		9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */; };
 		9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */; };
 		9E4A9EFF1E4DBAC70035AA65 /* MMTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */; };
+		9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */; };
 		9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768A1E47721200C649FA /* MMServiceCenter.h */; };
 		9E66768D1E47727200C649FA /* WCFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768C1E47727200C649FA /* WCFacade.h */; };
 		9E66768F1E4773B800C649FA /* MMService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768E1E4773B800C649FA /* MMService.h */; };
@@ -68,6 +69,7 @@
 		9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WCCommitViewAnimationDelegate-Protocol.h"; sourceTree = "<group>"; };
 		9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRedEnvelopesSendedRedEnvelopesInfo.h; sourceTree = "<group>"; };
 		9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleView.h; sourceTree = "<group>"; };
+		9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RevokeMsg.mm; sourceTree = "<group>"; };
 		9E66768A1E47721200C649FA /* MMServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
 		9E66768C1E47727200C649FA /* WCFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFacade.h; sourceTree = "<group>"; };
 		9E66768E1E4773B800C649FA /* MMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMService.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
 				9E89A5B41E4B32BE009966E9 /* WCRedEnvelopesTodayHistory.mm */,
 				9E89A5A01E49D409009966E9 /* Newline.mm */,
+				9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */,
 				9E89A5AC1E49F1F6009966E9 /* TouchScreenshot.mm */,
 				9E89A59E1E4980CA009966E9 /* MicroMessengerAppDelegate.mm */,
 				9E87A7A11E4739EB007F6DD5 /* ScreenshotForward.mm */,
@@ -452,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */,
 				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
 				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,
 				9E89A5AD1E49F1F6009966E9 /* TouchScreenshot.mm in Sources */,

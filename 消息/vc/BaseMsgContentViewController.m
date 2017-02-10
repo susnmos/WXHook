@@ -8812,10 +8812,6 @@ loc_101d11ecc:
 
 - (void)revokeMsgByNodeView:(id)arg2 
 {
-    asm{ stp        x24, x23, [sp, #0xffffffc0]! };
-    asm{ stp        x22, x21, [sp, #0x10] };
-    asm{ stp        x20, x19, [sp, #0x20] };
-    asm{ stp        x29, x30, [sp, #0x30] };
     r19 = [arg2 retain];
     asm{ ldrsw      x8, [x8, #0xd6c] };
     r20 = self + 0x1039e8000;

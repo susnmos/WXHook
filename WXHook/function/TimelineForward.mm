@@ -122,7 +122,6 @@ CHDeclareMethod1(void, ImageMessageCellView, imageTimeline, UIMenuItem *, menu) 
 
 #pragma mark- video
 CHDeclareMethod1(void, VideoMessageCellView, videoTimeline, UIMenuItem *, menu) {
-  CHLog(@"videocellview good job");
   id vc = CHIvar(self, m_delegate, id);
   VideoMessageCellView *videoViewMdel = [self viewModel];
   // video path
