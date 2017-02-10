@@ -8,6 +8,7 @@
 #import "WCRedEnvelopesControlData.h"
 #import "WCRedEnvelopesHistoryInfo.h"
 #import "WCRedEnvelopesReceivedRedEnvelopesInfo.h"
+#import "WCRedEnvelopesSendedRedEnvelopesInfo.h"
 #import "WCRedEnvelopesRedEnvelopesHistoryListViewController.h"
 #import "WCRedEnvelopesHistoryListControlLogic.h"
 #import "WCPayPickerView.h"
@@ -16,16 +17,16 @@ CHOptimizedMethod2(self, void, WCPayPickerView, initWithRows, NSArray *, rows, t
   hadRequestTimes = 0;
   NSMutableArray *array = [rows mutableCopy];
   if (array.count - 1 >= 0) {
-//    array[array.count-1] = @"今天";
-    [array insertObject:@"今天" atIndex:array.count-1];
+    array[array.count-1] = @"今天";
   }
   return CHSuper2(WCPayPickerView, initWithRows, array, title, title);
 }
 
 CHOptimizedMethod2(self, void, WCPayPickerView, setSelectedRow, long long, row, atSession, long long, session) {
-  if (showTodayRedHistory) {
+  if (showTodayRedHistory && !hadChangeRedHistory) {
     return CHSuper2(WCPayPickerView, setSelectedRow, 4, atSession, 0);
   }
+  hadChangeRedHistory = NO;
   return CHSuper2(WCPayPickerView, setSelectedRow, row, atSession, session);
 }
 
@@ -82,17 +83,33 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   long long recTotalNum = 0; // 收到红包
   long long recTotalAmount = 0; // 收到总的钱数 单位为分
   int type = 0;
-  for (WCRedEnvelopesReceivedRedEnvelopesInfo *receivedInfo in info.m_arrRecList) {
-    if ([receivedInfo.m_nsReceiveTime isEqualToString:@"02-07"]) {
-      recTotalNum += 1;
-      recTotalAmount += receivedInfo.m_lReceiveAmount;
-      type += receivedInfo.m_enWCRedEnvelopesType;
+  
+  long long sendTotalNum = 0; // 发送的总红包树
+  long long sendTotalAmount = 0; // 发送的总钱数 单位为分
+  if (info.m_arrRecList) {
+    for (WCRedEnvelopesReceivedRedEnvelopesInfo *receivedInfo in info.m_arrRecList) {
+      if ([receivedInfo.m_nsReceiveTime isEqualToString:nowStr]) {
+        recTotalNum += 1;
+        recTotalAmount += receivedInfo.m_lReceiveAmount;
+        type += receivedInfo.m_enWCRedEnvelopesType;
+      }
+    }
+    
+    //  info.m_nsCurrentYear = @"今年"; // 用于请求，会请求失败
+  }else if (info.m_arrSendList) {
+    for (WCRedEnvelopesSendedRedEnvelopesInfo *sendedInfo in info.m_arrSendList) {
+      if ([sendedInfo.m_nsSendTime isEqualToString:nowStr]) {
+        sendTotalAmount += sendedInfo.m_lTotalAmount;
+        sendTotalNum += 1;
+      }
     }
   }
   info.m_lRecTotalNum = recTotalNum;
   info.m_lRecTotalAmount = recTotalAmount;
   info.m_lTotalGameCount = type;
-//  info.m_nsCurrentYear = @"今年"; // 用于请求，会请求失败
+  
+  info.m_lSendTotalNum = sendTotalNum;
+  info.m_lSendTotalAmount = sendTotalAmount;
 
   UIView *headerView = CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
   for (UIView *subView in [headerView subviews]) {
@@ -102,6 +119,11 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
     }
   }
   return headerView;
+}
+
+CHOptimizedMethod0(self, void, WCRedEnvelopesRedEnvelopesHistoryListViewController, changeHistoryType) {
+  hadChangeRedHistory = YES;
+  return CHSuper0(WCRedEnvelopesRedEnvelopesHistoryListViewController, changeHistoryType);
 }
 
 CHOptimizedMethod0(self, void, WCRedEnvelopesRedEnvelopesHistoryListViewController, dealloc) {
@@ -117,7 +139,7 @@ CHDeclareMethod1(BOOL, WCRedEnvelopesRedEnvelopesHistoryListViewController,shoul
   WCRedEnvelopesHistoryInfo *info = [data m_oWCRedEnvelopesHistoryInfo];
   NSString *nowStr = [[CHClass(WCRedEnvelopesRedEnvelopesHistoryListViewController) dateFormatter] stringFromDate:[[NSDate date] autorelease]];
   WCRedEnvelopesReceivedRedEnvelopesInfo *lastInfo = info.m_arrRecList.lastObject;
-  if ([lastInfo.m_nsReceiveTime isEqualToString:@"02-07"]) {
+  if ([lastInfo.m_nsReceiveTime isEqualToString:nowStr]) {
     return YES;
   }else {
     return NO;

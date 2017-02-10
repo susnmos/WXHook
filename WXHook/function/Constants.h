@@ -10,3 +10,4 @@ static BOOL isFinishedRefreshRedHistory = NO;
 static BOOL showTodayRedHistory = NO;
 static long hadRequestTimes = 0;
 static BOOL lastRequest = NO;
+static BOOL hadChangeRedHistory = NO;

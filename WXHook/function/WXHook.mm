@@ -115,5 +115,6 @@ CHConstructor // code block that runs immediately upon load
     CHHook1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView);
     CHHook0(WCRedEnvelopesRedEnvelopesHistoryListViewController, dealloc);
     CHHook2(WCRedEnvelopesRedEnvelopesHistoryListViewController, WCPayPickerViewDidChooseRow, atSession);
+    CHHook0(WCRedEnvelopesRedEnvelopesHistoryListViewController, changeHistoryType);
   }
 }

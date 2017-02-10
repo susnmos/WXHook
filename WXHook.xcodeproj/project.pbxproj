@@ -10,6 +10,7 @@
 		9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */; };
 		9E0765501E44BCE100136255 /* MMUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E07654F1E44BCE100136255 /* MMUIViewController.h */; };
 		9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */; };
+		9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */; };
 		9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768A1E47721200C649FA /* MMServiceCenter.h */; };
 		9E66768D1E47727200C649FA /* WCFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768C1E47727200C649FA /* WCFacade.h */; };
 		9E66768F1E4773B800C649FA /* MMService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768E1E4773B800C649FA /* MMService.h */; };
@@ -64,6 +65,7 @@
 		9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNewCommitViewController.h; sourceTree = "<group>"; };
 		9E07654F1E44BCE100136255 /* MMUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIViewController.h; sourceTree = "<group>"; };
 		9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WCCommitViewAnimationDelegate-Protocol.h"; sourceTree = "<group>"; };
+		9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRedEnvelopesSendedRedEnvelopesInfo.h; sourceTree = "<group>"; };
 		9E66768A1E47721200C649FA /* MMServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
 		9E66768C1E47727200C649FA /* WCFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFacade.h; sourceTree = "<group>"; };
 		9E66768E1E4773B800C649FA /* MMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMService.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		9EC0BFD01E449958005EE512 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */,
 				9E93693A1E4CE9E20066E786 /* WCPayPickerView.h */,
 				9E9369261E4B784B0066E786 /* WCRedEnvelopesControlData.h */,
 				9E9369281E4B7BDD0066E786 /* WCRedEnvelopesHistoryInfo.h */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */,
+				9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */,
 				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
 				9E89A5B11E4A1444009966E9 /* BaseMsgContentViewController.h in Headers */,
 				9E93693B1E4CE9E20066E786 /* WCPayPickerView.h in Headers */,
