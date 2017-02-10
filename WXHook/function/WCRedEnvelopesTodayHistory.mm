@@ -32,6 +32,7 @@ CHOptimizedMethod2(self, void, WCPayPickerView, setSelectedRow, long long, row, 
 
 CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, WCRedEnvelopesControlData *, data) {
   CHLog(@"wxhook=== data: %@", data);
+  WCRedEnvelopesHistoryListControlLogic *logic = CHIvar(self, m_delegate, WCRedEnvelopesHistoryListControlLogic *);
   if (isFinishedRefreshRedHistory) {
     UIView *view =  CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
     if (lastRequest) {
@@ -41,6 +42,10 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
           [(MMUILabel *)subView setText: @"今天"];
           break;
         }
+      }
+      [(MMUILabel *)[view subviews].lastObject setText: @"加载结束"];
+      if ([[view subviews][[view subviews].count-2] isKindOfClass:CHClass(MMUILabel)] && CHIvar(logic, m_enWCRedEnvelopesHistoryType, int) == 0) {
+        [(MMUILabel *)[view subviews][[view subviews].count-2] setText: @" "];
       }
     }
     return view;
@@ -54,7 +59,6 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   }
   NSString *nowStr = [[CHClass(WCRedEnvelopesRedEnvelopesHistoryListViewController) dateFormatter] stringFromDate:[[NSDate date] autorelease]];
   
-  WCRedEnvelopesHistoryListControlLogic *logic = CHIvar(self, m_delegate, WCRedEnvelopesHistoryListControlLogic *);
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     if (hadRequestTimes > 15) {
       return;
@@ -76,12 +80,12 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
           break;
         }
       }
+      
     }
   });
   
   long long recTotalNum = 0; // 收到红包
   long long recTotalAmount = 0; // 收到总的钱数 单位为分
-  int type = 0;
   
   long long sendTotalNum = 0; // 发送的总红包树
   long long sendTotalAmount = 0; // 发送的总钱数 单位为分
@@ -90,7 +94,6 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
       if ([receivedInfo.m_nsReceiveTime isEqualToString:nowStr]) {
         recTotalNum += 1;
         recTotalAmount += receivedInfo.m_lReceiveAmount;
-        type += receivedInfo.m_enWCRedEnvelopesType;
       }else { break; }
     }
     
@@ -105,7 +108,6 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   }
   info.m_lRecTotalNum = recTotalNum;
   info.m_lRecTotalAmount = recTotalAmount;
-  info.m_lTotalGameCount = type;
   
   info.m_lSendTotalNum = sendTotalNum;
   info.m_lSendTotalAmount = sendTotalAmount;
@@ -116,6 +118,10 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
       [(MMUILabel *)subView setText: @"今天"];
       break;
     }
+  }
+  [(MMUILabel *)[headerView subviews].lastObject setText: @"加载中"];
+  if ([[headerView subviews][[headerView subviews].count-2] isKindOfClass:CHClass(MMUILabel)] && CHIvar(logic, m_enWCRedEnvelopesHistoryType, int) == 0) {
+    [(MMUILabel *)[headerView subviews][[headerView subviews].count-2] setText: @" "];
   }
   return headerView;
 }
