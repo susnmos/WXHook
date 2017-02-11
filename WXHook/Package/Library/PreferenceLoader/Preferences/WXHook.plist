@@ -101,6 +101,20 @@
 		</dict>
 		<dict>
 			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<string>YES</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.enableAnyDayStep</string>
+			<key>label</key>
+			<string>开启</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>PSEditTextCell</string>
 			<key>default</key>
 			<string>6666</string>
@@ -109,7 +123,7 @@
 			<key>key</key>
 			<string>com.susnm.AnyDayStep</string>
 			<key>label</key>
-			<string>每天步数</string>
+			<string>每日步数</string>
 			<key>placeholder</key>
 			<string>输入任意整数步数（最大98800）</string>
 			<key>PostNotification</key>

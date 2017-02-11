@@ -7,9 +7,19 @@
 //
 
 CHOptimizedMethod0(self, unsigned long, WCDeviceStepObject, m7StepCount) {
-  return 98800;
+  if (![CHClass(MicroMessengerAppDelegate) isEnableAnyDayStep]) {
+    return CHSuper0(WCDeviceStepObject, m7StepCount);
+  }
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  int anyDayStep = [[prefs objectForKey:anyDayStepKey] intValue];
+  return anyDayStep;
 }
 
 CHOptimizedMethod0(self, unsigned long, WCDeviceStepObject, hkStepCount) {
-  return 98800;
+  if (![CHClass(MicroMessengerAppDelegate) isEnableAnyDayStep]) {
+    return CHSuper0(WCDeviceStepObject, hkStepCount);
+  }
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  int anyDayStep = [[prefs objectForKey:anyDayStepKey] intValue];
+  return anyDayStep;
 }

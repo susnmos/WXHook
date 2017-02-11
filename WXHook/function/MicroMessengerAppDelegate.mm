@@ -20,6 +20,12 @@ CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbScreenshotForward) {
   return isEnbScreenshotForward;
 }
 
+CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableAnyDayStep) {
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  BOOL isEnableAnyDayStep = [[prefs objectForKey:enableAnyDayStepKey] boolValue];
+  return isEnableAnyDayStep;
+}
+
 CHDeclareClassMethod0(UIViewController *, MicroMessengerAppDelegate, getCurrentShowViewController) {
   UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
   return [CHClass(MicroMessengerAppDelegate) presentedVcWithVC: keyWindow.rootViewController];

@@ -64,7 +64,11 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
   NSString *nowStr = [[CHClass(WCRedEnvelopesRedEnvelopesHistoryListViewController) dateFormatter] stringFromDate:[[NSDate date] autorelease]];
   
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    if (hadRequestTimes > 15) {
+    
+    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+    int totalRequestTimes = [[prefs objectForKey:totalRedHistoryRequestTimesKey] intValue];
+    CHLog(@"wxhook === times: %u", totalRequestTimes);
+    if (hadRequestTimes > totalRequestTimes) {
       return;
     }
     [logic OnLoadMoreRedEnvelopesList];
