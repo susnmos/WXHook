@@ -67,7 +67,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
     
     NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
     int totalRequestTimes = [[prefs objectForKey:totalRedHistoryRequestTimesKey] intValue];
-    CHLog(@"wxhook === times: %u", totalRequestTimes);
+    CHLog(@"wxhook === hadRequest: %u times: %u", hadRequestTimes, totalRequestTimes);
     if (hadRequestTimes > totalRequestTimes) {
       return;
     }
@@ -155,8 +155,9 @@ CHDeclareMethod1(BOOL, WCRedEnvelopesRedEnvelopesHistoryListViewController,shoul
 
   WCRedEnvelopesHistoryInfo *info = [data m_oWCRedEnvelopesHistoryInfo];
   NSString *nowStr = [[CHClass(WCRedEnvelopesRedEnvelopesHistoryListViewController) dateFormatter] stringFromDate:[[NSDate date] autorelease]];
-  WCRedEnvelopesReceivedRedEnvelopesInfo *lastInfo = info.m_arrRecList.lastObject;
-  if ([lastInfo.m_nsReceiveTime isEqualToString:nowStr]) {
+  WCRedEnvelopesReceivedRedEnvelopesInfo *receivedInfo = info.m_arrRecList.lastObject;
+  WCRedEnvelopesSendedRedEnvelopesInfo *sendInfo = info.m_arrSendList.lastObject;
+  if ([receivedInfo.m_nsReceiveTime isEqualToString:nowStr] || [sendInfo.m_nsSendTime isEqualToString:nowStr]) {
     return YES;
   }else {
     return NO;
