@@ -14,6 +14,8 @@
 		9E4A9EFF1E4DBAC70035AA65 /* MMTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */; };
 		9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */; };
 		9E4A9F031E4E40530035AA65 /* AnyStep.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A9F021E4E40530035AA65 /* AnyStep.mm */; };
+		9E4A9F2E1E4F86380035AA65 /* libkarenlocalizer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */; };
+		9E4A9F321E4F88B70035AA65 /* WXHook.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A9F311E4F88B70035AA65 /* WXHook.bundle */; };
 		9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768A1E47721200C649FA /* MMServiceCenter.h */; };
 		9E66768D1E47727200C649FA /* WCFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768C1E47727200C649FA /* WCFacade.h */; };
 		9E66768F1E4773B800C649FA /* MMService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768E1E4773B800C649FA /* MMService.h */; };
@@ -72,6 +74,8 @@
 		9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleView.h; sourceTree = "<group>"; };
 		9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RevokeMsg.mm; sourceTree = "<group>"; };
 		9E4A9F021E4E40530035AA65 /* AnyStep.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnyStep.mm; sourceTree = "<group>"; };
+		9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libkarenlocalizer.dylib; path = ../../../../opt/theos/lib/libkarenlocalizer.dylib; sourceTree = "<group>"; };
+		9E4A9F311E4F88B70035AA65 /* WXHook.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WXHook.bundle; sourceTree = "<group>"; };
 		9E66768A1E47721200C649FA /* MMServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
 		9E66768C1E47727200C649FA /* WCFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFacade.h; sourceTree = "<group>"; };
 		9E66768E1E4773B800C649FA /* MMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMService.h; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4A9F2E1E4F86380035AA65 /* libkarenlocalizer.dylib in Frameworks */,
 				9E89A5AF1E4A00CF009966E9 /* CoreGraphics.framework in Frameworks */,
 				9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */,
 				9EE69C521E39EB0900732B62 /* libsubstrate.dylib in Frameworks */,
@@ -143,6 +148,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E4A9F301E4F88B70035AA65 /* KarenLocalizer */ = {
+			isa = PBXGroup;
+			children = (
+				9E4A9F311E4F88B70035AA65 /* WXHook.bundle */,
+			);
+			name = KarenLocalizer;
+			path = Package/Library/KarenLocalizer;
+			sourceTree = "<group>";
+		};
 		9E87A79A1E47265F007F6DD5 /* function */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +247,7 @@
 		9EE69C361E39E0C800732B62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */,
 				9E89A5AE1E4A00CF009966E9 /* CoreGraphics.framework */,
 				9EE69C531E39EB5700732B62 /* UIKit.framework */,
 				9EE69C511E39EB0900732B62 /* libsubstrate.dylib */,
@@ -282,6 +297,7 @@
 		9EE69C401E39E0C800732B62 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				9E4A9F301E4F88B70035AA65 /* KarenLocalizer */,
 				9EE69C411E39E0C800732B62 /* PreferenceLoader */,
 				9EE69C491E39E0C800732B62 /* MobileSubstrate */,
 			);
@@ -432,6 +448,7 @@
 			files = (
 				9E6676A91E478FD200C649FA /* WXHookIcon.png in Resources */,
 				9E6676AA1E478FD200C649FA /* WXHookIcon@2x.png in Resources */,
+				9E4A9F321E4F88B70035AA65 /* WXHook.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +565,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
+					/opt/theos/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
@@ -587,6 +605,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
+					/opt/theos/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (

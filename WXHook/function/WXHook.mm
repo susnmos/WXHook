@@ -50,6 +50,8 @@ CHConstructor // code block that runs immediately upon load
     AddObserver(screenshotNotification, userDidTakeScreenshot);
     AddObserver(shouldScreenshotNotification, userScreenshotNotification);
     
+    CHLoadClass(KarenLocalizer);
+    
     CHLoadLateClass(WCNewCommitViewController);
     CHHook1(WCNewCommitViewController, viewWillAppear);
     CHHook1(WCNewCommitViewController, writeOldText);

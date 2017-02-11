@@ -3,7 +3,7 @@ Name: WXHook
 Version: 0.1.1
 Description: A tweak for WeChat.微信小辅助
 Section: Tweaks
-Depends: firmware (>= 8.0), mobilesubstrate
+Depends: firmware (>= 8.0), mobilesubstrate, net.angelxwind.karenlocalizer
 Conflicts: 
 Replaces: 
 Priority: optional

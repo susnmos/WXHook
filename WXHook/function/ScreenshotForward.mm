@@ -23,6 +23,10 @@
 
 #import "Notification.h"
 
+#import <KarenLocalizer/KarenLocalizer.h>
+
+static KarenLocalizer *karenLocalizer = [[KarenLocalizer alloc] initWithKarenLocalizerBundle:@"WXHook"];
+
 #pragma mark- 快速截图分享
 static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
   UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
@@ -35,12 +39,12 @@ static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer
     
     UIViewController *showVC = [CHClass(MicroMessengerAppDelegate) getCurrentShowViewController];
     
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"截图分享" message:@"是否需要将截图分享到朋友圈?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle: [karenLocalizer karenLocalizeString:@"screenshot_forward"] message:[karenLocalizer karenLocalizeString:@"need_forward_screenshot"] preferredStyle:UIAlertControllerStyleAlert];
     
     // cancel action
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消(存至剪切板)" style:UIAlertActionStyleDestructive handler: nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:[karenLocalizer karenLocalizeString:@"cancel_save_this_screenshot_to_pasteboard"] style:UIAlertActionStyleDestructive handler: nil];
     // forward timeline action
-    UIAlertAction *timeline = [UIAlertAction actionWithTitle:@"朋友圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *timeline = [UIAlertAction actionWithTitle:[karenLocalizer karenLocalizeString:@"forward_to_timeline"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
       
       MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
       WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:@[mmImage] contacts:nil];
@@ -52,7 +56,7 @@ static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer
       [showVC presentViewController:navC animated:YES completion:nil];
     }];
     // forwward firend action
-    UIAlertAction *friendAc = [UIAlertAction actionWithTitle:@"好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *friendAc = [UIAlertAction actionWithTitle:[karenLocalizer karenLocalizeString:@"forward_to_friends"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
       
       CMessageWrap *msgWrap = [CHAlloc(CMessageWrap) initWithMsgType:3]; // 3: image ; 1: text;
       NSString *userName = [CHClass(SettingUtil) getLocalUsrName:1];

@@ -10,6 +10,8 @@
   #import <CaptainHook/CaptainHook.h>
   #import "Constants.h"
 
+  CHDeclareClass(KarenLocalizer);
+
   CHDeclareClass(MicroMessengerAppDelegate);
   CHDeclareClass(MMImage);
   CHDeclareClass(WCNewCommitViewController);

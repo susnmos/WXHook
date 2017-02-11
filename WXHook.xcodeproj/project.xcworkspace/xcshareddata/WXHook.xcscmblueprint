@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E8FB09ECFEEE276F7265147AA128534769E3887F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E8FB09ECFEEE276F7265147AA128534769E3887F" : 9223372036854775807,
+    "E2811579280C8FC45DBD8A3EB086096BA7A2E580" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D62AC4FB-788E-48B9-A1FF-60B2446921A4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E8FB09ECFEEE276F7265147AA128534769E3887F" : "WXHook\/",
+    "E2811579280C8FC45DBD8A3EB086096BA7A2E580" : "..\/..\/..\/opt\/theos"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WXHook",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WXHook.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/theos\/theos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E2811579280C8FC45DBD8A3EB086096BA7A2E580"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/susnmos\/WXHook.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E8FB09ECFEEE276F7265147AA128534769E3887F"
+    }
+  ]
+}
