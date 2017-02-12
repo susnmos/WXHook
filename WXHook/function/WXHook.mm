@@ -42,6 +42,9 @@
 #pragma mark- 任意步数
 #import "AnyStep.mm"
 
+#pragma mark- 自发命令
+#import "SendMsgByMe.mm"
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
@@ -128,6 +131,7 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(CMessageMgr);
 //    CHHook1(CMessageMgr, onRevokeMsg);
     CHHook3(CMessageMgr, DelMsg, MsgList, DelAll);
+    CHHook2(CMessageMgr, AsyncOnAddMsg, MsgWrap);
     
     CHLoadLateClass(WCDeviceStepObject);
     CHHook0(WCDeviceStepObject, m7StepCount);

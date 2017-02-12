@@ -31,7 +31,7 @@
 			<key>key</key>
 			<string>com.susnm.enableProtectiveBody</string>
 			<key>label</key>
-			<string>开启</string>
+			<string>Enable</string>
 			<key>PostNotification</key>
 			<string>com.susnm.WXHook-preferencesChanged</string>
 		</dict>
@@ -41,7 +41,7 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
-			<string>截图时快速转发到朋友圈</string>
+			<string>Quilkly Forward Screenshot To Friends And Timeline</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -53,7 +53,7 @@
 			<key>key</key>
 			<string>com.susnm.enableScreenshotForward</string>
 			<key>label</key>
-			<string>开启</string>
+			<string>Enable</string>
 			<key>PostNotification</key>
 			<string>com.susnm.WXHook-preferencesChanged</string>
 		</dict>
@@ -109,7 +109,7 @@
 			<key>key</key>
 			<string>com.susnm.enableAnyDayStep</string>
 			<key>label</key>
-			<string>开启</string>
+			<string>Enable</string>
 			<key>PostNotification</key>
 			<string>com.susnm.WXHook-preferencesChanged</string>
 		</dict>

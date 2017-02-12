@@ -10,6 +10,12 @@
 		9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */; };
 		9E0765501E44BCE100136255 /* MMUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E07654F1E44BCE100136255 /* MMUIViewController.h */; };
 		9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */; };
+		9E37E5C01E50208200F0F3D5 /* SendMsgByMe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */; };
+		9E37E5ED1E50BE0200F0F3D5 /* WXHook.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5EA1E50BE0200F0F3D5 /* WXHook.plist */; };
+		9E37E5EE1E50BE0200F0F3D5 /* WXHookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5EB1E50BE0200F0F3D5 /* WXHookIcon.png */; };
+		9E37E5EF1E50BE0200F0F3D5 /* WXHookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5EC1E50BE0200F0F3D5 /* WXHookIcon@2x.png */; };
+		9E37E5F61E50BE7700F0F3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5F11E50BE7700F0F3D5 /* Localizable.strings */; };
+		9E37E5F71E50BE7700F0F3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5F41E50BE7700F0F3D5 /* Localizable.strings */; };
 		9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */; };
 		9E4A9EFF1E4DBAC70035AA65 /* MMTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */; };
 		9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */; };
@@ -24,8 +30,6 @@
 		9E66769F1E4782FC00C649FA /* WCCommonService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66769E1E4782FC00C649FA /* WCCommonService.h */; };
 		9E6676A11E4783FA00C649FA /* WCSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6676A01E4783FA00C649FA /* WCSetting.h */; };
 		9E6676A31E478BD800C649FA /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6676A21E478BD800C649FA /* Constants.h */; };
-		9E6676A91E478FD200C649FA /* WXHookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6676A61E478F8F00C649FA /* WXHookIcon.png */; };
-		9E6676AA1E478FD200C649FA /* WXHookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6676A71E478F8F00C649FA /* WXHookIcon@2x.png */; };
 		9E6DBD391E44CC97003575D5 /* SightDraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6DBD381E44CC97003575D5 /* SightDraft.h */; };
 		9E6DBD3B1E44CD0E003575D5 /* MMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6DBD3A1E44CD0E003575D5 /* MMObject.h */; };
 		9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79B1E47265F007F6DD5 /* WXHook.mm */; };
@@ -70,6 +74,12 @@
 		9E07654D1E44BCC000136255 /* WCNewCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNewCommitViewController.h; sourceTree = "<group>"; };
 		9E07654F1E44BCE100136255 /* MMUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIViewController.h; sourceTree = "<group>"; };
 		9E0765511E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WCCommitViewAnimationDelegate-Protocol.h"; sourceTree = "<group>"; };
+		9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SendMsgByMe.mm; sourceTree = "<group>"; };
+		9E37E5EA1E50BE0200F0F3D5 /* WXHook.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WXHook.plist; sourceTree = "<group>"; };
+		9E37E5EB1E50BE0200F0F3D5 /* WXHookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WXHookIcon.png; sourceTree = "<group>"; };
+		9E37E5EC1E50BE0200F0F3D5 /* WXHookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WXHookIcon@2x.png"; sourceTree = "<group>"; };
+		9E37E5F21E50BE7700F0F3D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		9E37E5F51E50BE7700F0F3D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
 		9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRedEnvelopesSendedRedEnvelopesInfo.h; sourceTree = "<group>"; };
 		9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleView.h; sourceTree = "<group>"; };
 		9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RevokeMsg.mm; sourceTree = "<group>"; };
@@ -84,8 +94,6 @@
 		9E66769E1E4782FC00C649FA /* WCCommonService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCommonService.h; sourceTree = "<group>"; };
 		9E6676A01E4783FA00C649FA /* WCSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCSetting.h; sourceTree = "<group>"; };
 		9E6676A21E478BD800C649FA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		9E6676A61E478F8F00C649FA /* WXHookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WXHookIcon.png; sourceTree = "<group>"; };
-		9E6676A71E478F8F00C649FA /* WXHookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WXHookIcon@2x.png"; sourceTree = "<group>"; };
 		9E6DBD381E44CC97003575D5 /* SightDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SightDraft.h; sourceTree = "<group>"; };
 		9E6DBD3A1E44CD0E003575D5 /* MMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMObject.h; sourceTree = "<group>"; };
 		9E87A79B1E47265F007F6DD5 /* WXHook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WXHook.mm; sourceTree = "<group>"; };
@@ -125,7 +133,6 @@
 		9EE69C371E39E0C800732B62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EE69C3D1E39E0C800732B62 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		9EE69C3F1E39E0C800732B62 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
-		9EE69C431E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/PreferenceLoader/Preferences/WXHook.plist; sourceTree = "<group>"; };
 		9EE69C461E39E0C800732B62 /* WXHook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WXHook-Prefix.pch"; sourceTree = "<group>"; };
 		9EE69C4B1E39E0C800732B62 /* WXHook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WXHook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/WXHook.plist; sourceTree = "<group>"; };
 		9EE69C511E39EB0900732B62 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
@@ -148,6 +155,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E37E5E21E50BCDA00F0F3D5 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				9E37E5E91E50BE0200F0F3D5 /* WXHook */,
+			);
+			name = Preferences;
+			path = Package/Library/PreferenceLoader/Preferences;
+			sourceTree = "<group>";
+		};
+		9E37E5E91E50BE0200F0F3D5 /* WXHook */ = {
+			isa = PBXGroup;
+			children = (
+				9E37E5F01E50BE7700F0F3D5 /* en.lproj */,
+				9E37E5F31E50BE7700F0F3D5 /* zh-Hans.lproj */,
+				9E37E5EA1E50BE0200F0F3D5 /* WXHook.plist */,
+				9E37E5EB1E50BE0200F0F3D5 /* WXHookIcon.png */,
+				9E37E5EC1E50BE0200F0F3D5 /* WXHookIcon@2x.png */,
+			);
+			path = WXHook;
+			sourceTree = "<group>";
+		};
+		9E37E5F01E50BE7700F0F3D5 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9E37E5F11E50BE7700F0F3D5 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		9E37E5F31E50BE7700F0F3D5 /* zh-Hans.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9E37E5F41E50BE7700F0F3D5 /* Localizable.strings */,
+			);
+			path = "zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
 		9E4A9F301E4F88B70035AA65 /* KarenLocalizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +206,7 @@
 			children = (
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
+				9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */,
 				9E4A9F021E4E40530035AA65 /* AnyStep.mm */,
 				9E89A5B41E4B32BE009966E9 /* WCRedEnvelopesTodayHistory.mm */,
 				9E89A5A01E49D409009966E9 /* Newline.mm */,
@@ -307,19 +352,9 @@
 		9EE69C411E39E0C800732B62 /* PreferenceLoader */ = {
 			isa = PBXGroup;
 			children = (
-				9EE69C421E39E0C800732B62 /* Preferences */,
+				9E37E5E21E50BCDA00F0F3D5 /* Preferences */,
 			);
 			name = PreferenceLoader;
-			sourceTree = "<group>";
-		};
-		9EE69C421E39E0C800732B62 /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				9E6676A61E478F8F00C649FA /* WXHookIcon.png */,
-				9E6676A71E478F8F00C649FA /* WXHookIcon@2x.png */,
-				9EE69C431E39E0C800732B62 /* WXHook.plist */,
-			);
-			name = Preferences;
 			sourceTree = "<group>";
 		};
 		9EE69C491E39E0C800732B62 /* MobileSubstrate */ = {
@@ -430,6 +465,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 9EE69C2A1E39E0C800732B62;
 			productRefGroup = 9EE69C351E39E0C800732B62 /* Products */;
@@ -446,9 +482,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6676A91E478FD200C649FA /* WXHookIcon.png in Resources */,
-				9E6676AA1E478FD200C649FA /* WXHookIcon@2x.png in Resources */,
+				9E37E5F61E50BE7700F0F3D5 /* Localizable.strings in Resources */,
+				9E37E5F71E50BE7700F0F3D5 /* Localizable.strings in Resources */,
+				9E37E5ED1E50BE0200F0F3D5 /* WXHook.plist in Resources */,
 				9E4A9F321E4F88B70035AA65 /* WXHook.bundle in Resources */,
+				9E37E5EE1E50BE0200F0F3D5 /* WXHookIcon.png in Resources */,
+				9E37E5EF1E50BE0200F0F3D5 /* WXHookIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +516,7 @@
 			files = (
 				9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */,
 				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
+				9E37E5C01E50208200F0F3D5 /* SendMsgByMe.mm in Sources */,
 				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,
 				9E89A5AD1E49F1F6009966E9 /* TouchScreenshot.mm in Sources */,
 				9E4A9F031E4E40530035AA65 /* AnyStep.mm in Sources */,
@@ -489,6 +529,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E37E5F11E50BE7700F0F3D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E37E5F21E50BE7700F0F3D5 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		9E37E5F41E50BE7700F0F3D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E37E5F51E50BE7700F0F3D5 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9EE69C4C1E39E0C800732B62 /* Debug */ = {
