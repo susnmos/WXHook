@@ -136,5 +136,7 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(WCDeviceStepObject);
     CHHook0(WCDeviceStepObject, m7StepCount);
     CHHook0(WCDeviceStepObject, hkStepCount);
+    
+    CHLoadLateClass(MMGrowTextView);
   }
 }
