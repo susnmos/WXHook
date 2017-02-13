@@ -9,15 +9,19 @@
 #import "MMGrowTextView.h"
 
 CHOptimizedMethod1(self, void, MMTextView, _textChanged, NSConcreteNotification *, arg1) {
-  CHLog(@"wxhook== %@", arg1);
+  if (![CHClass(MicroMessengerAppDelegate) isEnableInputSpacesNewLine]) {
+    return CHSuper1(MMTextView, _textChanged, arg1);
+  }
+  
+  NSString *countSpacesStr = [[NSString string] stringByPaddingToLength:anyDayStep withString:@" " startingAtIndex:0];
   MMTextView *textView = [arg1 object];
   NSString *text = [textView text];
   NSRange selectedRange = NSMakeRange([textView selectedRange].location-1, [textView selectedRange].length);
   
-  if ([text rangeOfString:@"    " options:NSBackwardsSearch].location != NSNotFound) {
-    NSRange selectedRange = [text rangeOfString:@"    " options:NSBackwardsSearch];
+  if ([text rangeOfString:countSpacesStr options:NSBackwardsSearch].location != NSNotFound) {
+    NSRange selectedRange = [text rangeOfString:countSpacesStr options:NSBackwardsSearch];
     NSMutableString *str = [text mutableCopy];
-    [str replaceOccurrencesOfString:@"    " withString:@"\n" options:NSBackwardsSearch range:NSMakeRange(0, text.length)];
+    [str replaceOccurrencesOfString:countSpacesStr withString:@"\n" options:NSBackwardsSearch range:NSMakeRange(0, text.length)];
     [textView setText:str];
     
     textView.selectedRange = NSMakeRange(selectedRange.location + 1, 0);

@@ -8,6 +8,19 @@
 #import <UIKit/UIKit.h>
 
 #pragma mark- 配置
+CHOptimizedMethod1(self, BOOL, MicroMessengerAppDelegate, applicationDidBecomeActive, id, arg1) {
+  CHSuper1(MicroMessengerAppDelegate, applicationDidBecomeActive, arg1);
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  int anyDayStepL = [[prefs objectForKey:numberOfSpacesWithNewLine] intValue];
+  anyDayStep = anyDayStepL == 0 ? anyDayStep : anyDayStepL;
+}
+
+CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableInputSpacesNewLine) {
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  BOOL isEnableInputSpacesNewLine = [[prefs objectForKey:enableInputSpacesNewLine] boolValue];
+  return isEnableInputSpacesNewLine;
+}
+
 CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
   BOOL isEnbProBody = [[prefs objectForKey:enableProtectiveBodyKey] boolValue];

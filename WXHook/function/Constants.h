@@ -18,3 +18,7 @@ static NSString *enableScreenshotForwardKey = @"com.susnm.enableScreenshotForwar
 static NSString *totalRedHistoryRequestTimesKey = @"com.susnm.TotalRedHistoryRequestTimes";
 static NSString *anyDayStepKey = @"com.susnm.AnyDayStep";
 static NSString *enableAnyDayStepKey = @"com.susnm.enableAnyDayStep";
+static NSString *enableInputSpacesNewLine = @"com.susnm.enableInputSpacesNewLine";
+static NSString *numberOfSpacesWithNewLine = @"com.susnm.numberOfSpacesWithNewLine";
+
+static int anyDayStep = 4;

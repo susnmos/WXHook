@@ -92,6 +92,7 @@ CHConstructor // code block that runs immediately upon load
     CHHook0(JailBreakHelper, IsJailBreak);
     
     CHLoadLateClass(MicroMessengerAppDelegate);
+    CHHook1(MicroMessengerAppDelegate, applicationDidBecomeActive);
     
     CHLoadLateClass(SpringBoard);
   
@@ -138,5 +139,6 @@ CHConstructor // code block that runs immediately upon load
     CHHook0(WCDeviceStepObject, hkStepCount);
     
     CHLoadLateClass(MMGrowTextView);
+    
   }
 }

@@ -87,9 +87,65 @@
 		</dict>
 		<dict>
 			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<string>YES</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.enableScreenshotForward</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
+			<string>输入空格换行</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<string>YES</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.enableInputSpacesNewLine</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<integer>4</integer>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.numberOfSpacesWithNewLine</string>
+			<key>min</key>
+			<integer>2</integer>
+			<key>max</key>
+			<integer>7</integer>
+			<key>showValue</key>
+			<true/>
+			<key>isSegmented</key>
+			<true/>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>一次请求可获取11个红包数据。默认最大请求次数为15次，165个数据，可统计165个红包的收入或支出。以此类推</string>
+			<string>输入n空格自动换行</string>
 		</dict>
 		<dict>
 			<key>cell</key>
