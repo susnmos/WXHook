@@ -19,7 +19,7 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
-			<string>发送到朋友圈时自动屏蔽消息来源者</string>
+			<string>Forward_timeline_Protect_Body</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -41,7 +41,7 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
-			<string>Quilkly Forward Screenshot To Friends And Timeline</string>
+			<string>Quilkly_Forward_Screenshot_To_Friends_And_Timeline</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -63,7 +63,7 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
-			<string>单次红包统计最大请求次数</string>
+			<string>Max_Request_Info_For_Red_Packets_Times_With_One_Calculate</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -87,17 +87,9 @@
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<string>YES</string>
-			<key>defaults</key>
-			<string>com.susnm.WXHook</string>
-			<key>key</key>
-			<string>com.susnm.enableScreenshotForward</string>
-			<key>label</key>
-			<string>Enable</string>
-			<key>PostNotification</key>
-			<string>com.susnm.WXHook-preferencesChanged</string>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Max_Request_Info_Description</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -105,7 +97,7 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
-			<string>输入空格换行</string>
+			<string>Input_Spaces_For_A_New_Line</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -145,7 +137,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>输入n空格自动换行</string>
+			<string>Automatic_New_Line_With_Input_Spaces</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -153,7 +145,7 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
-			<string>微信步数，胜者为王</string>
+			<string>WX_Number_Of_Steps</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -179,9 +171,9 @@
 			<key>key</key>
 			<string>com.susnm.AnyDayStep</string>
 			<key>label</key>
-			<string>每日步数</string>
+			<string>Day_Number_Of_Steps</string>
 			<key>placeholder</key>
-			<string>输入任意整数步数（最大98800）</string>
+			<string>Input_Any_Integer_Number_Of_Steps</string>
 			<key>PostNotification</key>
 			<string>com.susnm.WXHook-preferencesChanged</string>
 		</dict>
