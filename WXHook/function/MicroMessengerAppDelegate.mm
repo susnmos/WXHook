@@ -11,8 +11,8 @@
 CHOptimizedMethod1(self, BOOL, MicroMessengerAppDelegate, applicationDidBecomeActive, id, arg1) {
   CHSuper1(MicroMessengerAppDelegate, applicationDidBecomeActive, arg1);
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
-  int anyDayStepL = [[prefs objectForKey:numberOfSpacesWithNewLine] intValue];
-  anyDayStep = anyDayStepL == 0 ? anyDayStep : anyDayStepL;
+  int inputSpaceCountL = [[prefs objectForKey:numberOfSpacesWithNewLine] intValue];
+  inputSpaceCount = inputSpaceCountL == 0 ? inputSpaceCount : inputSpaceCountL;
 }
 
 CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableInputSpacesNewLine) {

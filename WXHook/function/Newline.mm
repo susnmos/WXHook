@@ -12,8 +12,7 @@ CHOptimizedMethod1(self, void, MMTextView, _textChanged, NSConcreteNotification 
   if (![CHClass(MicroMessengerAppDelegate) isEnableInputSpacesNewLine]) {
     return CHSuper1(MMTextView, _textChanged, arg1);
   }
-  
-  NSString *countSpacesStr = [[NSString string] stringByPaddingToLength:anyDayStep withString:@" " startingAtIndex:0];
+  NSString *countSpacesStr = [[NSString string] stringByPaddingToLength:inputSpaceCount withString:@" " startingAtIndex:0];
   MMTextView *textView = [arg1 object];
   NSString *text = [textView text];
   NSRange selectedRange = NSMakeRange([textView selectedRange].location-1, [textView selectedRange].length);

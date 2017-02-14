@@ -22,4 +22,4 @@ static NSString *enableInputSpacesNewLine = @"com.susnm.enableInputSpacesNewLine
 static NSString *numberOfSpacesWithNewLine = @"com.susnm.numberOfSpacesWithNewLine";
 static NSString *enableInSafari = @"com.susnm.enableInSafari";
 
-static int anyDayStep = 4;
+static int inputSpaceCount = 4;
