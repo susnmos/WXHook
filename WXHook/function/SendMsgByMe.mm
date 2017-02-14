@@ -10,7 +10,7 @@
 
 CHOptimizedMethod2(self, void, CMessageMgr, AsyncOnAddMsg, id, arg1, MsgWrap, CMessageWrap *, msgWrap) {
   
-//  CHSuper2(CMessageMgr, AsyncOnAddMsg, arg1, MsgWrap, msgWrap);
+  CHSuper2(CMessageMgr, AsyncOnAddMsg, arg1, MsgWrap, msgWrap);
   
   NSString *fromUsr = CHIvar(msgWrap, m_nsFromUsr, NSString *);
   NSString *toUsr = CHIvar(msgWrap, m_nsToUsr, NSString *);
@@ -32,8 +32,8 @@ CHOptimizedMethod2(self, void, CMessageMgr, AsyncOnAddMsg, id, arg1, MsgWrap, CM
   
   prefs[anyDayStepKey] = sideStr;
   
-  if ([prefs writeToFile:WXPreferencesFile atomically:YES]) {    
-    msgWrap.m_nsContent = [NSString stringWithFormat:@"已修改步数为%@", sideStr];
+  if ([prefs writeToFile:WXPreferencesFile atomically:YES]) {
+    msgWrap.m_nsContent = [NSString stringWithFormat:@"已修改步数为%u", [sideStr intValue]];
     return CHSuper2(CMessageMgr, AsyncOnAddMsg, arg1, MsgWrap, msgWrap);
   }
   
