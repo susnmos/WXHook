@@ -21,6 +21,12 @@ CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableInputSpacesNewLin
   return isEnableInputSpacesNewLine;
 }
 
+CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableInSafari) {
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  BOOL isEnableInSafari = [[prefs objectForKey:enableInSafari] boolValue];
+  return isEnableInSafari;
+}
+
 CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnbProBody) {
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
   BOOL isEnbProBody = [[prefs objectForKey:enableProtectiveBodyKey] boolValue];

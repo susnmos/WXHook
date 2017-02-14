@@ -41,6 +41,28 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
+			<string>InSafari</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<string>YES</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.enableInSafari</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
 			<string>Quilkly_Forward_Screenshot_To_Friends_And_Timeline</string>
 		</dict>
 		<dict>
@@ -164,6 +186,8 @@
 		<dict>
 			<key>cell</key>
 			<string>PSEditTextCell</string>
+			<key>isNumeric</key>
+			<true/>
 			<key>default</key>
 			<string>6666</string>
 			<key>defaults</key>

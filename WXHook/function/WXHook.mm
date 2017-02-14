@@ -45,6 +45,9 @@
 #pragma mark- 自发命令
 #import "SendMsgByMe.mm"
 
+#pragma mark- Safari浏览器
+#import "InSafari.mm"
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
@@ -73,11 +76,11 @@ CHConstructor // code block that runs immediately upon load
     CHHook2(BaseMessageCellView, canPerformAction, withSender);
     
     CHLoadLateClass(TextMessageCellView);
+    CHHook2(TextMessageCellView, onLinkClicked, withRect);
     
     CHLoadLateClass(MMServiceCenter);
     CHLoadLateClass(WCFacade);
     
-    CHLoadLateClass(TextMessageCellView);
     CHLoadLateClass(ImageMessageCellView);
     CHLoadLateClass(VoiceMessageCellView);
     CHLoadLateClass(VideoMessageCellView);

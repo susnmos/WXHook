@@ -16,6 +16,16 @@
 		9E37E5EF1E50BE0200F0F3D5 /* WXHookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5EC1E50BE0200F0F3D5 /* WXHookIcon@2x.png */; };
 		9E37E5F61E50BE7700F0F3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5F11E50BE7700F0F3D5 /* Localizable.strings */; };
 		9E37E5F71E50BE7700F0F3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E37E5F41E50BE7700F0F3D5 /* Localizable.strings */; };
+		9E37E5FE1E51CE7700F0F3D5 /* TextMessageCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E5FD1E51CE7700F0F3D5 /* TextMessageCellView.h */; };
+		9E37E6001E51CE9800F0F3D5 /* InSafari.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E37E5FF1E51CE9800F0F3D5 /* InSafari.mm */; };
+		9E37E6021E51CEDC00F0F3D5 /* CommonMessageCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E6011E51CEDC00F0F3D5 /* CommonMessageCellView.h */; };
+		9E37E6041E51CEF600F0F3D5 /* BaseMessageCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E6031E51CEF600F0F3D5 /* BaseMessageCellView.h */; };
+		9E37E6061E51EDAC00F0F3D5 /* BaseChatCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E6051E51EDAC00F0F3D5 /* BaseChatCellView.h */; };
+		9E37E6081E51F8AE00F0F3D5 /* TextMessageViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E6071E51F8AE00F0F3D5 /* TextMessageViewModel.h */; };
+		9E37E60A1E51F8D300F0F3D5 /* CommonMessageViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E6091E51F8D300F0F3D5 /* CommonMessageViewModel.h */; };
+		9E37E60C1E51F8F700F0F3D5 /* BaseMessageViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E60B1E51F8F700F0F3D5 /* BaseMessageViewModel.h */; };
+		9E37E60E1E51F91500F0F3D5 /* BaseChatViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E37E60D1E51F91500F0F3D5 /* BaseChatViewModel.h */; };
+		9E37E6101E51FA3100F0F3D5 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E37E60F1E51FA3100F0F3D5 /* SafariServices.framework */; };
 		9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */; };
 		9E4A9EFF1E4DBAC70035AA65 /* MMTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */; };
 		9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */; };
@@ -80,6 +90,16 @@
 		9E37E5EC1E50BE0200F0F3D5 /* WXHookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WXHookIcon@2x.png"; sourceTree = "<group>"; };
 		9E37E5F21E50BE7700F0F3D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		9E37E5F51E50BE7700F0F3D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
+		9E37E5FD1E51CE7700F0F3D5 /* TextMessageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMessageCellView.h; sourceTree = "<group>"; };
+		9E37E5FF1E51CE9800F0F3D5 /* InSafari.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InSafari.mm; sourceTree = "<group>"; };
+		9E37E6011E51CEDC00F0F3D5 /* CommonMessageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMessageCellView.h; sourceTree = "<group>"; };
+		9E37E6031E51CEF600F0F3D5 /* BaseMessageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMessageCellView.h; sourceTree = "<group>"; };
+		9E37E6051E51EDAC00F0F3D5 /* BaseChatCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChatCellView.h; sourceTree = "<group>"; };
+		9E37E6071E51F8AE00F0F3D5 /* TextMessageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMessageViewModel.h; sourceTree = "<group>"; };
+		9E37E6091E51F8D300F0F3D5 /* CommonMessageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMessageViewModel.h; sourceTree = "<group>"; };
+		9E37E60B1E51F8F700F0F3D5 /* BaseMessageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMessageViewModel.h; sourceTree = "<group>"; };
+		9E37E60D1E51F91500F0F3D5 /* BaseChatViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChatViewModel.h; sourceTree = "<group>"; };
+		9E37E60F1E51FA3100F0F3D5 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRedEnvelopesSendedRedEnvelopesInfo.h; sourceTree = "<group>"; };
 		9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleView.h; sourceTree = "<group>"; };
 		9E4A9F001E4DD95C0035AA65 /* RevokeMsg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RevokeMsg.mm; sourceTree = "<group>"; };
@@ -144,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E37E6101E51FA3100F0F3D5 /* SafariServices.framework in Frameworks */,
 				9E4A9F2E1E4F86380035AA65 /* libkarenlocalizer.dylib in Frameworks */,
 				9E89A5AF1E4A00CF009966E9 /* CoreGraphics.framework in Frameworks */,
 				9EE69C541E39EB5700732B62 /* UIKit.framework in Frameworks */,
@@ -207,6 +228,7 @@
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
 				9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */,
+				9E37E5FF1E51CE9800F0F3D5 /* InSafari.mm */,
 				9E4A9F021E4E40530035AA65 /* AnyStep.mm */,
 				9E89A5B41E4B32BE009966E9 /* WCRedEnvelopesTodayHistory.mm */,
 				9E89A5A01E49D409009966E9 /* Newline.mm */,
@@ -231,7 +253,15 @@
 		9EC0BFD01E449958005EE512 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				9E37E6071E51F8AE00F0F3D5 /* TextMessageViewModel.h */,
+				9E37E60D1E51F91500F0F3D5 /* BaseChatViewModel.h */,
+				9E37E60B1E51F8F700F0F3D5 /* BaseMessageViewModel.h */,
+				9E37E6091E51F8D300F0F3D5 /* CommonMessageViewModel.h */,
+				9E37E6051E51EDAC00F0F3D5 /* BaseChatCellView.h */,
+				9E37E5FD1E51CE7700F0F3D5 /* TextMessageCellView.h */,
 				9E4A9EFE1E4DBAC70035AA65 /* MMTitleView.h */,
+				9E37E6031E51CEF600F0F3D5 /* BaseMessageCellView.h */,
+				9E37E6011E51CEDC00F0F3D5 /* CommonMessageCellView.h */,
 				9E4A9EC21E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h */,
 				9E93693A1E4CE9E20066E786 /* WCPayPickerView.h */,
 				9E9369261E4B784B0066E786 /* WCRedEnvelopesControlData.h */,
@@ -292,6 +322,7 @@
 		9EE69C361E39E0C800732B62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E37E60F1E51FA3100F0F3D5 /* SafariServices.framework */,
 				9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */,
 				9E89A5AE1E4A00CF009966E9 /* CoreGraphics.framework */,
 				9EE69C531E39EB5700732B62 /* UIKit.framework */,
@@ -383,17 +414,23 @@
 				9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */,
 				9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */,
 				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
+				9E37E6061E51EDAC00F0F3D5 /* BaseChatCellView.h in Headers */,
 				9E89A5B11E4A1444009966E9 /* BaseMsgContentViewController.h in Headers */,
 				9E93693B1E4CE9E20066E786 /* WCPayPickerView.h in Headers */,
+				9E37E60E1E51F91500F0F3D5 /* BaseChatViewModel.h in Headers */,
 				9E89A5B31E4A146A009966E9 /* MMSearchBarDisplayController.h in Headers */,
 				9E9369371E4B95C50066E786 /* WCBizControlLogic.h in Headers */,
 				9E89A5A31E49D4E6009966E9 /* NSConcreteNotification.h in Headers */,
+				9E37E5FE1E51CE7700F0F3D5 /* TextMessageCellView.h in Headers */,
 				9E66768F1E4773B800C649FA /* MMService.h in Headers */,
+				9E37E6041E51CEF600F0F3D5 /* BaseMessageCellView.h in Headers */,
+				9E37E6021E51CEDC00F0F3D5 /* CommonMessageCellView.h in Headers */,
 				9E66769B1E477E6000C649FA /* CBaseContact.h in Headers */,
 				9E9369331E4B93FF0066E786 /* WCRedEnvelopesHistoryListControlLogic.h in Headers */,
 				9E66769F1E4782FC00C649FA /* WCCommonService.h in Headers */,
 				9E9369311E4B89270066E786 /* WCBizBaseViewController.h in Headers */,
 				9E89A5A71E49D67E009966E9 /* MMUITextView.h in Headers */,
+				9E37E6081E51F8AE00F0F3D5 /* TextMessageViewModel.h in Headers */,
 				9E6676A31E478BD800C649FA /* Constants.h in Headers */,
 				9E89A59B1E49726E009966E9 /* SettingUtil.h in Headers */,
 				9E93692F1E4B89060066E786 /* WCRedEnvelopesBaseViewController.h in Headers */,
@@ -401,11 +438,13 @@
 				9E66768D1E47727200C649FA /* WCFacade.h in Headers */,
 				9E89A5AB1E49D87A009966E9 /* MMUIView.h in Headers */,
 				9E9369351E4B95AF0066E786 /* WCRedEnvelopesControlLogic.h in Headers */,
+				9E37E60C1E51F8F700F0F3D5 /* BaseMessageViewModel.h in Headers */,
 				9E89A5991E4971F1009966E9 /* CMessageWrap.h in Headers */,
 				9E89A5A91E49D7CC009966E9 /* MMGrowTextView.h in Headers */,
 				9E9369271E4B784B0066E786 /* WCRedEnvelopesControlData.h in Headers */,
 				9E9369391E4B95D70066E786 /* WCBaseControlLogic.h in Headers */,
 				9E89A59D1E497365009966E9 /* MMNewSessionMgr.h in Headers */,
+				9E37E60A1E51F8D300F0F3D5 /* CommonMessageViewModel.h in Headers */,
 				9E0765521E44BFE000136255 /* WCCommitViewAnimationDelegate-Protocol.h in Headers */,
 				9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */,
 				9E6DBD391E44CC97003575D5 /* SightDraft.h in Headers */,
@@ -518,6 +557,7 @@
 				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
 				9E37E5C01E50208200F0F3D5 /* SendMsgByMe.mm in Sources */,
 				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,
+				9E37E6001E51CE9800F0F3D5 /* InSafari.mm in Sources */,
 				9E89A5AD1E49F1F6009966E9 /* TouchScreenshot.mm in Sources */,
 				9E4A9F031E4E40530035AA65 /* AnyStep.mm in Sources */,
 				9E89A5A11E49D409009966E9 /* Newline.mm in Sources */,

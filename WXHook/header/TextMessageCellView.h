@@ -6,16 +6,9 @@
 
 #import "CommonMessageCellView.h"
 
-#import "ILinkEventExt.h"
-#import "ITranslateMsgMgrExt.h"
-#import "MMTipsViewControllerDelegate.h"
-#import "RichTextLayoutDelegate.h"
-#import "TextFloatPreviewDelegate.h"
-#import "WCActionSheetDelegate.h"
-
 @class MMTipsViewController, NSString, RichTextView, TextFloatPreview, TextMessageViewModel, UIButton, UIImageView, WCUIActionSheet;
 
-@interface TextMessageCellView : CommonMessageCellView <ILinkEventExt, RichTextLayoutDelegate, WCActionSheetDelegate, MMTipsViewControllerDelegate, TextFloatPreviewDelegate, ITranslateMsgMgrExt>
+@interface TextMessageCellView : CommonMessageCellView
 {
     RichTextView *m_richTextView;
     UIButton *m_oTranslateStatusButton;

@@ -20,5 +20,6 @@ static NSString *anyDayStepKey = @"com.susnm.AnyDayStep";
 static NSString *enableAnyDayStepKey = @"com.susnm.enableAnyDayStep";
 static NSString *enableInputSpacesNewLine = @"com.susnm.enableInputSpacesNewLine";
 static NSString *numberOfSpacesWithNewLine = @"com.susnm.numberOfSpacesWithNewLine";
+static NSString *enableInSafari = @"com.susnm.enableInSafari";
 
 static int anyDayStep = 4;
