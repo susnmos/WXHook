@@ -15,16 +15,15 @@ CHOptimizedMethod2(self, void, CMessageMgr, AsyncOnAddMsg, id, arg1, MsgWrap, CM
   NSString *fromUsr = CHIvar(msgWrap, m_nsFromUsr, NSString *);
   NSString *toUsr = CHIvar(msgWrap, m_nsToUsr, NSString *);
   
-  if (![fromUsr isEqualToString:toUsr]) return;
+  if (![fromUsr isEqualToString:toUsr]) return CHSuper2(CMessageMgr, AsyncOnAddMsg, arg1, MsgWrap, msgWrap);
   
   NSString *content = msgWrap.m_nsContent;
   
-  if ([content rangeOfString:@"修改步数#"].location == NSNotFound) return;
+  if ([content rangeOfString:@"修改步数#"].location == NSNotFound) return CHSuper2(CMessageMgr, AsyncOnAddMsg, arg1, MsgWrap, msgWrap);
   
   NSRange range = [content rangeOfString:@"修改步数#"];
   NSString *sideStr =  [content substringFromIndex:range.length];
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
-  CHLog(@"wxhook=== sideStr : %@", sideStr);
   
   if ([sideStr intValue] == 0) {
     msgWrap.m_nsContent = @"修改步数失败";
