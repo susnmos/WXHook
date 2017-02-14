@@ -59,4 +59,5 @@
   CHDeclareClass(CMessageMgr)
 
   CHDeclareClass(WCDeviceStepObject)
+  CHDeclareClass(MsgResourceBrowseViewController)
 #endif

@@ -32,6 +32,10 @@
 		9E4A9F031E4E40530035AA65 /* AnyStep.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A9F021E4E40530035AA65 /* AnyStep.mm */; };
 		9E4A9F2E1E4F86380035AA65 /* libkarenlocalizer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */; };
 		9E4A9F321E4F88B70035AA65 /* WXHook.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A9F311E4F88B70035AA65 /* WXHook.bundle */; };
+		9E5B8CF61E5365DF009D8D34 /* SimpleMsgInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CF51E5365DF009D8D34 /* SimpleMsgInfo.h */; };
+		9E5B8CF81E5365F6009D8D34 /* MsgResourceBrowseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CF71E5365F6009D8D34 /* MsgResourceBrowseViewController.h */; };
+		9E5B8CFA1E5366A7009D8D34 /* SimpleImgInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CF91E5366A7009D8D34 /* SimpleImgInfo.h */; };
+		9E5B8CFC1E538204009D8D34 /* MsgFastBrowseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CFB1E538204009D8D34 /* MsgFastBrowseView.h */; };
 		9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768A1E47721200C649FA /* MMServiceCenter.h */; };
 		9E66768D1E47727200C649FA /* WCFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768C1E47727200C649FA /* WCFacade.h */; };
 		9E66768F1E4773B800C649FA /* MMService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768E1E4773B800C649FA /* MMService.h */; };
@@ -106,6 +110,10 @@
 		9E4A9F021E4E40530035AA65 /* AnyStep.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnyStep.mm; sourceTree = "<group>"; };
 		9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libkarenlocalizer.dylib; path = ../../../../opt/theos/lib/libkarenlocalizer.dylib; sourceTree = "<group>"; };
 		9E4A9F311E4F88B70035AA65 /* WXHook.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WXHook.bundle; sourceTree = "<group>"; };
+		9E5B8CF51E5365DF009D8D34 /* SimpleMsgInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMsgInfo.h; sourceTree = "<group>"; };
+		9E5B8CF71E5365F6009D8D34 /* MsgResourceBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgResourceBrowseViewController.h; sourceTree = "<group>"; };
+		9E5B8CF91E5366A7009D8D34 /* SimpleImgInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImgInfo.h; sourceTree = "<group>"; };
+		9E5B8CFB1E538204009D8D34 /* MsgFastBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgFastBrowseView.h; sourceTree = "<group>"; };
 		9E66768A1E47721200C649FA /* MMServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
 		9E66768C1E47727200C649FA /* WCFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFacade.h; sourceTree = "<group>"; };
 		9E66768E1E4773B800C649FA /* MMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMService.h; sourceTree = "<group>"; };
@@ -253,7 +261,11 @@
 		9EC0BFD01E449958005EE512 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				9E5B8CF51E5365DF009D8D34 /* SimpleMsgInfo.h */,
+				9E5B8CFB1E538204009D8D34 /* MsgFastBrowseView.h */,
 				9E37E6071E51F8AE00F0F3D5 /* TextMessageViewModel.h */,
+				9E5B8CF91E5366A7009D8D34 /* SimpleImgInfo.h */,
+				9E5B8CF71E5365F6009D8D34 /* MsgResourceBrowseViewController.h */,
 				9E37E60D1E51F91500F0F3D5 /* BaseChatViewModel.h */,
 				9E37E60B1E51F8F700F0F3D5 /* BaseMessageViewModel.h */,
 				9E37E6091E51F8D300F0F3D5 /* CommonMessageViewModel.h */,
@@ -412,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E89A5A51E49D569009966E9 /* MMTextView.h in Headers */,
+				9E5B8CF81E5365F6009D8D34 /* MsgResourceBrowseViewController.h in Headers */,
 				9E4A9EC31E4D7B220035AA65 /* WCRedEnvelopesSendedRedEnvelopesInfo.h in Headers */,
 				9E07654E1E44BCC000136255 /* WCNewCommitViewController.h in Headers */,
 				9E37E6061E51EDAC00F0F3D5 /* BaseChatCellView.h in Headers */,
@@ -422,6 +435,7 @@
 				9E9369371E4B95C50066E786 /* WCBizControlLogic.h in Headers */,
 				9E89A5A31E49D4E6009966E9 /* NSConcreteNotification.h in Headers */,
 				9E37E5FE1E51CE7700F0F3D5 /* TextMessageCellView.h in Headers */,
+				9E5B8CFC1E538204009D8D34 /* MsgFastBrowseView.h in Headers */,
 				9E66768F1E4773B800C649FA /* MMService.h in Headers */,
 				9E37E6041E51CEF600F0F3D5 /* BaseMessageCellView.h in Headers */,
 				9E37E6021E51CEDC00F0F3D5 /* CommonMessageCellView.h in Headers */,
@@ -429,6 +443,8 @@
 				9E9369331E4B93FF0066E786 /* WCRedEnvelopesHistoryListControlLogic.h in Headers */,
 				9E66769F1E4782FC00C649FA /* WCCommonService.h in Headers */,
 				9E9369311E4B89270066E786 /* WCBizBaseViewController.h in Headers */,
+				9E5B8CF61E5365DF009D8D34 /* SimpleMsgInfo.h in Headers */,
+				9E5B8CFA1E5366A7009D8D34 /* SimpleImgInfo.h in Headers */,
 				9E89A5A71E49D67E009966E9 /* MMUITextView.h in Headers */,
 				9E37E6081E51F8AE00F0F3D5 /* TextMessageViewModel.h in Headers */,
 				9E6676A31E478BD800C649FA /* Constants.h in Headers */,
