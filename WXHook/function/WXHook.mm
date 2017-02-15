@@ -53,17 +53,19 @@
 
 #import "WCImageCache.h"
 #import "WCTimeLineCellView.h"
+#import "CContactMgr.h"
 CHDeclareClass(WCTimeLineCellView)
 CHDeclareClass(WCContentItem)
 CHDeclareClass(WCMediaItem)
 CHDeclareClass(WCImageCache)
+CHDeclareClass(CContactMgr)
 CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
 //  CHSuper1(WCTimeLineCellView, onCommentPhoto, arg1);
-  WCDataItem *item = CHIvar(self, m_dataItem, WCDataItem *);
-  NSString *contentDesc = CHIvar(item, contentDesc, NSString *); // text
+  WCDataItem *dataItem = CHIvar(self, m_dataItem, WCDataItem *);
+  NSString *contentDesc = CHIvar(dataItem, contentDesc, NSString *); // text
   forwardTimeLine = contentDesc;
   
-  WCContentItem *contentItem = CHIvar(item, contentObj, WCContentItem *); // image video
+  WCContentItem *contentItem = CHIvar(dataItem, contentObj, WCContentItem *); // image video
   NSMutableArray *mediaList = CHIvar(contentItem, mediaList, NSMutableArray *);
   
   NSMutableArray *imageArr = [NSMutableArray arrayWithCapacity:mediaList.count];
@@ -74,8 +76,6 @@ CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
     [imageArr addObject:mmImage];
   }
   
-  
-  
   WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:imageArr contacts:nil];
   
   [wcvc setType: 1];  // 图片文字
@@ -83,10 +83,12 @@ CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
   isShared = YES;
   isFirstEnterWCNewVC = YES;
   
-//  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
-//    CBaseContact *contact = CHIvar(imageViewMdel, m_contact, CBaseContact *);
-//    [wcvc setTempSelectContacts: @[contact]];
-//  }
+  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
+    NSString *username = CHIvar(dataItem, username, NSString *);
+    CContactMgr *contactMgr = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(CContactMgr)];
+    CBaseContact *contact = [contactMgr getContactByName:username];
+    [wcvc setTempSelectContacts: @[contact]];
+  }
   
   UINavigationController *currentVC = self.navigationController;
   UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
@@ -200,6 +202,7 @@ CHConstructor // code block that runs immediately upon load
     CHLoadLateClass(WCContentItem);
     CHLoadLateClass(WCMediaItem);
     CHLoadLateClass(WCImageCache);
+    CHLoadLateClass(CContactMgr);
     
   }
 }
