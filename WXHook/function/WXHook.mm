@@ -148,8 +148,9 @@ CHConstructor // code block that runs immediately upon load
     
     CHLoadLateClass(MsgResourceBrowseViewController);
     CHLoadLateClass(SimpleMsgInfo);
-    CHHook0(MsgResourceBrowseViewController, onSelecteAll);
+    
     CHHook1(MsgResourceBrowseViewController, onDeleteSelectedData);
+    CHHook0(MsgResourceBrowseViewController, viewDidLoad);
     
   }
 }

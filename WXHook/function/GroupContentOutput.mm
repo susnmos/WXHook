@@ -15,7 +15,7 @@
 CHDeclareMethod1(void, MsgResourceBrowseViewController, outputSelectedMsg, NSArray *, selectedArr) {
   NSString *chatName = [self m_nsChatName];
   float totalCount = selectedArr.count;
-  CHLog(@"wxhook=== thread: %@", [NSThread currentThread]);
+  
   UIImageView *imageView = CHIvar(self, _footerView, UIImageView *);
   UILabel *progressLabel;
   for (UIView *subView in [imageView subviews]) {
@@ -82,17 +82,48 @@ CHDeclareMethod1(void, MsgResourceBrowseViewController, outputSelectedMsg, NSArr
   
   
 }
-CHOptimizedMethod0(self, void, MsgResourceBrowseViewController, onSelecteAll) {
-  CHLog(@"wxhook=== MsgResourceBrowseViewController onSelecteAll");
-  NSMutableArray *dataArr = CHIvar(self, m_arrMsg, NSMutableArray *);
-  
-  [self outputSelectedMsg: dataArr];
-  
-}
 
 CHOptimizedMethod1(self, void, MsgResourceBrowseViewController, onDeleteSelectedData, id, data) {
-  CHLog(@"wxhook=== data:%@", data);
+  
   MsgFastBrowseView *browseView = CHIvar(self, m_msgFastBrowseView, MsgFastBrowseView *);
   NSArray *selectedMsg = [browseView getSelectedMessages];
-  [self outputSelectedMsg: selectedMsg];
+  UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"操作" message:[NSString stringWithFormat:@"删除或者导出群内容到/var/mobile/tmp/WeChat/%@", [self m_nsChatName]] preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+  UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    CHSuper1(MsgResourceBrowseViewController, onDeleteSelectedData, data);
+  }];
+  __weak typeof(self) weakSelf = self;
+  UIAlertAction *outputAction = [UIAlertAction actionWithTitle:@"导出选中" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    [weakSelf outputSelectedMsg: selectedMsg];
+  }];
+  UIAlertAction *outputAllAction = [UIAlertAction actionWithTitle:@"导出全部" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    NSMutableArray *dataAll = CHIvar(weakSelf, m_arrMsg, NSMutableArray *);
+    [weakSelf outputSelectedMsg: dataAll];
+  }];
+  [alertVC addAction:outputAction];
+  [alertVC addAction:deleteAction];
+  [alertVC addAction:outputAllAction];
+  [alertVC addAction:cancelAction];
+  
+  [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+CHOptimizedMethod0(self, void, MsgResourceBrowseViewController, viewDidLoad) {
+  CHSuper0(MsgResourceBrowseViewController, viewDidLoad);
+  
+  CHLog(@"wxhook=== MsgResourceBrowseViewController");
+  UIImageView *imageView = CHIvar(self, _footerView, UIImageView *);
+  UIButton *deleteButton;
+  for (NSInteger i=[imageView subviews].count-1; i>=0; i--) {
+    UIView *view = [imageView subviews][i];
+    if ([view isKindOfClass:[UIButton class]]) {
+      deleteButton = (UIButton *)view;
+      break;
+    }
+  }
+  if (deleteButton) {
+    [deleteButton setTitle:@"操作" forState:UIControlStateNormal];
+    [deleteButton setTitleColor:[UIColor colorWithRed:0.0745098 green:0.682353 blue:0.141176 alpha:1] forState:UIControlStateNormal];
+    deleteButton.enabled = YES;
+  }
 }
