@@ -36,6 +36,8 @@
 		9E5B8CF81E5365F6009D8D34 /* MsgResourceBrowseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CF71E5365F6009D8D34 /* MsgResourceBrowseViewController.h */; };
 		9E5B8CFA1E5366A7009D8D34 /* SimpleImgInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CF91E5366A7009D8D34 /* SimpleImgInfo.h */; };
 		9E5B8CFC1E538204009D8D34 /* MsgFastBrowseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5B8CFB1E538204009D8D34 /* MsgFastBrowseView.h */; };
+		9E5B8D131E53952D009D8D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5B8D121E53952D009D8D34 /* QuartzCore.framework */; };
+		9E5B8D151E544628009D8D34 /* GroupContentOutput.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E5B8D141E544628009D8D34 /* GroupContentOutput.mm */; };
 		9E66768B1E47721200C649FA /* MMServiceCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768A1E47721200C649FA /* MMServiceCenter.h */; };
 		9E66768D1E47727200C649FA /* WCFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768C1E47727200C649FA /* WCFacade.h */; };
 		9E66768F1E4773B800C649FA /* MMService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E66768E1E4773B800C649FA /* MMService.h */; };
@@ -114,6 +116,8 @@
 		9E5B8CF71E5365F6009D8D34 /* MsgResourceBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgResourceBrowseViewController.h; sourceTree = "<group>"; };
 		9E5B8CF91E5366A7009D8D34 /* SimpleImgInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImgInfo.h; sourceTree = "<group>"; };
 		9E5B8CFB1E538204009D8D34 /* MsgFastBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgFastBrowseView.h; sourceTree = "<group>"; };
+		9E5B8D121E53952D009D8D34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9E5B8D141E544628009D8D34 /* GroupContentOutput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GroupContentOutput.mm; sourceTree = "<group>"; };
 		9E66768A1E47721200C649FA /* MMServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServiceCenter.h; sourceTree = "<group>"; };
 		9E66768C1E47727200C649FA /* WCFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCFacade.h; sourceTree = "<group>"; };
 		9E66768E1E4773B800C649FA /* MMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMService.h; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5B8D131E53952D009D8D34 /* QuartzCore.framework in Frameworks */,
 				9E37E6101E51FA3100F0F3D5 /* SafariServices.framework in Frameworks */,
 				9E4A9F2E1E4F86380035AA65 /* libkarenlocalizer.dylib in Frameworks */,
 				9E89A5AF1E4A00CF009966E9 /* CoreGraphics.framework in Frameworks */,
@@ -235,6 +240,7 @@
 			children = (
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
+				9E5B8D141E544628009D8D34 /* GroupContentOutput.mm */,
 				9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */,
 				9E37E5FF1E51CE9800F0F3D5 /* InSafari.mm */,
 				9E4A9F021E4E40530035AA65 /* AnyStep.mm */,
@@ -334,6 +340,7 @@
 		9EE69C361E39E0C800732B62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E5B8D121E53952D009D8D34 /* QuartzCore.framework */,
 				9E37E60F1E51FA3100F0F3D5 /* SafariServices.framework */,
 				9E4A9F2D1E4F86380035AA65 /* libkarenlocalizer.dylib */,
 				9E89A5AE1E4A00CF009966E9 /* CoreGraphics.framework */,
@@ -581,6 +588,7 @@
 				9E89A59F1E4980CA009966E9 /* MicroMessengerAppDelegate.mm in Sources */,
 				9E89A5B51E4B32BE009966E9 /* WCRedEnvelopesTodayHistory.mm in Sources */,
 				9E87A7A21E4739EB007F6DD5 /* ScreenshotForward.mm in Sources */,
+				9E5B8D151E544628009D8D34 /* GroupContentOutput.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,70 +48,8 @@
 #pragma mark- Safari浏览器
 #import "InSafari.mm"
 
-#import "SimpleMsgInfo.h"
-#import "MsgResourceBrowseViewController.h"
-#import "MsgFastBrowseView.h"
-
-CHDeclareClass(SimpleMsgInfo)
-CHDeclareMethod1(void, MsgResourceBrowseViewController, outputSelectedMsg, NSArray *, selectedArr) {
-  NSString *chatName = [self m_nsChatName];
-  CHLog(@"wxhook=== count: %u", selectedArr.count);
-  int index = 0;
-  
-  NSString *imagesPath = [NSString stringWithFormat:@"/var/mobile/tmp/WeChat/%@/Image", chatName];
-  NSString *videoesPath = [NSString stringWithFormat:@"/var/mobile/tmp/WeChat/%@/Video", chatName];
-  
-  NSFileManager *fileManager = [NSFileManager defaultManager];
-  if (![fileManager fileExistsAtPath:imagesPath]) {
-    [fileManager createDirectoryAtPath:imagesPath withIntermediateDirectories:YES attributes:nil error:nil];
-  }
-  
-  if (![fileManager fileExistsAtPath:videoesPath]) {
-    [fileManager createDirectoryAtPath:videoesPath withIntermediateDirectories:YES attributes:nil error:nil];
-  }
-  
-  for (SimpleMsgInfo *msgInfo in selectedArr) {
-    index++;
-    if (msgInfo.isImgMsg) {
-      NSString *imagePath = msgInfo.getImgPath;
-      
-      NSString *toExtension = [[[imagePath lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"png"];
-      NSString *lastPath = [imagesPath stringByAppendingPathComponent:toExtension];
-      [fileManager copyItemAtPath:imagePath toPath:lastPath error:nil];
-      CHLog(@"wxhook=== image %u", index);
-    }else if (msgInfo.isVideoMsg) {
-      NSString *imagePath = msgInfo.getImgPath;
-      
-      NSString *toExtension = [[[imagePath lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"mp4"];
-      NSString *fromPath = [[imagePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:toExtension];
-      NSString *toPath = [videoesPath stringByAppendingPathComponent:toExtension];
-      [fileManager copyItemAtPath:fromPath toPath:toPath error:nil];
-      CHLog(@"wxhook=== video %u", index);
-    }else if (msgInfo.isAppUrlMsg) {
-      CHLog(@"wxhook=== isAppUrlMsg %u: %@", index, msgInfo);
-    }else if (msgInfo.isAppFileMsg) {
-      CHLog(@"wxhook=== isAppFileMsg %u: %@", index, msgInfo);
-    }else if (msgInfo.isAppMusicMsg) {
-      CHLog(@"wxhook=== isAppMusicMsg %u: %@", index, msgInfo);
-    }else if (msgInfo.isAppVideoMsg) {
-      CHLog(@"wxhook=== isAppVideoMsg %u: %@", index, msgInfo);
-    }
-  }
-}
-CHOptimizedMethod0(self, void, MsgResourceBrowseViewController, onSelecteAll) {
-  CHLog(@"wxhook=== MsgResourceBrowseViewController onSelecteAll");
-  NSMutableArray *dataArr = CHIvar(self, m_arrMsg, NSMutableArray *);
-  
-  [self outputSelectedMsg: dataArr];
-
-}
-
-CHOptimizedMethod1(self, void, MsgResourceBrowseViewController, onDeleteSelectedData, id, data) {
-  CHLog(@"wxhook=== data:%@", data);
-  MsgFastBrowseView *browseView = CHIvar(self, m_msgFastBrowseView, MsgFastBrowseView *);
-  NSArray *selectedMsg = [browseView getSelectedMessages];
-  [self outputSelectedMsg: selectedMsg];
-}
+#pragma mark- 群内容导出视频到文件
+#import "GroupContentOutput.mm"
 
 CHConstructor // code block that runs immediately upon load
 {

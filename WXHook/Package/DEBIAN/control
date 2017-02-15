@@ -1,6 +1,6 @@
 Package: com.susnm.WXHook
 Name: WXHook
-Version: 0.1.5
+Version: 0.1.6
 Description: A tweak for WeChat.微信小辅助
 Section: Tweaks
 Depends: firmware (>= 9.0), mobilesubstrate, net.angelxwind.karenlocalizer

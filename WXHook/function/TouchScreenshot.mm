@@ -26,7 +26,6 @@ CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewDidAppear, BOOL
   longPress.minimumPressDuration = 1;
   [titleView addGestureRecognizer:longPress];
   [longPress autorelease];
-  CHLog(@"wxhook=== %@", titleView);
   
   return CHSuper1(BaseMsgContentViewController, viewDidAppear, animated);
 }
