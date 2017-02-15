@@ -71,7 +71,7 @@ CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
   NSMutableArray *imageArr = [NSMutableArray arrayWithCapacity:mediaList.count];
   for (WCMediaItem *mediaItem in mediaList) {
     WCImageCache *imageCache = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(WCImageCache)];
-    UIImage *image = [imageCache getImage:mediaItem ofType:1];
+    UIImage *image = [imageCache getImage:mediaItem ofType:2]; // 2 清晰图 1 模糊图
     MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
     [imageArr addObject:mmImage];
   }
