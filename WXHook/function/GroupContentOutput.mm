@@ -38,22 +38,23 @@ CHDeclareMethod1(void, MsgResourceBrowseViewController, outputSelectedMsg, NSArr
     [fileManager createDirectoryAtPath:videoesPath withIntermediateDirectories:YES attributes:nil error:nil];
   }
   
-  dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+  dispatch_group_t group = dispatch_group_create();
+  dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0);
+  dispatch_group_async(group, queue, ^{
     int index = 0;
     for (SimpleMsgInfo *msgInfo in selectedArr) {
       index++;
       
       NSString *progressStr = [[NSString stringWithFormat:@"%.1f", index/totalCount*100] stringByAppendingString:@" %"];
-      if (index == totalCount) {
-        progressStr = @" Finished";
-      }
       if (msgInfo.isImgMsg) {
         NSString *imagePath = msgInfo.getImgPath;
         
         NSString *toExtension = [[[imagePath lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"png"];
         NSString *lastPath = [imagesPath stringByAppendingPathComponent:toExtension];
-        [fileManager copyItemAtPath:imagePath toPath:lastPath error:nil];
-//        CHLog(@"wxhook=== image %u", index);
+        if (![fileManager fileExistsAtPath:lastPath]) {
+          [fileManager copyItemAtPath:imagePath toPath:lastPath error:nil];
+          //          CHLog(@"wxhook=== file no exits image %u", index);
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
           progressLabel.text = [NSString stringWithFormat:@"outputing %@", progressStr];
         });
@@ -63,23 +64,27 @@ CHDeclareMethod1(void, MsgResourceBrowseViewController, outputSelectedMsg, NSArr
         NSString *toExtension = [[[imagePath lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"mp4"];
         NSString *fromPath = [[imagePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:toExtension];
         NSString *toPath = [videoesPath stringByAppendingPathComponent:toExtension];
-        [fileManager copyItemAtPath:fromPath toPath:toPath error:nil];
-//        CHLog(@"wxhook=== video %u", index);
+        if (![fileManager fileExistsAtPath:toPath]) {
+          [fileManager copyItemAtPath:fromPath toPath:toPath error:nil];
+          //          CHLog(@"wxhook=== file no exits video %u", index);
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
           progressLabel.text = [NSString stringWithFormat:@"outputing %@", progressStr];
         });
       }else if (msgInfo.isAppUrlMsg) {
-//        CHLog(@"wxhook=== isAppUrlMsg %u: %@", index, msgInfo);
+        //        CHLog(@"wxhook=== isAppUrlMsg %u: %@", index, msgInfo);
       }else if (msgInfo.isAppFileMsg) {
-//        CHLog(@"wxhook=== isAppFileMsg %u: %@", index, msgInfo);
+        //        CHLog(@"wxhook=== isAppFileMsg %u: %@", index, msgInfo);
       }else if (msgInfo.isAppMusicMsg) {
-//        CHLog(@"wxhook=== isAppMusicMsg %u: %@", index, msgInfo);
+        //        CHLog(@"wxhook=== isAppMusicMsg %u: %@", index, msgInfo);
       }else if (msgInfo.isAppVideoMsg) {
-//        CHLog(@"wxhook=== isAppVideoMsg %u: %@", index, msgInfo);
+        //        CHLog(@"wxhook=== isAppVideoMsg %u: %@", index, msgInfo);
       }
     }
   });
-  
+  dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    progressLabel.text = [NSString stringWithFormat:@"Outputing Finished"];
+  });
   
 }
 
