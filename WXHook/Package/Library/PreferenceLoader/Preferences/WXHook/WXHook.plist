@@ -41,6 +41,28 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
+			<string>Timeline_Forward_Exclude_Friend</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<string>YES</string>
+			<key>defaults</key>
+			<string>com.susnm.WXHook</string>
+			<key>key</key>
+			<string>com.susnm.enableExcludeFriendWhenForwardTimeline</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.susnm.WXHook-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
 			<string>InSafari</string>
 		</dict>
 		<dict>

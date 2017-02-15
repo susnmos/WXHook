@@ -15,6 +15,12 @@ CHOptimizedMethod1(self, BOOL, MicroMessengerAppDelegate, applicationDidBecomeAc
   inputSpaceCount = inputSpaceCountL == 0 ? inputSpaceCount : inputSpaceCountL;
 }
 
+CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableExcludeWhenInTimeline) {
+  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
+  BOOL isEnableExcludeWhenInTimeline = [[prefs objectForKey:enableExcludeWhenInTimeline] boolValue];
+  return isEnableExcludeWhenInTimeline;
+}
+
 CHDeclareClassMethod0(BOOL, MicroMessengerAppDelegate, isEnableInputSpacesNewLine) {
   NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
   BOOL isEnableInputSpacesNewLine = [[prefs objectForKey:enableInputSpacesNewLine] boolValue];

@@ -83,7 +83,7 @@ CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
   isShared = YES;
   isFirstEnterWCNewVC = YES;
   
-  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
+  if ([CHClass(MicroMessengerAppDelegate) isEnableExcludeWhenInTimeline]) {
     NSString *username = CHIvar(dataItem, username, NSString *);
     CContactMgr *contactMgr = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(CContactMgr)];
     CBaseContact *contact = [contactMgr getContactByName:username];
