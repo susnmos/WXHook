@@ -51,6 +51,48 @@
 #pragma mark- 群内容导出视频到文件
 #import "GroupContentOutput.mm"
 
+#import "WCImageCache.h"
+#import "WCTimeLineCellView.h"
+CHDeclareClass(WCTimeLineCellView)
+CHDeclareClass(WCContentItem)
+CHDeclareClass(WCMediaItem)
+CHDeclareClass(WCImageCache)
+CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
+//  CHSuper1(WCTimeLineCellView, onCommentPhoto, arg1);
+  WCDataItem *item = CHIvar(self, m_dataItem, WCDataItem *);
+  NSString *contentDesc = CHIvar(item, contentDesc, NSString *); // text
+  forwardTimeLine = contentDesc;
+  
+  WCContentItem *contentItem = CHIvar(item, contentObj, WCContentItem *); // image video
+  NSMutableArray *mediaList = CHIvar(contentItem, mediaList, NSMutableArray *);
+  
+  NSMutableArray *imageArr = [NSMutableArray arrayWithCapacity:mediaList.count];
+  for (WCMediaItem *mediaItem in mediaList) {
+    WCImageCache *imageCache = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(WCImageCache)];
+    UIImage *image = [imageCache getImage:mediaItem ofType:1];
+    MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
+    [imageArr addObject:mmImage];
+  }
+  
+  
+  
+  WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:imageArr contacts:nil];
+  
+  [wcvc setType: 1];  // 图片文字
+  [wcvc removeOldText];
+  isShared = YES;
+  isFirstEnterWCNewVC = YES;
+  
+//  if ([CHClass(MicroMessengerAppDelegate) isEnbProBody]) {
+//    CBaseContact *contact = CHIvar(imageViewMdel, m_contact, CBaseContact *);
+//    [wcvc setTempSelectContacts: @[contact]];
+//  }
+  
+  UINavigationController *currentVC = self.navigationController;
+  UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
+  [currentVC presentViewController:navC animated:YES completion:nil];
+}
+
 CHConstructor // code block that runs immediately upon load
 {
   @autoreleasepool
@@ -151,6 +193,13 @@ CHConstructor // code block that runs immediately upon load
     
     CHHook1(MsgResourceBrowseViewController, onDeleteSelectedData);
     CHHook0(MsgResourceBrowseViewController, viewDidLoad);
+    
+    CHLoadLateClass(WCTimeLineCellView);
+    CHHook1(WCTimeLineCellView, onCommentPhoto);
+    
+    CHLoadLateClass(WCContentItem);
+    CHLoadLateClass(WCMediaItem);
+    CHLoadLateClass(WCImageCache);
     
   }
 }

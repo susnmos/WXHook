@@ -22,6 +22,13 @@ CHOptimizedMethod1(self, void, WCNewCommitViewController, viewWillAppear, BOOL, 
     [grow postTextChangeNotification];
     sharedtext = @"";
   }
+  if ([forwardTimeLine length] != 0) {
+    MMGrowTextView *grow =  CHIvar(self, _textView, MMGrowTextView*);
+    MMTextView *textView = CHIvar(grow, _textView, MMTextView*);
+    [textView setText: forwardTimeLine];
+    [grow postTextChangeNotification];
+    forwardTimeLine = @"";
+  }
   if ([CHClass(MicroMessengerAppDelegate) isEnbProBody] && isShared && isFirstEnterWCNewVC) {
     WCFacade *facade = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(WCFacade)];
     [facade setPostPrivacy:5];

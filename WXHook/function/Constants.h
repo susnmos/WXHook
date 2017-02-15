@@ -2,6 +2,7 @@ static NSString* const WXPreferencesFile = @"/var/mobile/Library/Preferences/com
 
 static NSString *sharedtext = @"";
 static BOOL isShared = NO;
+static NSString *forwardTimeLine = @"";
 
 static CFStringRef screenshotNotification = CFSTR("com.susnm.userDidTakeScreenshotNotification");
 static CFStringRef shouldScreenshotNotification = CFSTR("com.susnm.shouldScreenshotNotification");
