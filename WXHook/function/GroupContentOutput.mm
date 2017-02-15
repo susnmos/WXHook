@@ -111,7 +111,6 @@ CHOptimizedMethod1(self, void, MsgResourceBrowseViewController, onDeleteSelected
 CHOptimizedMethod0(self, void, MsgResourceBrowseViewController, viewDidLoad) {
   CHSuper0(MsgResourceBrowseViewController, viewDidLoad);
   
-  CHLog(@"wxhook=== MsgResourceBrowseViewController");
   UIImageView *imageView = CHIvar(self, _footerView, UIImageView *);
   UIButton *deleteButton;
   for (NSInteger i=[imageView subviews].count-1; i>=0; i--) {
