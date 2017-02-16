@@ -13,13 +13,20 @@
 #import "MMTitleView.h"
 
 CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewDidAppear, BOOL, animated) {
+  WXLog(@"wxhook=== BaseMsgContentViewController viewDidAppear");
   MMUINavigationBar *navBar = (MMUINavigationBar *)[[self navigationController] navigationBar];
+  WXLog(@"wxhook=== BaseMsgContentViewController navBar:%@", navBar);
   MMTitleView *titleView;
   for (UIView *subView in [navBar subviews]) {
     if ([subView isKindOfClass:CHClass(MMTitleView)]) {
       titleView = (MMTitleView *)subView;
     }
   }
+  if (!titleView) {
+    WXLog(@"wxhook=== BaseMsgContentViewController viewdidappear no titleview");
+    return CHSuper1(BaseMsgContentViewController, viewDidAppear, animated);;
+  }
+  WXLog(@"wxhook=== BaseMsgContentViewController titleView:%@", titleView);
   titleView.tag = 20170210;
   __weak typeof(self) weakSelf = self;
   UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(shouldScreenshot:)];
@@ -54,17 +61,24 @@ CHOptimizedMethod2(self, BOOL, MMTitleView, pointInside, CGPoint, point, withEve
 }
 
 static void userScreenshotNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
+  
+  WXLog(@"wxhook=== get need screenshot notification");
   if (CHClass(SpringBoard)) {
+    WXLog(@"wxhook=== is springboard");
     SpringBoard *sprBod = [CHClass(SpringBoard) sharedApplication];
+    WXLog(@"wxhook=== get springboard: %@", sprBod);
     SBScreenshotManager *manager = [sprBod screenshotManager];
+    WXLog(@"wxhook=== SBScreenshotManager: %@", manager);
     [manager saveScreenshots];
   }
 }
 
 CHDeclareMethod1(void, BaseMsgContentViewController, shouldScreenshot, UILongPressGestureRecognizer *, recognizer) {
+  
   switch (recognizer.state) {
     case UIGestureRecognizerStateBegan:
       PostNotification(shouldScreenshotNotification);
+      WXLog(@"wxhook=== get long press gesture post notification ");
       break;
     default:
       break;

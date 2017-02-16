@@ -48,6 +48,7 @@
 		9E6676A31E478BD800C649FA /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6676A21E478BD800C649FA /* Constants.h */; };
 		9E6DBD391E44CC97003575D5 /* SightDraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6DBD381E44CC97003575D5 /* SightDraft.h */; };
 		9E6DBD3B1E44CD0E003575D5 /* MMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E6DBD3A1E44CD0E003575D5 /* MMObject.h */; };
+		9E85595B1E55A32A001689B7 /* WXDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E85595A1E55A32A001689B7 /* WXDebug.h */; };
 		9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79B1E47265F007F6DD5 /* WXHook.mm */; };
 		9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */; };
 		9E87A7A01E4731BF007F6DD5 /* JailBreakHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */; };
@@ -132,6 +133,7 @@
 		9E6676A21E478BD800C649FA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		9E6DBD381E44CC97003575D5 /* SightDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SightDraft.h; sourceTree = "<group>"; };
 		9E6DBD3A1E44CD0E003575D5 /* MMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMObject.h; sourceTree = "<group>"; };
+		9E85595A1E55A32A001689B7 /* WXDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXDebug.h; sourceTree = "<group>"; };
 		9E87A79B1E47265F007F6DD5 /* WXHook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WXHook.mm; sourceTree = "<group>"; };
 		9E87A79D1E47315E007F6DD5 /* TimelineForward.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimelineForward.mm; sourceTree = "<group>"; };
 		9E87A79F1E4731BF007F6DD5 /* JailBreakHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JailBreakHelper.mm; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
+				9E85595A1E55A32A001689B7 /* WXDebug.h */,
 				9E9B529C1E5549C800AD2127 /* ForwardMoments.mm */,
 				9E5B8D141E544628009D8D34 /* GroupContentOutput.mm */,
 				9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */,
@@ -490,6 +493,7 @@
 				9E6DBD3B1E44CD0E003575D5 /* MMObject.h in Headers */,
 				9EBBAA931E48F53E009EBC72 /* MessageService.h in Headers */,
 				9E66769D1E47823900C649FA /* WCUtil.h in Headers */,
+				9E85595B1E55A32A001689B7 /* WXDebug.h in Headers */,
 				9E9369291E4B7BDD0066E786 /* WCRedEnvelopesHistoryInfo.h in Headers */,
 				9E93692D1E4B83100066E786 /* WCRedEnvelopesRedEnvelopesHistoryListViewController.h in Headers */,
 				9E4A9EFF1E4DBAC70035AA65 /* MMTitleView.h in Headers */,

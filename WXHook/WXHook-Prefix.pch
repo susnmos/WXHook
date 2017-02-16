@@ -9,6 +9,7 @@
   #import "/opt/theos/Prefix.pch"
   #import <CaptainHook/CaptainHook.h>
   #import "Constants.h"
+  #import "WXDebug.h"
 
   CHDeclareClass(KarenLocalizer);
 

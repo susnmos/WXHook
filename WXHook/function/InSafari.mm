@@ -18,10 +18,10 @@ CHOptimizedMethod2(self, void, TextMessageCellView, onLinkClicked, id, arg1, wit
   
   UIViewController *vc = [CHClass(MicroMessengerAppDelegate) getCurrentShowViewController];
   NSURL *url = [NSURL URLWithString:arg1];
-  CHLog(@"wxhook=== vc: %@", vc);
+  WXLog(@"wxhook=== vc: %@", vc);
   if (url && vc) {
     SFSafariViewController *safariVC = [[[SFSafariViewController alloc] initWithURL: url entersReaderIfAvailable:YES] autorelease];    
-    CHLog(@"wxhook=== safariVC: %@", safariVC);
+    WXLog(@"wxhook=== safariVC: %@", safariVC);
 
     [vc presentViewController:safariVC animated:YES completion:nil];
   }

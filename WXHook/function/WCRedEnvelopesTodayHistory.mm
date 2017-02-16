@@ -31,7 +31,7 @@ CHOptimizedMethod2(self, void, WCPayPickerView, setSelectedRow, long long, row, 
 }
 
 CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, WCRedEnvelopesControlData *, data) {
-  CHLog(@"wxhook=== data: %@", data);
+  WXLog(@"wxhook=== data: %@", data);
   WCRedEnvelopesHistoryListControlLogic *logic = CHIvar(self, m_delegate, WCRedEnvelopesHistoryListControlLogic *);
   if (isFinishedRefreshRedHistory) {
     UIView *view =  CHSuper1(WCRedEnvelopesRedEnvelopesHistoryListViewController, GetHeaderView, data);
@@ -67,7 +67,7 @@ CHOptimizedMethod1(self, UIView *, WCRedEnvelopesRedEnvelopesHistoryListViewCont
     
     NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile: WXPreferencesFile];
     int totalRequestTimes = [[prefs objectForKey:totalRedHistoryRequestTimesKey] intValue];
-    CHLog(@"wxhook === hadRequest: %u times: %u", hadRequestTimes, totalRequestTimes);
+    WXLog(@"wxhook === hadRequest: %u times: %u", hadRequestTimes, totalRequestTimes);
     if (hadRequestTimes > totalRequestTimes) {
       return;
     }
