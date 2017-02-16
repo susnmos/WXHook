@@ -34,7 +34,7 @@ static void userDidTakeScreenshot(CFNotificationCenterRef center, void *observer
   UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
   WXLog(@"wxhook===15 UIPasteboard: %@", pasteBoard);
   
-  if (!CHClass(SpringBoard) && pasteBoard && [pasteBoard image] && [CHClass(MicroMessengerAppDelegate) isEnbScreenshotForward]) {
+  if (!CHClass(SpringBoard) && [pasteBoard image] && [CHClass(MicroMessengerAppDelegate) isEnbScreenshotForward]) {
     UIImage *image = [pasteBoard image];
     WXLog(@"wxhook===16 get image : %@", image);
     WXLog(@"wxhook===18 begin forward screenshot");
