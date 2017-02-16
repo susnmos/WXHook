@@ -1,4 +1,4 @@
-//#define WXDEBUG
+#define WXDEBUG
 
 #if defined(WXDEBUG)
 #define WXLog(args...) \
