@@ -62,4 +62,10 @@
   CHDeclareClass(MsgResourceBrowseViewController)
 
   CHDeclareClass(SimpleMsgInfo)
+
+  CHDeclareClass(WCTimeLineCellView)
+  CHDeclareClass(WCContentItem)
+  CHDeclareClass(WCMediaItem)
+  CHDeclareClass(WCImageCache)
+  CHDeclareClass(CContactMgr)
 #endif

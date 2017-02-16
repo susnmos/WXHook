@@ -82,6 +82,7 @@
 		9E9B52971E54A73400AD2127 /* WCImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9B52961E54A73400AD2127 /* WCImageCache.h */; };
 		9E9B52991E54A82B00AD2127 /* WCTimeLineCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9B52981E54A82B00AD2127 /* WCTimeLineCellView.h */; };
 		9E9B529B1E54B89A00AD2127 /* CContactMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9B529A1E54B89A00AD2127 /* CContactMgr.h */; };
+		9E9B529D1E5549C800AD2127 /* ForwardMoments.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B529C1E5549C800AD2127 /* ForwardMoments.mm */; };
 		9EBBAA911E485735009EBC72 /* ForwardMessageMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */; };
 		9EBBAA931E48F53E009EBC72 /* MessageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBBAA921E48F53E009EBC72 /* MessageService.h */; };
 		9EE69C381E39E0C800732B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE69C371E39E0C800732B62 /* Foundation.framework */; };
@@ -165,6 +166,7 @@
 		9E9B52961E54A73400AD2127 /* WCImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCImageCache.h; sourceTree = "<group>"; };
 		9E9B52981E54A82B00AD2127 /* WCTimeLineCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTimeLineCellView.h; sourceTree = "<group>"; };
 		9E9B529A1E54B89A00AD2127 /* CContactMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CContactMgr.h; sourceTree = "<group>"; };
+		9E9B529C1E5549C800AD2127 /* ForwardMoments.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardMoments.mm; sourceTree = "<group>"; };
 		9EBBAA901E485735009EBC72 /* ForwardMessageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardMessageMgr.h; sourceTree = "<group>"; };
 		9EBBAA921E48F53E009EBC72 /* MessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageService.h; sourceTree = "<group>"; };
 		9EE69C341E39E0C800732B62 /* WXHook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WXHook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +248,7 @@
 			children = (
 				9E6676A21E478BD800C649FA /* Constants.h */,
 				9E87A79B1E47265F007F6DD5 /* WXHook.mm */,
+				9E9B529C1E5549C800AD2127 /* ForwardMoments.mm */,
 				9E5B8D141E544628009D8D34 /* GroupContentOutput.mm */,
 				9E37E5BF1E50208200F0F3D5 /* SendMsgByMe.mm */,
 				9E37E5FF1E51CE9800F0F3D5 /* InSafari.mm */,
@@ -589,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E4A9F011E4DD95C0035AA65 /* RevokeMsg.mm in Sources */,
+				9E9B529D1E5549C800AD2127 /* ForwardMoments.mm in Sources */,
 				9E87A79E1E47315E007F6DD5 /* TimelineForward.mm in Sources */,
 				9E37E5C01E50208200F0F3D5 /* SendMsgByMe.mm in Sources */,
 				9E87A79C1E47265F007F6DD5 /* WXHook.mm in Sources */,

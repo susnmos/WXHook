@@ -51,49 +51,8 @@
 #pragma mark- 群内容导出视频到文件
 #import "GroupContentOutput.mm"
 
-#import "WCImageCache.h"
-#import "WCTimeLineCellView.h"
-#import "CContactMgr.h"
-CHDeclareClass(WCTimeLineCellView)
-CHDeclareClass(WCContentItem)
-CHDeclareClass(WCMediaItem)
-CHDeclareClass(WCImageCache)
-CHDeclareClass(CContactMgr)
-CHOptimizedMethod1(self, void, WCTimeLineCellView, onCommentPhoto, id, arg1) {
-//  CHSuper1(WCTimeLineCellView, onCommentPhoto, arg1);
-  WCDataItem *dataItem = CHIvar(self, m_dataItem, WCDataItem *);
-  NSString *contentDesc = CHIvar(dataItem, contentDesc, NSString *); // text
-  forwardTimeLine = contentDesc;
-  
-  WCContentItem *contentItem = CHIvar(dataItem, contentObj, WCContentItem *); // image video
-  NSMutableArray *mediaList = CHIvar(contentItem, mediaList, NSMutableArray *);
-  
-  NSMutableArray *imageArr = [NSMutableArray arrayWithCapacity:mediaList.count];
-  for (WCMediaItem *mediaItem in mediaList) {
-    WCImageCache *imageCache = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(WCImageCache)];
-    UIImage *image = [imageCache getImage:mediaItem ofType:2]; // 2 清晰图 1 模糊图
-    MMImage *mmImage = [CHAlloc(MMImage) initWithImage: image];
-    [imageArr addObject:mmImage];
-  }
-  
-  WCNewCommitViewController *wcvc = [CHAlloc(WCNewCommitViewController) initWithImages:imageArr contacts:nil];
-  
-  [wcvc setType: 1];  // 图片文字
-  [wcvc removeOldText];
-  isShared = YES;
-  isFirstEnterWCNewVC = YES;
-  
-  if ([CHClass(MicroMessengerAppDelegate) isEnableExcludeWhenInTimeline]) {
-    NSString *username = CHIvar(dataItem, username, NSString *);
-    CContactMgr *contactMgr = [[CHClass(MMServiceCenter) defaultCenter] getService:CHClass(CContactMgr)];
-    CBaseContact *contact = [contactMgr getContactByName:username];
-    [wcvc setTempSelectContacts: @[contact]];
-  }
-  
-  UINavigationController *currentVC = self.navigationController;
-  UINavigationController *navC = [CHAlloc(UINavigationController) initWithRootViewController:wcvc];
-  [currentVC presentViewController:navC animated:YES completion:nil];
-}
+#pragma mark- 转发朋友圈信息
+#import "ForwardMoments.mm"
 
 CHConstructor // code block that runs immediately upon load
 {
